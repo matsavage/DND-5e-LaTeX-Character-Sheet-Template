@@ -1,0 +1,25 @@
+\documentclass[a4paper,openany,twocolumn]{dndbook}
+
+\usepackage{ifthen}
+\usepackage{pstricks}
+\usepackage{fontspec}
+
+\input{character-sheet-settings}
+\input{fixed/character-sheet-commands}
+\input{character-sheet}
+
+\begin{document}
+
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+
+\onecolumn
+
+% CHARACTER PAGE
+\input{fixed/page-1.tex}
+
+
+% SPELLCASTING PAGE
+\input{fixed/page-3.tex}
+
+
+\end{document}

@@ -1,9 +1,3 @@
-\documentclass[a4paper,openany,twocolumn]{dndbook}
-
-\usepackage{pstricks}
-
-\usepackage{fontspec}
-
 % DEFINE FONT FOR USER INPUTTED TEXT
 \newfontfamily\entryfont{Kalam-Regular.ttf}
 
@@ -39,57 +33,3 @@
 % SPELL HEADER COLOR AND BACKGROUND OPACITY
 \pgfmathsetmacro{\spellheaderbackgroundopacity}{0}
 \pgfmathsetmacro{\spellheaderbackgroundinfillopacity}{1}
-
-\begin{document}
-
-\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
-
-\onecolumn
-
-% CHARACTER PAGE
-
-\hspace*{-9mm}
-\makebox[\paperwidth][s]{
-
-\psset{xunit=0.75pt,yunit=0.75pt,runit=0.75pt}
-\begin{pspicture}(816,1056)
-{
-
-\input{page-1-header.tex}
-\input{page-1-stats.tex}
-\input{page-1-battle-stats.tex}
-\input{page-1-outlines.tex}
-\input{page-1-money-outlines.tex}
-\input{page-1-traits.tex}
-\input{page-1-player-input.tex}
-\input{page-1-proficiency-markers.tex}
-\input{page-1-fixed-text.tex}
-
-}
-
-\end{pspicture}
-}
-
-
-% SPELLCASTING PAGE
-
-\hspace*{-9mm}
-\makebox[\paperwidth][s]{
-
-\psset{xunit=.75pt,yunit=.75pt,runit=.75pt}
-\begin{pspicture}(816,1056)
-{
-
-\input{page-3-header.tex}
-\input{page-3-outlines.tex}
-\input{page-3-level-headers.tex}
-\input{page-3-player-input.tex}
-\input{page-3-spell-slots.tex}
-\input{page-3-fixed-text.tex}
-
-}
-
-\end{pspicture}
-}
-
-\end{document}
