@@ -16,5 +16,5 @@ jobs:
         uses: dante-ev/latex-action@master
         with:
           root_file: main.tex
-          compiler: lualatex
+          compiler: xelatex
           args: "-xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode"
