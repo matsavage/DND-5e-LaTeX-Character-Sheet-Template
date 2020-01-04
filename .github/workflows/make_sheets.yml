@@ -1,0 +1,15 @@
+
+name: Build with xelatex
+on: [push, pull_request]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Compile main-german.tex
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: main.tex
+          compiler: lualatex
+          args: -xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
