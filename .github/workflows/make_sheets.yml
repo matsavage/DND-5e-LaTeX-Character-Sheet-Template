@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: rpgtex/DND-5e-LaTeX-Template.git
-          path: "."
+          path: "DND"
       - name: Compile main.tex
         uses: dante-ev/latex-action@master
         with:
