@@ -10,11 +10,11 @@ jobs:
       - name: Fetch D&D-Latex template
         uses: actions/checkout@v2
         with:
-          repository: https://github.com/rpgtex/DND-5e-LaTeX-Template.git
+          repository: rpgtex/DND-5e-LaTeX-Template.git
           path: "."
       - name: Compile main.tex
         uses: dante-ev/latex-action@master
         with:
           root_file: main.tex
           compiler: lualatex
-          args: -xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+          args: "-xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode"
