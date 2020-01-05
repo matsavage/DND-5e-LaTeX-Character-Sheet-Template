@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.1.5)  5 JAN 2020 10:21
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.1.5)  5 JAN 2020 10:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -602,6 +602,14 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (./template/character-sheet/outlines.tex)
 (./template/character-sheet/money-outlines.tex)
 (./template/character-sheet/traits.tex)
+(./template/character-sheet/player-input.tex
+
+LaTeX Font Warning: Font shape `TU/Kalam-Regular.ttf(0)/bx/n' undefined
+(Font)              using `TU/Kalam-Regular.ttf(0)/m/n' instead on input line 1
+3.
+
+) (./template/character-sheet/proficiency-markers.tex)
+(./template/character-sheet/template-text.tex)
 Overfull \hbox (18.93213pt too wide) detected at line 21
  [] 
  []
@@ -620,13 +628,17 @@ Overfull \hbox (18.93213pt too wide) detected at line 18
 
 
 
-] [2] (./main.aux) ) 
+] [2] (./main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 21086 strings out of 492480
- 443617 string characters out of 6131537
- 1064769 words of memory out of 5000000
- 25403 multiletter control sequences out of 15000+600000
- 532482 words of font info for 42 fonts, out of 8000000 for 9000
+ 21124 strings out of 492480
+ 444794 string characters out of 6131537
+ 1121819 words of memory out of 5000000
+ 25421 multiletter control sequences out of 15000+600000
+ 532570 words of font info for 53 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  45i,5n,60p,480b,429s stack positions out of 5000i,500n,10000p,200000b,80000s
 
