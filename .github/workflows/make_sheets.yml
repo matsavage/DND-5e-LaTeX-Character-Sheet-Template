@@ -7,11 +7,6 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v1
-      - name: Fetch D&D-Latex template
-        uses: actions/checkout@v2
-        with:
-          repository: rpgtex/DND-5e-LaTeX-Template.git
-          path: "DND"
       - name: Compile main.tex
         uses: dante-ev/latex-action@master
         with:
