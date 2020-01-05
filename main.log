@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.1.5)  5 JAN 2020 09:52
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.1.5)  5 JAN 2020 10:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -455,8 +455,7 @@ Package fontspec Info: Font family 'Kalam-Regular.ttf(0)' created for font
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 ) (./template/character-sheet-commands.tex)
-(./character-sheet.tex)
-No file main.aux.
+(./character-sheet.tex) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -473,6 +472,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -622,8 +622,8 @@ Overfull \hbox (18.93213pt too wide) detected at line 18
 
 ] [2] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 21084 strings out of 492480
- 443599 string characters out of 6131537
+ 21086 strings out of 492480
+ 443617 string characters out of 6131537
  1064769 words of memory out of 5000000
  25403 multiletter control sequences out of 15000+600000
  532482 words of font info for 42 fonts, out of 8000000 for 9000
