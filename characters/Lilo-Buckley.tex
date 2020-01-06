@@ -1,5 +1,18 @@
+\documentclass[a4paper,openany,twocolumn]{dndbook}
+
+\usepackage{ifthen}
+\usepackage{pstricks}
+\usepackage{fontspec}
+\usepackage[UKenglish]{babel}
+
+\input{../character-sheet-settings}
+\input{../template/character-sheet-commands}
+
+
 % Headline
 \CharacterName{Lilo Buckley}
+
+
 
 \Class{Rogue 1}
 \Background{Charlatan}
@@ -154,7 +167,7 @@ I am an 'ethical thief', I only steal from those that I deem can either afford t
 }
 
 \Bonds{
-I have an estraged younger sibling that I want to share my fortune with
+I have an estranged younger sibling that I want to share my fortune with
 }
 
 \Flaws{
@@ -175,3 +188,17 @@ I am convinced that no-one could fool me the way that I fool others
 %\FirstLevelSpellSlotsTotal{2}
 %\FirstLevelSpellSlotA{Charm Person}
 %\FirstLevelSpellSlotB{Sleep}
+
+\begin{document}
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+\onecolumn
+\CharacterNameValue
+% CHARACTER PAGE
+\input{../template/character-sheet.tex}
+
+
+% SPELLCASTING PAGE
+\input{../template/spell-sheet.tex}
+
+
+\end{document}
