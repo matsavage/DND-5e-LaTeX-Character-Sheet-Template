@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.1.6)  6 JAN 2020 13:13
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.1.6)  6 JAN 2020 14:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1586,14 +1586,11 @@ File: img/footerscroll.pdf Graphic file (type pdf)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  36214 strings out of 492480
  763977 string characters out of 6131537
- 1532130 words of memory out of 5000000
+ 1532517 words of memory out of 5000000
  40049 multiletter control sequences out of 15000+600000
  535560 words of font info for 54 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
