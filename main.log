@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.6.19)  6 JAN 2020 19:12
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2018.6.19)  6 JAN 2020 19:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1746,60 +1746,91 @@ LaTeX Info: Redefining \- on input line 4015.
 . Defining command \liningnums with sig. 'm' on line 4114.
 .................................................
 ))
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/02/14 3.18 The Babel package
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/UKenglish.ldf
+Language: UKenglish 2017/06/06 v3.3r English support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count360
+\U@D=\dimen319
+
+(/usr/share/texlive/texmf-dist/tex/generic/babel/xebabel.def
+(/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def))
+\bbl@dirlevel=\count361
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)))
 (./character-sheet-settings.tex
 .................................................
 . fontspec info: "no-scripts"
 . 
 . Font "Kalam-Regular" does not contain any OpenType `Script' information.
 .................................................
-\g__fontspec_family_Kalam-Regular.ttf_int=\count360
+\g__fontspec_family_Kalam-Regular_int=\count362
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'Kalam-Regular.ttf(0)' created for font 'Kalam-Regular.ttf' with
-. options [].
+. Font family 'Kalam-Regular(0)' created for font 'Kalam-Regular' with options
+. [Extension=.ttf,BoldFont=Kalam-Bold].
 .  
 .  This font family consists of the following NFSS series/shapes:
 .  
 . - 'normal' (m/n) with NFSS spec.: <->"[Kalam-Regular.ttf]/OT"
 . - 'small caps'  (m/sc) with NFSS spec.: 
+. - 'bold' (b/n) with NFSS spec.: <->"[Kalam-Bold.ttf]/OT"
+. - 'bold small caps'  (b/sc) with NFSS spec.: 
 .................................................
 ) (./template/character-sheet-commands.tex)
-(./character-sheet.tex) (./main.aux)
+(./Lilo-Buckley.tex)
+(/usr/local/share/texmf/tex/latex/dnd/lib/languages/italian.sty)
+(/usr/local/share/texmf/tex/latex/dnd/lib/languages/japanese.sty)
+(/usr/local/share/texmf/tex/latex/dnd/lib/languages/ngerman.sty)
+(/usr/local/share/texmf/tex/latex/dnd/lib/languages/russian.sty) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    ... okay on input line 12.
 \symgns@font=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/lmr/m/n --> TS1/lmr/b/n on input line 11.
-Package gensymb Info: Math companion symbols declared on input line 11.
-LaTeX Info: Redefining \degree on input line 11.
-LaTeX Info: Redefining \celsius on input line 11.
+(Font)                  TS1/lmr/m/n --> TS1/lmr/b/n on input line 12.
+Package gensymb Info: Math companion symbols declared on input line 12.
+LaTeX Info: Redefining \degree on input line 12.
+LaTeX Info: Redefining \celsius on input line 12.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 11.
-LaTeX Info: Redefining \ohm on input line 11.
-Package gensymb Info: Using \textohm for \ohm on input line 11.
-Package gensymb Info: Using \textmu for \micro on input line 11.
+erthousand on input line 12.
+LaTeX Info: Redefining \ohm on input line 12.
+Package gensymb Info: Using \textohm for \ohm on input line 12.
+Package gensymb Info: Using \textmu for \micro on input line 12.
 
 ABD: EveryShipout initializing macros
 *geometry* driver: auto-detecting
@@ -1836,7 +1867,7 @@ ABD: EveryShipout initializing macros
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 11.
+LaTeX Info: Redefining \microtypecontext on input line 12.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -1847,9 +1878,9 @@ File: mt-LatinModernRoman.cfg 2013/03/13 v1.0 microtype config. file: Latin Mod
 ern Roman (RS)
 )
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 11.
-\c@mv@tabular=\count361
-\c@mv@boldtabular=\count362
+LaTeX Info: Redefining \selectfont on input line 12.
+\c@mv@tabular=\count363
+\c@mv@boldtabular=\count364
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: xetex
 * paper: a4paper
@@ -1890,26 +1921,27 @@ LaTeX Info: Redefining \selectfont on input line 11.
 (./template/character-sheet/traits.tex)
 (./template/character-sheet/player-input.tex
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `Kalam-Regular.ttf' (encoding: TU).
+(microtype)             `Kalam-Regular' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Font shape `TU/lmss/b/n' in size <14.4> not available
-(Font)              Font shape `TU/lmss/bx/n' tried instead on input line 13.
+LaTeX Font Info:    Try loading font information for TU+GilliusADFNoTwo-LF on i
+nput line 92.
+LaTeX Font Info:    No file TUGilliusADFNoTwo-LF.fd. on input line 92.
+
+
+LaTeX Font Warning: Font shape `TU/GilliusADFNoTwo-LF/m/n' undefined
+(Font)              using `TU/lmr/m/n' instead on input line 92.
+
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmss' (encoding: TU).
+(microtype)             `GilliusADFNoTwo-LF' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
-
-LaTeX Font Warning: Font shape `TU/Kalam-Regular.ttf(0)/b/n' undefined
-(Font)              using `TU/Kalam-Regular.ttf(0)/m/n' instead on input line 1
-3.
-
-LaTeX Font Info:    Font shape `TU/lmss/b/n' in size <17.28> not available
-(Font)              Font shape `TU/lmss/bx/n' tried instead on input line 18.
-LaTeX Font Info:    Font shape `TU/lmss/b/n' in size <8> not available
-(Font)              Font shape `TU/lmss/bx/n' tried instead on input line 26.
-) (./template/character-sheet/proficiency-markers.tex)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 92.
+)
+(./template/character-sheet/proficiency-markers.tex)
 (./template/character-sheet/template-text.tex
 LaTeX Font Info:    Font shape `TU/lmss/b/n' in size <5> not available
 (Font)              Font shape `TU/lmss/bx/n' tried instead on input line 11.
@@ -1966,11 +1998,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 33075 strings out of 493007
- 704888 string characters out of 6136719
- 1457830 words of memory out of 5000000
- 36401 multiletter control sequences out of 15000+600000
- 533486 words of font info for 51 fonts, out of 8000000 for 9000
+ 33828 strings out of 493007
+ 717020 string characters out of 6136719
+ 1489239 words of memory out of 5000000
+ 37092 multiletter control sequences out of 15000+600000
+ 537125 words of font info for 59 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  63i,17n,87p,10403b,881s stack positions out of 5000i,500n,10000p,200000b,80000s
 
