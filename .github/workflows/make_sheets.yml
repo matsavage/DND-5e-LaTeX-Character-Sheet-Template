@@ -8,7 +8,7 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v1
       - name: Compile main.tex
-        uses: dante-ev/latex-action@master
+        uses: matsavage/latex-action@master
         with:
           root_file: main.tex
           compiler: xelatex
