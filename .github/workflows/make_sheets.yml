@@ -1,6 +1,16 @@
 
 name: Build with xelatex
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'characters/**'
+      - 'template/**
+      - 'character-sheet-settings.tex'
+    pull-request:
+      - 'characters/**'
+      - 'template/**
+      - 'character-sheet-settings.tex'
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
