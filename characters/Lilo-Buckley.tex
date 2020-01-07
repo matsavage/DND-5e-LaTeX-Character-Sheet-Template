@@ -1,0 +1,200 @@
+\documentclass[a4paper,openany,twocolumn]{dndbook}
+
+\usepackage{ifthen}
+\usepackage{pstricks}
+\usepackage{fontspec}
+\usepackage[UKenglish]{babel}
+
+\input{../character-sheet-settings}
+\input{../template/character-sheet-commands}
+
+
+% Headline
+\CharacterName{Lilo Buckley}
+
+\Class{Rogue 1}
+\Background{Charlatan}
+\PlayerName{Lizzie}
+\Race{Half-Elf}
+\Alignment{Chaotic Neutral}
+\XP{0}
+
+% Ability scores
+\StrengthScore{12}
+\DexterityScore{18}
+\ConstitutionScore{13}
+\IntelligenceScore{16}
+\WisdomScore{12}
+\CharismaScore{18}
+
+% Ability modifiers
+\StrengthModifier{+1}
+\DexterityModifier{+4}
+\ConstitutionModifier{+1}
+\IntelligenceModifier{+3}
+\WisdomModifier{+1}
+\CharismaModifier{+4}
+
+% Saving Throws
+\StrengthSavingThrowModifier{+1}
+\DexteritySavingThrowModifier{+6}
+\ConstitutionSavingThrowModifier{+1}
+\IntelligenceSavingThrowModifier{+5}
+\WisdomSavingThrowModifier{+1}
+\CharismaSavingThrowModifier{+4}
+
+\AcrobaticsSkillModifier{+4}
+\AnimalHandlingSkillModifier{+1}
+\ArcanaSkillModifier{+3}
+\AthleticsSkillModifier{+1}
+\DeceptionSkillModifier{+6}
+\HistorySkillModifier{+3}
+\InsightSkillModifier{+3}
+\IntimidationSkillModifier{+4}
+\InvestigationSkillModifier{+3}
+\MedicineSkillModifier{+1}
+\NatureSkillModifier{+3}
+\PerceptionSkillModifier{+1}
+\PerformanceSkillModifier{+4}
+\PersuasionSkillModifier{+4}
+\ReligionSkillModifier{+3}
+\SleightOfHandSkillModifier{+6}
+\StealthSkillModifier{+6}
+\SurvivalSkillModifier{+1}
+
+% Prociciencies
+\StrengthProficiency{}
+\DexterityProficiency{True}
+\ConstitutionProficiency{}
+\IntelligenceProficiency{True}
+\WisdomProficiency{}
+\CharismaProficiency{}
+
+\AcrobaticsProficiency{}
+\AnimalHandlingProficiency{}
+\ArcanaProficiency{}
+\AthleticsProficiency{}
+\DeceptionProficiency{True}
+\HistoryProficiency{}
+\InsightProficiency{True}
+\IntimidationProficiency{}
+\InvestigationProficiency{}
+\MedicineProficiency{}
+\NatureProficiency{}
+\PerceptionProficiency{}
+\PerformanceProficiency{}
+\PersuasionProficiency{}
+\ReligionProficiency{}
+\SleightOfHandProficiency{True}
+\StealthProficiency{True}
+
+\Inspiration{}
+\Proficiency{+2}
+\Perception{11}
+
+\ArmorClass{12}
+\Initiative{+4}
+\Speed{30ft}
+\MaxHitPoints{9}
+\CurrentHitPoints{9}
+\TemporaryHitPoints{}
+\MaxHitDice{1d8}
+\CurrentHitDice{1d8}
+
+\CP{}
+\SP{}
+\GP{65}
+\EP{}
+\PP{}
+
+\AddWeapon{Shortsword}{+1}{1d6 + 3}
+\AddWeapon{Shortbow}{+2}{1d6 + 6}
+\AddWeapon{Dagger}{+1}{1d4 + 3}
+
+\AttacksSpellcasting{}
+
+\OtherProficienciesLanguages{
+\textbf{Languages:}\\Common, Elvish, Theives' Cant, Undercommon\\
+\textbf{Armor:}\\Light armor\\
+\textbf{Weapons:}\\Simple weapons, hand crossbows, longswords, rapiers, shortswords\\
+\textbf{Tools:}\\Thieves’ tools, Disguise kit, Forgery kit
+}
+
+\Equipment{
+a deck of marked cards,
+leather armour,
+a bag of 1,000 ball bearings,
+10 feet of string,
+a bell,
+5 candles,
+a crowbar,
+a hammer,
+10 pitons,
+a hooded lantern,
+2 flasks of oil,
+5 days rations,
+a tinderbox,
+a waterskin,
+50ft hempen rope
+}
+
+\FeaturesTraits{
+\textbf{Darkvision}\\
+%Thanks to your elf blood, you have superior vision in dark and dim conditions. You cansee in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.\\
+\textbf{Fey Ancestry}\\
+%You have advantage on saving throws against being charmed, and magic can’t put you to sleep.\\
+\textbf{Skill Versatility}\\
+%You gain proficiency in two skills of your choice.\\
+\textbf{Sneak Attack}\\
+%Beginning at 1st level, you know how to strike subtly and exploit a foe’s distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon. You don’t need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll. The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.\\
+\textbf{Thieves’ Cant}\\
+\textbf{Arcane Trickster}\\
+\textbf{False Identity}\\
+%You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy.
+%Scheme:
+%I put on new identities like clothes.
+
+}
+
+\PersonalityTraits{
+I fall in and out of love easily and an always almost always pursuing a scheme. I value independence and creativity, however I lose my head over lust and love
+}
+
+\Ideals{
+I am an 'ethical thief', I only steal from those that I deem can either afford to lose it, or deserve to lose it
+}
+
+\Bonds{
+I have an estranged younger sibling that I want to share my fortune with
+}
+
+\Flaws{
+I am convinced that no-one could fool me the way that I fool others
+}
+
+% Magic
+
+%\SpellcastingClass{Rogue}
+%\SpellcastingAbility{Int}
+%\SpellSaveDC{}
+%\SpellAttackBonus{}
+
+%\CantripSlotA{Mage Hand}
+%\CantripSlotB{Minor Illusion}
+%\CantripSlotC{Fire Bolt}
+
+%\FirstLevelSpellSlotsTotal{2}
+%\FirstLevelSpellSlotA{Charm Person}
+%\FirstLevelSpellSlotB{Sleep}
+
+\begin{document}
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+\onecolumn
+
+% CHARACTER PAGE
+\input{../template/character-sheet.tex}
+
+% SPELLCASTING PAGE
+\input{../template/spell-sheet.tex}
+
+\end{document}
