@@ -6,7 +6,7 @@ on:
       - 'characters/**'
       - 'template/**'
       - 'character-sheet-settings.tex'
-  pull-request:
+  pull_request:
     paths:
       - 'characters/**'
       - 'template/**'
