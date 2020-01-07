@@ -74,7 +74,7 @@
 \newcommand{\AnimalHandlingSkillModifierValue}{}
 \newcommand{\ArcanaSkillModifierValue}{}
 \newcommand{\AthleticsSkillModifierValue}{}
-\newcommand{\DecptionSkillModifierValue}{}
+\newcommand{\DeceptionSkillModifierValue}{}
 \newcommand{\HistorySkillModifierValue}{}
 \newcommand{\InsightSkillModifierValue}{}
 \newcommand{\IntimidationSkillModifierValue}{}
@@ -93,7 +93,7 @@
 \newcommand{\AnimalHandlingSkillModifier}[1]{\renewcommand{\AnimalHandlingSkillModifierValue}{#1}}
 \newcommand{\ArcanaSkillModifier}[1]{\renewcommand{\ArcanaSkillModifierValue}{#1}}
 \newcommand{\AthleticsSkillModifier}[1]{\renewcommand{\AthleticsSkillModifierValue}{#1}}
-\newcommand{\DecptionSkillModifier}[1]{\renewcommand{\DecptionSkillModifierValue}{#1}}
+\newcommand{\DeceptionSkillModifier}[1]{\renewcommand{\DeceptionSkillModifierValue}{#1}}
 \newcommand{\HistorySkillModifier}[1]{\renewcommand{\HistorySkillModifierValue}{#1}}
 \newcommand{\InsightSkillModifier}[1]{\renewcommand{\InsightSkillModifierValue}{#1}}
 \newcommand{\IntimidationSkillModifier}[1]{\renewcommand{\IntimidationSkillModifierValue}{#1}}
@@ -146,7 +146,7 @@
 \newcommand{\FeaturesTraitsValue}{}
 
 % ADDITIONAL INFORMATION
-\newcommand{\OtherProficienciesLanguages}[1]{\renewcommand{\OtherProficienciesLanguagesValue}{#1}}
+\newcommand{\OtherProficienciesLanguages}[1]{\renewcommand{\OtherProficienciesLanguagesValue}{\raggedright#1}}
 \newcommand{\AttacksSpellcasting}[1]{\renewcommand{\AttacksSpellcastingValue}{#1}}
 \newcommand{\Equipment}[1]{\renewcommand{\EquipmentValue}{#1}}
 \newcommand{\FeaturesTraits}[1]{\renewcommand{\FeaturesTraitsValue}{#1}}
@@ -172,8 +172,8 @@
 \newcommand{\Flaws}[1]{\renewcommand{\FlawsValue}{#1}}
 
 % SPELL MODIFIERS
-\newcommand{\SpellastingClassValue}{}
-\newcommand{\SpellastingAbilityValue}{}
+\newcommand{\SpellcastingClassValue}{}
+\newcommand{\SpellcastingAbilityValue}{}
 \newcommand{\SpellSaveDCValue}{}
 \newcommand{\SpellAttackBonusValue}{}
 
@@ -444,11 +444,12 @@
 \newrgbcolor{wisdomproficiency}{1 1 1}\newcommand{\WisdomProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{wisdomproficiency}{0 0 0}}{}}
 \newrgbcolor{charismaproficiency}{1 1 1}\newcommand{\CharismaProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{charismaproficiency}{0 0 0}}{}}
 \newrgbcolor{acrobaticsproficiency}{1 1 1}\newcommand{\AcrobaticsProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{acrobaticsproficiency}{0 0 0}}{}}
+
 \newrgbcolor{animalhandlingproficiency}{1 1 1}\newcommand{\AnimalHandlingProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{animalhandlingproficiency}{0 0 0}}{}}
 \newrgbcolor{arcanaproficiency}{1 1 1}\newcommand{\ArcanaProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{arcanaproficiency}{0 0 0}}{}}
 \newrgbcolor{athleticsproficiency}{1 1 1}\newcommand{\AthleticsProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{athleticsproficiency}{0 0 0}}{}}
-\newrgbcolor{decptionproficiency}{1 1 1}\newcommand{\AecptionProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{decptionproficiency}{0 0 0}}{}}
-\newrgbcolor{historyproficiency}{1 1 1}\newcommand{\AistoryProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{historyproficiency}{0 0 0}}{}}
+\newrgbcolor{deceptionproficiency}{1 1 1}\newcommand{\DeceptionProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{deceptionproficiency}{0 0 0}}{}}
+\newrgbcolor{historyproficiency}{1 1 1}\newcommand{\HistoryProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{historyproficiency}{0 0 0}}{}}
 \newrgbcolor{insightproficiency}{1 1 1}\newcommand{\InsightProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{insightproficiency}{0 0 0}}{}}
 \newrgbcolor{intimidationproficiency}{1 1 1}\newcommand{\IntimidationProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{intimidationproficiency}{0 0 0}}{}}
 \newrgbcolor{investigationproficiency}{1 1 1}\newcommand{\InvestigationProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{investigationproficiency}{0 0 0}}{}}
@@ -458,7 +459,7 @@
 \newrgbcolor{performanceproficiency}{1 1 1}\newcommand{\PerformanceProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{performanceproficiency}{0 0 0}}{}}
 \newrgbcolor{persuasionproficiency}{1 1 1}\newcommand{\PersuasionProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{persuasionproficiency}{0 0 0}}{}}
 \newrgbcolor{religionproficiency}{1 1 1}\newcommand{\ReligionProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{religionproficiency}{0 0 0}}{}}
-\newrgbcolor{sleightofhandproficiency}{1 1 1}\newcommand{\SleightOfHandproficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{sleightofhandproficiency}{0 0 0}}{}}
+\newrgbcolor{sleightofhandproficiency}{1 1 1}\newcommand{\SleightOfHandProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{sleightofhandproficiency}{0 0 0}}{}}
 \newrgbcolor{stealthproficiency}{1 1 1}\newcommand{\StealthProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{stealthproficiency}{0 0 0}}{}}
 \newrgbcolor{survivalproficiency}{1 1 1}\newcommand{\SurvivalProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{survivalproficiency}{0 0 0}}{}}
 % SPELL PREPARED COLOR CHANGES
