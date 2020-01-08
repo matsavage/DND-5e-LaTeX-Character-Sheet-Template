@@ -18,14 +18,14 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v1
-      - name: Compile main.tex
+      - name: Compile character tex files
         uses: matsavage/latex-action@master
         with:
           working_directory: characters
           compiler: xelatex
           runs: 2
           args: "--file-line-error --interaction=nonstopmode"
-      - name: Push generated sheets back to repository
+      - name: Push generated pdfs back to repository
         uses: github-actions-x/commit@v2.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
