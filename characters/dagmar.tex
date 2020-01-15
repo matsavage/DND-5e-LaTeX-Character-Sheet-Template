@@ -1,0 +1,610 @@
+\documentclass[a4paper,openany,twocolumn]{book}
+
+\usepackage{fontspec}
+\usepackage[justified]{dnd}
+\usepackage{ifthen}
+\usepackage{pstricks}
+
+\usepackage[UKenglish]{babel}
+
+\input{../character-sheet-settings}
+\input{../template/character-sheet-commands}
+
+
+
+% Headline
+\CharacterName{Dagmar}
+
+\Class{Sorcerer 9}
+\Background{Noble}
+\PlayerName{Mathew}
+\Race{Human}
+\Alignment{Neutral Good}
+\XP{48,517}
+
+% Ability scores
+\StrengthScore{13}
+\DexterityScore{10}
+\ConstitutionScore{14}
+\IntelligenceScore{14}
+\WisdomScore{15}
+\CharismaScore{17}
+
+% Ability modifiers
+\StrengthModifier{+1}
+\DexterityModifier{0}
+\ConstitutionModifier{+2}
+\IntelligenceModifier{+2}
+\WisdomModifier{+2}
+\CharismaModifier{+3}
+
+% Saving Throws
+\StrengthSavingThrowModifier{+1}
+\DexteritySavingThrowModifier{0}
+\ConstitutionSavingThrowModifier{+5}
+\IntelligenceSavingThrowModifier{+2}
+\WisdomSavingThrowModifier{+2}
+\CharismaSavingThrowModifier{+6}
+
+\AcrobaticsSkillModifier{0}
+\AnimalHandlingSkillModifier{+2}
+\ArcanaSkillModifier{+6}
+\AthleticsSkillModifier{+1}
+\DeceptionSkillModifier{+3}
+\HistorySkillModifier{+6}
+\InsightSkillModifier{+6}
+\IntimidationSkillModifier{+3}
+\InvestigationSkillModifier{+7} % +5 Observant
+\MedicineSkillModifier{+2}
+\NatureSkillModifier{+2}
+\PerceptionSkillModifier{+7} % +5 Observant
+\PerformanceSkillModifier{+3}
+\PersuasionSkillModifier{+7} 
+\ReligionSkillModifier{+2}
+\SleightOfHandSkillModifier{0}
+\StealthSkillModifier{0}
+\SurvivalSkillModifier{+2}
+
+% Prociciencies
+\StrengthProficiency{}
+\DexterityProficiency{}
+\ConstitutionProficiency{True} % Sorcerer
+\IntelligenceProficiency{}
+\WisdomProficiency{}
+\CharismaProficiency{True} % Sorcerer
+
+\AcrobaticsProficiency{}
+\AnimalHandlingProficiency{}
+\ArcanaProficiency{True} % Sorcerer
+\AthleticsProficiency{}
+\DeceptionProficiency{}
+\HistoryProficiency{True} % Noble
+\InsightProficiency{True} % Sorcerer
+\IntimidationProficiency{}
+\InvestigationProficiency{}
+\MedicineProficiency{}
+\NatureProficiency{}
+\PerceptionProficiency{}
+\PerformanceProficiency{}
+\PersuasionProficiency{True} % Noble
+\ReligionProficiency{}
+\SleightOfHandProficiency{}
+\StealthProficiency{}
+
+\Inspiration{}
+\Proficiency{+4}
+\Perception{17} %+5 Observant
+
+\ArmorClass{13}
+\Initiative{0}
+\Speed{30ft}
+\MaxHitPoints{65}
+\CurrentHitPoints{65}
+\TemporaryHitPoints{}
+\MaxHitDice{9d6}
+\CurrentHitDice{9d6}
+
+\CP{}
+\SP{}
+\GP{}
+\EP{}
+\PP{}
+
+
+\AddWeapon{Dagger}{+5}{1d4+1 p}
+\AddWeapon{Light Crossbow}{+4}{1d8 p}
+
+\AttacksSpellcasting{
+\textbf{Arcane Focus:}\\A glass orb filled with moving smoke
+}
+
+\OtherProficienciesLanguages{
+\textbf{Languages:}\\Common, Draconic, Undercommon, Celestial\\
+\textbf{Armor:}\\None\\
+\textbf{Weapons:}\\Daggers, darts, slings, quarterstaffs, light crossbows\\
+\textbf{Tools:}\\Jeweller's tools
+}
+
+\Equipment{
+20 crossbow bolts,
+a backpack,
+a bedrool,
+a mess kit,
+a tinderbox,
+10 torches,
+10 days of rations,
+a waterskin,
+50 ft hempen rope,
+Jeweller's tools,
+Potion of superior healing
+}
+
+\PersonalityTraits{
+I have a very dry personality, and seem unbothered by anything which I can't see the funny side of. Deep down I am very loyal to the people I am close to, but although I appear aloof, I am rooting for them
+}
+
+\Ideals{
+There's no good pretending to be something that I'm not
+}
+
+\Bonds{
+I have a strong bond with my family, but they don't have one with me, I want to uncover my sorcerous origins so that I can reconnect with them
+}
+
+\Flaws{
+My noble upbringing and demeanour makes it hard for me to connect with people, and I appear disconnected from the world
+}
+
+\FeaturesTraits{
+\textbf{Font of Magic}
+\begin{itemize}
+  \item Sorcery Points (9)
+  \item Flexible Casting
+\end{itemize}
+\textbf{Metamagic}
+\begin{itemize}
+  \item Heightened Spell
+  \item Twinned Spell
+\end{itemize}
+\textbf{Draconic Bloodline}
+\begin{itemize}
+  \item Dragon Ancestor
+  \item Draconic Resilience
+  \item Elemental Affinity
+\end{itemize}
+\textbf{Noble}
+\begin{itemize}
+  \item Position of Privilege
+\end{itemize}
+\textbf{Feats}
+\begin{itemize}
+  \item Observant
+  \item Spell Sniper
+\end{itemize}
+\textbf{Magical Items}
+\begin{itemize}
+  \item Ring of Mind Shielding 
+\end{itemize}
+}
+
+
+% Magic
+
+\SpellcastingClass{Sorcerer}
+\SpellcastingAbility{CHA}
+\SpellSaveDC{14}
+\SpellAttackBonus{+6}
+
+\CantripSlotA{Chill Touch (V, S)}
+\CantripSlotB{Eldrich Blast (V, S) (Spell Sniper)}
+\CantripSlotC{Mage Hand (V, S)}
+\CantripSlotD{Mending (V, S, M)}
+\CantripSlotE{Ray of Frost (V, S)}
+\CantripSlotF{Shocking Grasp (V, S)}
+
+\FirstLevelSpellSlotsTotal{4}
+\FirstLevelSpellSlotA{False Life (V, S, M)}
+\FirstLevelSpellSlotB{Magic Missile (V, S)}
+
+\SecondLevelSpellSlotsTotal{3}
+\SecondLevelSpellSlotA{Enlarge/Reduce (V, S, M)}
+\SecondLevelSpellSlotB{Scorching Ray (V, S)}
+\SecondLevelSpellSlotC{Shatter (V, S, M)}
+
+\ThirdLevelSpellSlotsTotal{3}
+\ThirdLevelSpellSlotA{Lighting Bolt (V, S, M)}
+
+\FourthLevelSpellSlotsTotal{3}
+\FourthLevelSpellSlotA{Blight (V, S)}
+\FourthLevelSpellSlotB{Dominate Beast (V, S)}
+\FourthLevelSpellSlotC{Ice Storm (V, S, M)}
+
+\FifthLevelSpellSlotsTotal{1}
+\FifthLevelSpellSlotA{Telekinesis(V, S)}
+
+\begin{document}
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+\onecolumn
+
+
+% CHARACTER PAGE
+\input{../template/character-sheet.tex}
+
+% SPELLCASTING PAGE
+\input{../template/spell-sheet.tex}
+
+
+\restoregeometry
+\twocolumn
+
+\chapter*{Features, Magic Items and Spells}
+
+\section*{Sorcerer}
+\subsection*{Font of Magic}
+At 2nd level, you tap into a deep wellspring of magic within yourself. This wellspring is represented by sorcery points, which allow you to create a variety of magical effects.
+
+\subsubsection*{Sorcery Points}
+You have 2 sorcery points and you gain more as you reach higher levels, as shown in the Sorcery Points column of the Sorcerer table. You can never have more sorcery points than shown in the table for your level. You regain all spent sorcery points when you finish a long rest.
+
+\subsubsection*{Flexible Casting}
+You can use your sorcery points to gain additional spell slots, or sacrifice spell slots to gain additional sorcery points. You learn other ways to use your sorcery points as you reach higher levels.
+
+\subparagraph*{Creating Spell Slots} You can transform unexpended sorcery points into one spell slot as a bonus action on your turn. The Creating Spell Slots table shows the cost of creating a spell slot of a given level. You can create spell slots no higher in level than 5th.
+
+Any spell slot you create with this feature vanishes when you complete a long rest.
+
+\begin{DndTable}[header=Creating Spell Slots]{cX}
+  \textbf{Spell Slot Level}  & \textbf{Sorcery Point Cost} \\
+  1st                        & 2                           \\
+  2nd                        & 3                           \\
+  3rd                        & 5                           \\
+  4th                        & 6                           \\
+  5th                        & 7                           \\
+\end{DndTable}
+
+\subparagraph*{Converting a Spell Slot to Sorcery Points} As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot's level.
+
+\subsection*{Metamagic}
+At 3rd level, you gain the ability to twist your spells to meet your needs. You gain two of the following Metamagic options of your choice. You gain another at 10th and 17th level.
+
+You can only use one Metamagic option on a spell when you cast it, unless otherwise noted.
+
+\subsubsection*{Heightened Spell}
+When you cast a spell that forces a creature to make a saving throw to resist its effects, you can spend 3 sorcery points to give one target of the spell disadvantage on its first saving throw made against the spell.
+
+\subsubsection*{Twinned Spell}
+When you cast a spell that targets only one creature and doesn't have the range of self, you can spend a number of sorcery points equal to the spell's level to target a second creature in range with the same spell (1 sorcery point if the spell is a cantrip).
+
+To be eligible, a spell must be incapable of targeting more than one creature at the spell's current level. For example, \textit{magic missile} and \textit{scorching ray} aren't eligible, but \textit{ray of frost} and \textit{chromatic orb} are.
+
+
+\subsection*{Draconic Bloodline}
+Your innate magic comes from draconic magic that was mingled with your blood or that of your ancestors. Most often, sorcerers with this origin trace their decent back to a mighty sorcerer of ancient times who made a bargain with a dragon or who might have even claimed a dragon parent. Some of these bloodlines are well established in the world, but most are obscure. Any given sorcerer could be the first of a new bloodline, as a result of a pact or some other exceptional circumstance.
+
+\subsubsection*{Dragon Ancestor}
+At 1st level, you choose a type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.
+
+
+\begin{DndTable}[header=Draconic Ancestry]{lX}
+  \textbf{Dragon}      &\textbf{Damage Type}     \\
+  Black                &Acid                     \\
+  Blue                 &Lightning                \\
+  Brass                &Fire                     \\
+  Bronze               &Lightning                \\
+  Copper               &Acid                     \\
+  Gold                 &Fire                     \\
+  Green                &Poison                   \\
+  Red                  &Fire                     \\
+  \textbf{Silver}      &\textbf{Cold}            \\
+  White                &Cold                     \\
+\end{DndTable}
+
+You can speak, read and write Draconic. Additionally whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.
+
+\subsubsection*{Draconic Resilience}
+As magic flows through your body, it causes physical traits of your dragon ancestors to emerge. At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class.
+
+Additionally, parts of your skin are covered by a thin sheen on dragon-like scales. When you aren'y wearing armour, your AC equals 13+ your Dexterity modifier.
+
+
+\subsubsection*{Elemental Affinity}
+Starting at 6th level, when you cast a spell that deals damage, of the type associated with your draconic ancestor, you can add your Charisma modifier to one damage roll of that spell. At the same time you can spend 1 sorcery point to gain resistance to that damage type for 1 hour.
+
+\section*{Background}
+\subsection*{Noble}
+You understand wealth, power, and privilege. You carry a noble title, and your family owns land, collects taxes, and wields significant political influence.
+
+You come from an established family in another land to the north, and have been outcast as you are the only member of your family to display sorcerous trait, and seek adventure to discover more about this element of your being.
+
+\subparagraph*{Skill Proficiencies} History, Persuasion
+\subparagraph*{Tool Proficiencies} One type of gaming set
+\subparagraph*{Languages} One of your choice
+\subparagraph*{Equipment} A set of fine clothes, a signet ring, a scroll of pedigree, and a purse containing 25 gp
+
+\subsubsection*{Position of Privilege}
+Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society, and people assume you have a right to be wherever you are. The common folk make every effort to accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere. You can secure an audience with a local noble if you need to.
+
+
+\section*{Feats}
+\subsection*{Observant}
+Quick to notice details of your environment, you gain the following benefits:
+\begin{itemize}
+  \item Increase your Intelligence or Wisdom score by 1, to a maximum of 20.
+  \item If you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips.
+  \item You have a +5 bonus to your passive Wisdom (Perception) and passive Intelligence (Investigation) score.
+\end{itemize}
+
+\subsection*{Spell Sniper}
+\textit{Prerequisite: The ability to cast at least one spell}\\
+You have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits:
+\begin{itemize}
+  \item When you cast a spell that requires you to make an attack roll, the spell's range is doubled.
+  \item Your ranged spell attacks ignore half cover and three-quarters cover.
+  \item You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from: Charisma for bard, sorcerer or warlock; Wisdom for cleric or druid; or Intelligence for wizard.
+\end{itemize}
+
+\section*{Magical Items}
+\subsection*{Ring of Mind Shielding}
+\textit{Requires Attunement}
+
+While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your Alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.
+
+You can use an action to cause the ring to become Invisible until you use another action to make it visible, until you remove the ring, or until you die.
+
+If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. A wearer can't prevent this telepathic Communication.
+
+
+\section*{Spells}
+ 
+\subsection*{Cantrips}
+
+\DndSpellHeader
+  {Chill Touch}
+  {Necromancy Cantrip}
+  {1 action}
+  {1 round}
+  {120 feet}
+  {V, S}
+
+You create a ghostly, skeletal hand in the space of a creature within range. Make a ranged spell attack against the creature to assail it with the chill of the grave. On a hit, the target takes 1d8 necrotic damage, and it can't regain hit points until the start of your next turn. Until then, the hand clings to the target. If you hit an undead target, it also has disadvantage on attack rolls against you until the end of your next turn.
+    
+\subparagraph*{At Higher Levels} This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).
+
+
+\DndSpellHeader
+  {Eldrich Blast}
+  {Evocation cantrip}
+  {1 action}
+  {Instantaneous}
+  {120 feet}
+  {V, S}
+
+A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.
+
+The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or different ones, make a separate attack roll for each beam.
+
+
+\DndSpellHeader
+  {Mage Hand}
+  {Conjuration Cantrip}
+  {1 action}
+  {1 minute}
+  {30 feet}
+  {V, S}
+
+A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action. The hand vanishes if it is ever more than 30 feet away from you or if you cast this spell again.
+    
+    
+You can use your action to control the hand. You can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial. You can move the hand up to 30 feet each time you use it.
+    
+The hand can't attack, activate magical items, or carry more than 10 pounds.
+
+
+\DndSpellHeader
+  {Mending}
+  {Transmutation Cantrip}
+  {1 minute}
+  {Instantaneous}
+  {Touch}
+  {V, S, M (Two lodestones)}
+
+This spell repairs a single break or tear in an object you touch, such as broken chain link, two halves of a broken key, a torn cloak, or a leaking wineskin.
+    
+As long as the break or tear is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former damage.
+    
+This spell can physically repair a magic item or construct, but the spell can't restore magic to such an object.
+    
+
+\DndSpellHeader
+  {Ray Of Frost}
+  {Evocation Cantrip}
+  {1 action}
+  {Instantaneous}
+  {60 feet}
+  {V, S}
+
+A frigid beam of blue-white light streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, it takes 1d8 cold damage, and its speed is reduced by 10 feet until the start of your next turn.
+    
+\subparagraph*{At Higher Levels} The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).
+
+\DndSpellHeader
+  {Shocking Grasp}
+  {Evocation Cantrip}
+  {1 action}
+  {Instantaneous}
+  {Touch}
+  {V, S}
+
+Lightning springs from your hand to deliver a shock to a creature you try to touch. Make a melee spell attack against the target. You have advantage on the attack roll if the target is wearing armor made of metal. On a hit, the target takes 1d8 lightning damage, and it can't take reactions until the start of its next turn.
+    
+\subparagraph{At Higher Levels} The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).
+
+
+\subsection*{Level 1}
+
+\DndSpellHeader
+  {False Life}
+  {1st-level necromancy}
+  {1 action}
+  {1 hour}
+  {Self}
+  {V, S, M (A small amount of alcohol or distilled spirits)}
+
+Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4 temporary hit points for the duration.
+    
+\subparagraph*{At Higher Levels} When you cast this spell using a spell slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st.
+  
+\DndSpellHeader
+  {Magic Missile}
+  {1st-level evocation}
+  {1 action}
+  {Instantaneous}
+  {120 ft}
+  {V, S}
+
+You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously and you can direct them to hit one creature or several.
+
+\subparagraph{At Higher Levels} When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st.
+
+
+\subsection*{Level 2}
+
+\DndSpellHeader
+  {Enlarge/Reduce}
+  {2nd-level transmutation}
+  {1 action}
+  {Concentration, up to 1 minute}
+  {30 feet}
+  {V, S, M (A pinch of powdered iron)}
+
+You cause a creature or an object you can see within range to grow larger or smaller for the duration. Choose either a creature or an object that is neither worn nor carried. If the target is unwilling, it can make a Constitution saving throw. On a success, the spell has no effect. 
+    
+If the target is a creature, everything it is wearing and carrying changes size with it. Any item dropped by an affected creature returns to normal size at once. 
+    
+\subparagraph*{Enlarge} The target’s size doubles in all dimensions, and its weight is multiplied by eight. This growth increases its size by one category - from Medium to Large, for example. If there isn't enough room for the target to double its size, the creature or object attains the maximum possible size in the space available. Until the spell ends, the target also has advantage on Strength checks and Strength saving throws. The target's weapons also grow to match its new size. While these weapons are enlarged, the target's attack with them deal 1d4 extra damage. 
+    
+    
+\subparagraph*{Reduce} The target’s size is halved in all dimensions, and its weight is reduced to one-eighth of normal. This reduction decreases its size by one category - from Medium to Small, for example. Until the spell ends, the target also has disadvantage on Strength checks and Strength saving throws. The target's weapons also shrink to match its new size. While these weapons are reduced, the target's attacks with them deal 1d4 less damage (this can't reduce the damage below 1).
+
+
+\DndSpellHeader
+  {Scorching Ray}
+  {2nd-level evocation}
+  {1 action}
+  {Instantaneous}
+  {120 feet}
+  {V, S}
+
+You create three rays of fire and hurl them at targets within range. You can hurl them at one target or several. Make a ranged spell attack for each ray. On a hit, the target takes 2d6 fire damage.
+    
+\subparagraph*{At Higher Levels} When you cast this spell using a spell slot of 3rd level or higher, you create one additional ray for each slot level above 2nd.
+
+\DndSpellHeader
+  {Shatter}
+  {2nd-level evocation}
+  {1 action}
+  {Instantaneous}
+  {60 feet}
+  {V, S, M (A chip of mica)}
+
+A sudden loud ringing noise, painfully intense, erupts from a point of your choice within range. Each creature in a 10-foot-radius sphere centered on that point must make a Constitution saving throw. A creature takes 3d8 thunder damage on a failed save, or half as much damage on a successful one. A creature made of inorganic material such as stone, crystal, or metal has disadvantage on this saving throw.
+    
+A nonmagical object that isn't being worn or carried also takes the damage if it's in the spell's area.
+    
+\subparagraph{At Higher Levels} When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.
+
+
+\subsection*{Level 3}
+
+\DndSpellHeader
+  {Lightning Bolt}
+  {3rd-level evocation}
+  {1 action}
+  {Instantaneous}
+  {Self (100-foot line)}
+  {V, S, M (A bit of fur and a rod of amber, crystal, or glass)}
+
+A stroke of lightning forming a line of 100 feet long and 5 feet wide blasts out from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 8d6 lightning damage on a failed save, or half as much damage on a successful one.
+    
+The lightning ignites flammable objects in the area that aren't being worn or carried.
+    
+\subparagraph*{At Higher Levels} When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.
+
+
+\subsection*{Level 4}
+
+\DndSpellHeader
+  {Blight}
+  {4th-level necromancy}
+  {1 action}
+  {Instantaneous}
+  {30 feet}
+  {V, S}
+
+Necromantic energy washes over a creature of your choice that you can see within range, draining moisture and vitality from it. The target must make a Constitution saving throw. The target takes 8d8 necrotic damage on a failed save, or half as much damage on a successful one. This spell has no effect on undead or constructs. 
+    
+If you target a plant creature or a magical plant, it makes the saving throw with disadvantage, and the spell deals maximum damage to it. 
+    
+If you target a nonmagical plant that isn't a creature, such as a tree or shrub, it doesn't make a saving throw; it simply withers and dies.
+    
+\subparagraph*{At Higher Levels} When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d8 for each slot level above 4th.
+    
+
+\DndSpellHeader
+  {Dominate Beast}
+  {4th-level enchantment}
+  {1 action}
+  {Concentration, up to 1 minute}
+  {60 feet}
+  {V, S}
+
+You attempt to beguile a beast that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. 
+    
+While the beast is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and  general course of action, such as "Attack that creature," "Run over there," or  "Fetch that object." If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability. 
+    
+You can use your action to take total and precise control of the  target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well. 
+    
+Each time the target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends.
+    
+\subparagraph*{At Higher Levels} When you cast this spell with a 5th-level spell slot, the duration is concentration, up to 10 minutes.  When you use a 6th-level spell slot, the duration is concentration, up to 1 hour. When you use a spell slot of 7th level or higher, the duration is concentration, up to 8 hours
+
+
+\DndSpellHeader
+  {Ice Storm}
+  {4th-level evocation}
+  {1 action}
+  {Instantaneous}
+  {300 feet}
+  {V, S, M (A pinch of dust and a few drops of water)}
+
+A hail of rock-hard ice pounds to the ground in a 20-foot-radius, 40-foot-high cylinder centered on a point within range.  Each creature in the cylinder must make a Dexterity saving throw. A creature takes 2d8 bludgeoning damage and 4d6 cold damage on a failed save, or half as much damage on a successful one.
+    
+    
+Hailstones turn the storm's area of effect into difficult terrain until the end  of your next turn.
+    
+\subparagraph*{At Higher Levels} When you cast this spell using a spell slot of 5th level or higher, the bludgeoning damage increases by 1d8 for each slot level above 4th.
+
+
+\subsection*{Level 5}
+
+\DndSpellHeader
+  {Telekinesis}
+  {5th-level transmutation}
+  {1 action}
+  {Concentration, up to 10 minutes}
+  {60 feet}
+  {V, S}
+
+You gain the ability to move or manipulate creatures or objects by thought. When you cast the spell, and as your action each round for the duration, you can exert your will on one creature or object that you can see within range, causing the appropriate effect below. You can effect the same target round after round, or choose a new one at any time. If you switch targets, the prior target is no longer affected by the spell.
+
+\subparagraph*{Creature} You can try to move a Huge or smaller creature. Make an ability check with your spellcasting ability contested by the creature's Strength check. If you win the contest, you move the creature up to 30 feet in any direction, including upward, but not beyond the range of this spell. Until the end of your next turn, the creature is restrained by your telekinetic grip. A creature lifted upward is suspended in mid-air.
+
+On subsequent rounds, you can use your action to attempt to maintain your telekinetic grip on the creature by repeating the contest.
+
+\subparagraph*{Object} You can try to move an object that weighs up to 1,000 pounds. If the object isn't being work or carried, you automatically move it up to 30 feet in any direction, but not beyond the range of this spell.
+
+If the object is worn or carried by a creature, you must make an ability check with your spellcasting ability, contested by that creature's Strength check. If you succeed, you pull the object away from that creature and can move it up to 30 feet in any direction but not beyond the range of this spell.
+
+You can exert fine control on objects with your telekinetic grip, such as manipulating a simple tool, opening a door or container, stowing or retrieving an item from an open container, or pouring the contents from a vial.
+
+\end{document}
