@@ -106,7 +106,7 @@
 \EP{}
 \PP{}
 
-\AddWeapon{Shortsword}{+1}{1d6 + 3}
+\AddWeapon{Shortsword}{+4}{1d6 + 3}
 \AddWeapon{Shortbow}{+2}{1d6 + 6}
 \AddWeapon{Dagger}{+1}{1d4 + 3}
 
@@ -117,6 +117,28 @@
 \textbf{Armor:}\\Light armor\\
 \textbf{Weapons:}\\Simple weapons, hand crossbows, longswords, rapiers, shortswords\\
 \textbf{Tools:}\\Thieves’ tools, Disguise kit, Forgery kit
+}
+
+\FeaturesTraits{
+\textbf{Half-Elf}
+\begin{itemize}
+    \item Darkvision (60 ft)
+    \item Fey Ancestry
+\end{itemize}
+\textbf{Rogue}
+\begin{itemize}
+    \item Sneak Attack (1d6)
+    \item Thieves' Cant
+\end{itemize}
+\textbf{Expertise}
+\begin{itemize}
+      \item Thieves' tools
+      \item Insight
+\end{itemize}
+\textbf{Charlatan}
+\begin{itemize}
+    \item False Identity
+\end{itemize}
 }
 
 \Equipment{
@@ -135,24 +157,6 @@ a hooded lantern,
 a tinderbox,
 a waterskin,
 50ft hempen rope
-}
-
-\FeaturesTraits{
-\textbf{Darkvision}\\
-%Thanks to your elf blood, you have superior vision in dark and dim conditions. You cansee in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.\\
-\textbf{Fey Ancestry}\\
-%You have advantage on saving throws against being charmed, and magic can’t put you to sleep.\\
-\textbf{Skill Versatility}\\
-%You gain proficiency in two skills of your choice.\\
-\textbf{Sneak Attack}\\
-%Beginning at 1st level, you know how to strike subtly and exploit a foe’s distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon. You don’t need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn’t incapacitated, and you don’t have disadvantage on the attack roll. The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.\\
-\textbf{Thieves’ Cant}\\
-\textbf{Arcane Trickster}\\
-\textbf{False Identity}\\
-%You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy.
-%Scheme:
-%I put on new identities like clothes.
-
 }
 
 \PersonalityTraits{
@@ -194,6 +198,37 @@ I am convinced that no-one could fool me the way that I fool others
 \input{../template/character-sheet.tex}
 
 % SPELLCASTING PAGE
-\input{../template/spell-sheet.tex}
+% \input{../template/spell-sheet.tex}
+
+
+\restoregeometry
+\twocolumn
+
+\chapter*{Features, Magic Items and Spells}
+
+\section*{Half-Elf}
+\subsection*{Darkvision}
+Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet as if you were in bright light, and in darkness as if it were dim light. You can't discern colour in darkness, only shades of gray.
+
+\subsection*{Fey Ancestry}
+You have advantage on saving throws against being charmed, and magic can't put you to sleep.
+
+\section*{Rogue}
+\subsection*{Expertise}
+At 1st level, choose two of your skill proficiencies, or on of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.
+
+At 6th level, you can choose two more of your prociciencies (in skills or with thieves' tools) to gain this benefit.
+
+\subsection*{Sneak Attack}
+Beginning at 1st level, you know how to strike subtly and expot a foe's distraction. Once per turn, you can deal an extra 1d damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.
+
+You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.
+
+The amount of extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.
+
+\subsection*{Thieves' Cant}
+During your rogue traingng you learned thieves' cant, a secret mix of dialect, jargon and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.
+
+In addition you understand a set of secret signs and symbols used to convey short, simple messages, such as wheather an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.
 
 \end{document}
