@@ -98,7 +98,7 @@
 \ArmorClass{13}
 \Initiative{0}
 \Speed{30ft}
-\MaxHitPoints{65}
+\MaxHitPoints{72}
 \CurrentHitPoints{65}
 \TemporaryHitPoints{}
 \MaxHitDice{9d6}
@@ -198,10 +198,11 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 
 \CantripSlotA{Chill Touch (V, S)}
 \CantripSlotB{Eldrich Blast (V, S) (Spell Sniper)}
-\CantripSlotC{Mage Hand (V, S)}
-\CantripSlotD{Mending (V, S, M)}
-\CantripSlotE{Ray of Frost (V, S)}
-\CantripSlotF{Shocking Grasp (V, S)}
+\CantripSlotC{Light (V, M)}
+\CantripSlotD{Mage Hand (V, S)}
+\CantripSlotE{Message (V, S, M)}
+\CantripSlotF{Mending (V, S, M)}
+\CantripSlotG{Ray of Frost (V, S)}
 
 \FirstLevelSpellSlotsTotal{4}
 \FirstLevelSpellSlotA{False Life (V, S, M)}
@@ -209,8 +210,8 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 
 \SecondLevelSpellSlotsTotal{3}
 \SecondLevelSpellSlotA{Enlarge/Reduce (V, S, M)}
-\SecondLevelSpellSlotB{Scorching Ray (V, S)}
-\SecondLevelSpellSlotC{Shatter (V, S, M)}
+\SecondLevelSpellSlotB{Misty Step (V)}
+\SecondLevelSpellSlotC{Scorching Ray (V, S)}
 
 \ThirdLevelSpellSlotsTotal{3}
 \ThirdLevelSpellSlotA{Lighting Bolt (V, S, M)}
@@ -218,7 +219,8 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 \FourthLevelSpellSlotsTotal{3}
 \FourthLevelSpellSlotA{Blight (V, S)}
 \FourthLevelSpellSlotB{Dominate Beast (V, S)}
-\FourthLevelSpellSlotC{Ice Storm (V, S, M)}
+\FourthLevelSpellSlotC{Greater Invisibility (V, S)}
+\FourthLevelSpellSlotD{Ice Storm (V, S, M)}
 
 \FifthLevelSpellSlotsTotal{2}
 \FifthLevelSpellSlotA{Telekinesis (V, S)}
@@ -404,7 +406,7 @@ The spell creates more than one beam when you reach higher levels: two beams at 
   {Evocation Cantrip}
   {1 action}
   {Touch}
-  {V, M (a firefly or phospjorescent moss)}
+  {V, M (a firefly or phosphorescent moss)}
   {1 hour}
 
 You touch one object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be coloured as you like. Completely covering the object with something opaque blocks the light. The spell ends when you cast it again or dismiss it as an action.
@@ -449,6 +451,23 @@ As long as the break or tear is no larger than 1 foot in any dimension, you mend
     
 This spell can physically repair a magic item or construct, but the spell can't restore magic to such an object.
     
+\DndSpellHeader
+  {Message}
+  {Transmutation Cantrip}
+  {1 minute}
+  {120 feet}
+  {V, S, M (a short piece of copper wire)}
+  {1 round}
+
+  You point your finger towards a creature within range and whisper a message. The target (abd only the target) hears your message and can reply in a whisper that only you can hear.
+
+  You can hear this spell through solid objects if you are familiar with the target and know it is beyond the barrier. Magical silence, 1 foot of stone, 1 inch of common metal, a thin slice of lead or 3 feet of wood blocks the spell. The spell doesn't have to follow a straight line and can travel around corners or through openings.
+
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Twined Spell
+  \item Quickened Spell
+\end{itemize}
 
 \DndSpellHeader
   {Ray Of Frost}
@@ -530,6 +549,15 @@ If the target is a creature, everything it is wearing and carrying changes size 
   \item Heightened Spell
 \end{itemize}
 
+\DndSpellHeader
+  {Misty Step}
+  {2nd-level conjuration}
+  {1 bonus action}
+  {Self}
+  {V}
+  {Instantaneous}
+
+Briefly surrounded by silvery mist, you teleport up to 30 feet into an unoccupied space that you can see.
 
 \DndSpellHeader
   {Scorching Ray}
@@ -615,11 +643,26 @@ Each time the target takes damage, it makes a new Wisdom saving throw against th
     
 \subparagraph*{At Higher Levels} When you cast this spell with a 5th-level spell slot, the duration is concentration, up to 10 minutes.  When you use a 6th-level spell slot, the duration is concentration, up to 1 hour. When you use a spell slot of 7th level or higher, the duration is concentration, up to 8 hours
 
-
 \subparagraph*{Abilities}
 \begin{itemize}
   \item Heightened Spell
   \item Twinned Spell
+\end{itemize}
+
+\DndSpellHeader
+  {Greater Invisibility}
+  {4th-level illusion}
+  {1 action}
+  {Touch}
+  {V, S, M (A pinch of dust and a few drops of water)}
+  {Concentration, up to 1 minute}
+
+You or a creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person.
+
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Twinned Spell
+  \item Quickened Spell
 \end{itemize}
 
 \DndSpellHeader
