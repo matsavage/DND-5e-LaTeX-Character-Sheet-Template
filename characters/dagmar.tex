@@ -15,12 +15,12 @@
 % Headline
 \CharacterName{Dagmar}
 
-\Class{Sorcerer 9}
+\Class{Sorcerer 10}
 \Background{Noble}
 \PlayerName{Mathew}
 \Race{Human}
 \Alignment{Neutral Good}
-\XP{48,517}
+\XP{62191}
 
 % Ability scores
 \StrengthScore{13}
@@ -98,8 +98,8 @@
 \ArmorClass{13}
 \Initiative{0}
 \Speed{30ft}
-\MaxHitPoints{65}
-\CurrentHitPoints{65}
+\MaxHitPoints{72}
+\CurrentHitPoints{72}
 \TemporaryHitPoints{}
 \MaxHitDice{9d6}
 \CurrentHitDice{9d6}
@@ -158,13 +158,14 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 \FeaturesTraits{
 \textbf{Font of Magic}
 \begin{itemize}
-  \item Sorcery Points (9)
+  \item Sorcery Points (10)
   \item Flexible Casting
 \end{itemize}
 \textbf{Metamagic}
 \begin{itemize}
   \item Heightened Spell
   \item Twinned Spell
+  \item Quickened Spell
 \end{itemize}
 \textbf{Draconic Bloodline}
 \begin{itemize}
@@ -197,10 +198,11 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 
 \CantripSlotA{Chill Touch (V, S)}
 \CantripSlotB{Eldrich Blast (V, S) (Spell Sniper)}
-\CantripSlotC{Mage Hand (V, S)}
-\CantripSlotD{Mending (V, S, M)}
-\CantripSlotE{Ray of Frost (V, S)}
-\CantripSlotF{Shocking Grasp (V, S)}
+\CantripSlotC{Light (V, M)}
+\CantripSlotD{Mage Hand (V, S)}
+\CantripSlotE{Message (V, S, M)}
+\CantripSlotF{Mending (V, S, M)}
+\CantripSlotG{Ray of Frost (V, S)}
 
 \FirstLevelSpellSlotsTotal{4}
 \FirstLevelSpellSlotA{False Life (V, S, M)}
@@ -208,8 +210,8 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 
 \SecondLevelSpellSlotsTotal{3}
 \SecondLevelSpellSlotA{Enlarge/Reduce (V, S, M)}
-\SecondLevelSpellSlotB{Scorching Ray (V, S)}
-\SecondLevelSpellSlotC{Shatter (V, S, M)}
+\SecondLevelSpellSlotB{Misty Step (V)}
+\SecondLevelSpellSlotC{Scorching Ray (V, S)}
 
 \ThirdLevelSpellSlotsTotal{3}
 \ThirdLevelSpellSlotA{Lighting Bolt (V, S, M)}
@@ -217,10 +219,11 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 \FourthLevelSpellSlotsTotal{3}
 \FourthLevelSpellSlotA{Blight (V, S)}
 \FourthLevelSpellSlotB{Dominate Beast (V, S)}
-\FourthLevelSpellSlotC{Ice Storm (V, S, M)}
+\FourthLevelSpellSlotC{Greater Invisibility (V, S)}
+\FourthLevelSpellSlotD{Ice Storm (V, S, M)}
 
-\FifthLevelSpellSlotsTotal{1}
-\FifthLevelSpellSlotA{Telekinesis(V, S)}
+\FifthLevelSpellSlotsTotal{2}
+\FifthLevelSpellSlotA{Telekinesis (V, S)}
 
 \begin{document}
 \newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
@@ -277,6 +280,8 @@ When you cast a spell that targets only one creature and doesn't have the range 
 
 To be eligible, a spell must be incapable of targeting more than one creature at the spell's current level. For example, \textit{magic missile} and \textit{scorching ray} aren't eligible, but \textit{ray of frost} and \textit{chromatic orb} are.
 
+\subsubsection*{Quickened Spell}
+When you caste a spell that has a casting time of 1 action, you can spend 2 sorcery points to change the casting time to 1 bonus action for this casting.
 
 \subsection*{Draconic Bloodline}
 Your innate magic comes from draconic magic that was mingled with your blood or that of your ancestors. Most often, sorcerers with this origin trace their decent back to a mighty sorcerer of ancient times who made a bargain with a dragon or who might have even claimed a dragon parent. Some of these bloodlines are well established in the world, but most are obscure. Any given sorcerer could be the first of a new bloodline, as a result of a pact or some other exceptional circumstance.
@@ -345,13 +350,13 @@ You have learned techniques to enhance your attacks with certain kinds of spells
 
 \section*{Magical Items}
 \subsection*{Ring of Mind Shielding}
-\textit{Requires Attunement}
+\textit{Ring, uncommon (requires attunement)}
 
-While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your Alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.
+While wearing this ring, you are immune to magic that allows other creatures to read your thoughts, determine whether you are lying, know your alignment, or know your creature type. Creatures can telepathically communicate with you only if you allow it.
 
-You can use an action to cause the ring to become Invisible until you use another action to make it visible, until you remove the ring, or until you die.
+You can use an action to cause the ring to become invisible until you use another action to make it visible, until you remove the ring, or until you die.
 
-If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. A wearer can't prevent this telepathic Communication.
+If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. A wearer can't prevent this telepathic communication.
 
 
 \section*{Spells}
@@ -362,51 +367,83 @@ If you die while wearing the ring, your soul enters it, unless it already houses
   {Chill Touch}
   {Necromancy Cantrip}
   {1 action}
-  {1 round}
   {120 feet}
   {V, S}
+  {1 round}
 
 You create a ghostly, skeletal hand in the space of a creature within range. Make a ranged spell attack against the creature to assail it with the chill of the grave. On a hit, the target takes 1d8 necrotic damage, and it can't regain hit points until the start of your next turn. Until then, the hand clings to the target. If you hit an undead target, it also has disadvantage on attack rolls against you until the end of your next turn.
     
 \subparagraph*{At Higher Levels} This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).
+
+\textbf{Abilities:}
+\begin{itemize}
+  \item Twinned Spell
+  \item Quickened Spell
+  \item Spell Sniper
+\end{itemize}
 
 
 \DndSpellHeader
   {Eldrich Blast}
   {Evocation cantrip}
   {1 action}
-  {Instantaneous}
   {120 feet}
   {V, S}
+  {Instantaneous}
 
 A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.
 
 The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or different ones, make a separate attack roll for each beam.
 
+\textbf{Abilities:}
+\begin{itemize}
+  \item Quickened Spell
+  \item Spell Sniper
+\end{itemize}
+
+\DndSpellHeader
+  {Light}
+  {Evocation Cantrip}
+  {1 action}
+  {Touch}
+  {V, M (a firefly or phosphorescent moss)}
+  {1 hour}
+
+You touch one object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be coloured as you like. Completely covering the object with something opaque blocks the light. The spell ends when you cast it again or dismiss it as an action.
+
+If you target an object held or worn by a hostile creature, that creature must succeed on a Dexterity saving throw to avoid the spell.
+
+\textbf{Abilities:}
+\begin{itemize}
+  \item Heightened Spell
+\end{itemize}
 
 \DndSpellHeader
   {Mage Hand}
   {Conjuration Cantrip}
   {1 action}
-  {1 minute}
   {30 feet}
   {V, S}
+  {1 minute}
 
 A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action. The hand vanishes if it is ever more than 30 feet away from you or if you cast this spell again.
-    
     
 You can use your action to control the hand. You can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial. You can move the hand up to 30 feet each time you use it.
     
 The hand can't attack, activate magical items, or carry more than 10 pounds.
 
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Quickened Spell
+\end{itemize}
 
 \DndSpellHeader
   {Mending}
   {Transmutation Cantrip}
   {1 minute}
-  {Instantaneous}
   {Touch}
   {V, S, M (Two lodestones)}
+  {Instantaneous}
 
 This spell repairs a single break or tear in an object you touch, such as broken chain link, two halves of a broken key, a torn cloak, or a leaking wineskin.
     
@@ -414,30 +451,42 @@ As long as the break or tear is no larger than 1 foot in any dimension, you mend
     
 This spell can physically repair a magic item or construct, but the spell can't restore magic to such an object.
     
+\DndSpellHeader
+  {Message}
+  {Transmutation Cantrip}
+  {1 minute}
+  {120 feet}
+  {V, S, M (a short piece of copper wire)}
+  {1 round}
+
+  You point your finger towards a creature within range and whisper a message. The target (abd only the target) hears your message and can reply in a whisper that only you can hear.
+
+  You can hear this spell through solid objects if you are familiar with the target and know it is beyond the barrier. Magical silence, 1 foot of stone, 1 inch of common metal, a thin slice of lead or 3 feet of wood blocks the spell. The spell doesn't have to follow a straight line and can travel around corners or through openings.
+
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Twined Spell
+  \item Quickened Spell
+\end{itemize}
 
 \DndSpellHeader
   {Ray Of Frost}
   {Evocation Cantrip}
   {1 action}
-  {Instantaneous}
   {60 feet}
   {V, S}
+  {Instantaneous}
 
 A frigid beam of blue-white light streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, it takes 1d8 cold damage, and its speed is reduced by 10 feet until the start of your next turn.
     
 \subparagraph*{At Higher Levels} The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).
 
-\DndSpellHeader
-  {Shocking Grasp}
-  {Evocation Cantrip}
-  {1 action}
-  {Instantaneous}
-  {Touch}
-  {V, S}
-
-Lightning springs from your hand to deliver a shock to a creature you try to touch. Make a melee spell attack against the target. You have advantage on the attack roll if the target is wearing armor made of metal. On a hit, the target takes 1d8 lightning damage, and it can't take reactions until the start of its next turn.
-    
-\subparagraph{At Higher Levels} The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Quickened Spell
+  \item Spell Sniper
+  \item Elemental Affinity
+\end{itemize}
 
 
 \subsection*{Level 1}
@@ -446,26 +495,36 @@ Lightning springs from your hand to deliver a shock to a creature you try to tou
   {False Life}
   {1st-level necromancy}
   {1 action}
-  {1 hour}
   {Self}
   {V, S, M (A small amount of alcohol or distilled spirits)}
+  {1 hour}
 
 Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4 temporary hit points for the duration.
     
 \subparagraph*{At Higher Levels} When you cast this spell using a spell slot of 2nd level or higher, you gain 5 additional temporary hit points for each slot level above 1st.
-  
+
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Quickened Spell
+\end{itemize}
+
 \DndSpellHeader
   {Magic Missile}
   {1st-level evocation}
   {1 action}
-  {Instantaneous}
   {120 ft}
   {V, S}
+  {Instantaneous}
 
 You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously and you can direct them to hit one creature or several.
 
 \subparagraph{At Higher Levels} When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st.
 
+\subparagraph*{Abilities}
+\begin{itemize} 
+  \item Quickened Spell
+  \item Spell Sniper
+\end{itemize}
 
 \subsection*{Level 2}
 
@@ -473,9 +532,9 @@ You create three glowing darts of magical force. Each dart hits a creature of yo
   {Enlarge/Reduce}
   {2nd-level transmutation}
   {1 action}
-  {Concentration, up to 1 minute}
   {30 feet}
   {V, S, M (A pinch of powdered iron)}
+  {Concentration, up to 1 minute}
 
 You cause a creature or an object you can see within range to grow larger or smaller for the duration. Choose either a creature or an object that is neither worn nor carried. If the target is unwilling, it can make a Constitution saving throw. On a success, the spell has no effect. 
     
@@ -483,36 +542,40 @@ If the target is a creature, everything it is wearing and carrying changes size 
     
 \subparagraph*{Enlarge} The target’s size doubles in all dimensions, and its weight is multiplied by eight. This growth increases its size by one category - from Medium to Large, for example. If there isn't enough room for the target to double its size, the creature or object attains the maximum possible size in the space available. Until the spell ends, the target also has advantage on Strength checks and Strength saving throws. The target's weapons also grow to match its new size. While these weapons are enlarged, the target's attack with them deal 1d4 extra damage. 
     
-    
 \subparagraph*{Reduce} The target’s size is halved in all dimensions, and its weight is reduced to one-eighth of normal. This reduction decreases its size by one category - from Medium to Small, for example. Until the spell ends, the target also has disadvantage on Strength checks and Strength saving throws. The target's weapons also shrink to match its new size. While these weapons are reduced, the target's attacks with them deal 1d4 less damage (this can't reduce the damage below 1).
 
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Heightened Spell
+\end{itemize}
+
+\DndSpellHeader
+  {Misty Step}
+  {2nd-level conjuration}
+  {1 bonus action}
+  {Self}
+  {V}
+  {Instantaneous}
+
+Briefly surrounded by silvery mist, you teleport up to 30 feet into an unoccupied space that you can see.
 
 \DndSpellHeader
   {Scorching Ray}
   {2nd-level evocation}
   {1 action}
-  {Instantaneous}
   {120 feet}
   {V, S}
+  {Instantaneous}
 
 You create three rays of fire and hurl them at targets within range. You can hurl them at one target or several. Make a ranged spell attack for each ray. On a hit, the target takes 2d6 fire damage.
     
 \subparagraph*{At Higher Levels} When you cast this spell using a spell slot of 3rd level or higher, you create one additional ray for each slot level above 2nd.
 
-\DndSpellHeader
-  {Shatter}
-  {2nd-level evocation}
-  {1 action}
-  {Instantaneous}
-  {60 feet}
-  {V, S, M (A chip of mica)}
-
-A sudden loud ringing noise, painfully intense, erupts from a point of your choice within range. Each creature in a 10-foot-radius sphere centered on that point must make a Constitution saving throw. A creature takes 3d8 thunder damage on a failed save, or half as much damage on a successful one. A creature made of inorganic material such as stone, crystal, or metal has disadvantage on this saving throw.
-    
-A nonmagical object that isn't being worn or carried also takes the damage if it's in the spell's area.
-    
-\subparagraph{At Higher Levels} When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d8 for each slot level above 2nd.
-
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Quickened Spell
+  \item Spell Sniper
+\end{itemize}
 
 \subsection*{Level 3}
 
@@ -520,9 +583,9 @@ A nonmagical object that isn't being worn or carried also takes the damage if it
   {Lightning Bolt}
   {3rd-level evocation}
   {1 action}
-  {Instantaneous}
   {Self (100-foot line)}
   {V, S, M (A bit of fur and a rod of amber, crystal, or glass)}
+  {Instantaneous}
 
 A stroke of lightning forming a line of 100 feet long and 5 feet wide blasts out from you in a direction you choose. Each creature in the line must make a Dexterity saving throw. A creature takes 8d6 lightning damage on a failed save, or half as much damage on a successful one.
     
@@ -530,6 +593,12 @@ The lightning ignites flammable objects in the area that aren't being worn or ca
     
 \subparagraph*{At Higher Levels} When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.
 
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Heightened Spell
+  \item Quickened Spell
+  \item Spell Sniper
+\end{itemize}
 
 \subsection*{Level 4}
 
@@ -537,9 +606,9 @@ The lightning ignites flammable objects in the area that aren't being worn or ca
   {Blight}
   {4th-level necromancy}
   {1 action}
-  {Instantaneous}
   {30 feet}
   {V, S}
+  {Instantaneous}
 
 Necromantic energy washes over a creature of your choice that you can see within range, draining moisture and vitality from it. The target must make a Constitution saving throw. The target takes 8d8 necrotic damage on a failed save, or half as much damage on a successful one. This spell has no effect on undead or constructs. 
     
@@ -548,15 +617,21 @@ If you target a plant creature or a magical plant, it makes the saving throw wit
 If you target a nonmagical plant that isn't a creature, such as a tree or shrub, it doesn't make a saving throw; it simply withers and dies.
     
 \subparagraph*{At Higher Levels} When you cast this spell using a spell slot of 5th level or higher, the damage increases by 1d8 for each slot level above 4th.
-    
+
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Heightened Spell
+  \item Twinned Spell
+  \item Quickened Spell
+\end{itemize}
 
 \DndSpellHeader
   {Dominate Beast}
   {4th-level enchantment}
   {1 action}
-  {Concentration, up to 1 minute}
   {60 feet}
   {V, S}
+  {Concentration, up to 1 minute}
 
 You attempt to beguile a beast that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. 
     
@@ -568,21 +643,48 @@ Each time the target takes damage, it makes a new Wisdom saving throw against th
     
 \subparagraph*{At Higher Levels} When you cast this spell with a 5th-level spell slot, the duration is concentration, up to 10 minutes.  When you use a 6th-level spell slot, the duration is concentration, up to 1 hour. When you use a spell slot of 7th level or higher, the duration is concentration, up to 8 hours
 
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Heightened Spell
+  \item Twinned Spell
+\end{itemize}
+
+\DndSpellHeader
+  {Greater Invisibility}
+  {4th-level illusion}
+  {1 action}
+  {Touch}
+  {V, S, M (A pinch of dust and a few drops of water)}
+  {Concentration, up to 1 minute}
+
+You or a creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target's person.
+
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Twinned Spell
+  \item Quickened Spell
+\end{itemize}
 
 \DndSpellHeader
   {Ice Storm}
   {4th-level evocation}
   {1 action}
-  {Instantaneous}
   {300 feet}
   {V, S, M (A pinch of dust and a few drops of water)}
+  {Instantaneous}
 
 A hail of rock-hard ice pounds to the ground in a 20-foot-radius, 40-foot-high cylinder centered on a point within range.  Each creature in the cylinder must make a Dexterity saving throw. A creature takes 2d8 bludgeoning damage and 4d6 cold damage on a failed save, or half as much damage on a successful one.
-    
     
 Hailstones turn the storm's area of effect into difficult terrain until the end  of your next turn.
     
 \subparagraph*{At Higher Levels} When you cast this spell using a spell slot of 5th level or higher, the bludgeoning damage increases by 1d8 for each slot level above 4th.
+
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Heightened Spell
+  \item Quickened Spell
+  \item Elemental Affinity
+\end{itemize}
 
 
 \subsection*{Level 5}
@@ -591,9 +693,9 @@ Hailstones turn the storm's area of effect into difficult terrain until the end 
   {Telekinesis}
   {5th-level transmutation}
   {1 action}
-  {Concentration, up to 10 minutes}
   {60 feet}
   {V, S}
+  {Concentration, up to 10 minutes}
 
 You gain the ability to move or manipulate creatures or objects by thought. When you cast the spell, and as your action each round for the duration, you can exert your will on one creature or object that you can see within range, causing the appropriate effect below. You can effect the same target round after round, or choose a new one at any time. If you switch targets, the prior target is no longer affected by the spell.
 
@@ -606,5 +708,12 @@ On subsequent rounds, you can use your action to attempt to maintain your teleki
 If the object is worn or carried by a creature, you must make an ability check with your spellcasting ability, contested by that creature's Strength check. If you succeed, you pull the object away from that creature and can move it up to 30 feet in any direction but not beyond the range of this spell.
 
 You can exert fine control on objects with your telekinetic grip, such as manipulating a simple tool, opening a door or container, stowing or retrieving an item from an open container, or pouring the contents from a vial.
+
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Heightened Spell
+  \item Quickened Spell
+  \item Twinned Spell
+\end{itemize}
 
 \end{document}
