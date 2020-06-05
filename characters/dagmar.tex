@@ -13,14 +13,14 @@
 
 
 % Headline
-\CharacterName{Dagmar}
+\CharacterName{Unnamed Silver Orb}
 
-\Class{Sorcerer 10}
+\Class{Sorcerer 11}
 \Background{Noble}
 \PlayerName{Mathew}
 \Race{Human}
 \Alignment{Neutral Good}
-\XP{64191}
+\XP{87345}
 
 % Ability scores
 \StrengthScore{13}
@@ -98,11 +98,11 @@
 \ArmorClass{13}
 \Initiative{0}
 \Speed{30ft}
-\MaxHitPoints{72}
+\MaxHitPoints{76}
 \CurrentHitPoints{72}
 \TemporaryHitPoints{}
-\MaxHitDice{9d6}
-\CurrentHitDice{9d6}
+\MaxHitDice{11d6}
+\CurrentHitDice{11d6}
 
 \CP{}
 \SP{}
@@ -113,9 +113,16 @@
 
 \AddWeapon{Dagger}{+5}{1d4+1 p}
 \AddWeapon{Light Crossbow}{+4}{1d8 p}
+\AddWeapon{Stiletto Dagger}{}{1d3 p}
 
 \AttacksSpellcasting{
-\textbf{Arcane Focus:}\\A glass orb filled with moving smoke
+\textbf{Arcane Focus:}\\A glass orb filled with moving smoke, known as Dagmar
+
+\textbf{Stiletto Dagger:}\\Advantage on stealth 
+
+\textbf{Draconic Ancestry:}\\Ice Damage Resistance
+
+\textbf{Ring of Fire Resistance:}\\Fire Damage Resistance
 }
 
 \OtherProficienciesLanguages{
@@ -136,7 +143,7 @@ a tinderbox,
 a waterskin,
 50 ft hempen rope,
 Jeweller's tools,
-Potion of superior healing
+Gilbmarrow's map of Northern Gulala
 }
 
 \PersonalityTraits{
@@ -158,7 +165,7 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 \FeaturesTraits{
 \textbf{Font of Magic}
 \begin{itemize}
-  \item Sorcery Points (10)
+  \item Sorcery Points (11)
   \item Flexible Casting
 \end{itemize}
 \textbf{Metamagic}
@@ -184,7 +191,10 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 \end{itemize}
 \textbf{Magical Items}
 \begin{itemize}
-  \item Ring of Mind Shielding 
+  \item Ring of Mind Shielding
+  \item Wand of Web (7)
+  \item Stiletto Dagger
+  \item Ring of Fire Resistance (loaned)
 \end{itemize}
 }
 
@@ -212,6 +222,7 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 \SecondLevelSpellSlotA{Enlarge/Reduce (V, S, M)}
 \SecondLevelSpellSlotB{Misty Step (V)}
 \SecondLevelSpellSlotC{Scorching Ray (V, S)}
+\SecondLevelSpellSlotD{Web (V, S, M (a bit of spiderweb) (Wand of Web)}
 
 \ThirdLevelSpellSlotsTotal{3}
 \ThirdLevelSpellSlotA{Lighting Bolt (V, S, M)}
@@ -290,18 +301,18 @@ Your innate magic comes from draconic magic that was mingled with your blood or 
 At 1st level, you choose a type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.
 
 
-\begin{DndTable}[header=Draconic Ancestry]{lX}
-  \textbf{Dragon}      &\textbf{Damage Type}     \\
-  Black                &Acid                     \\
-  Blue                 &Lightning                \\
-  Brass                &Fire                     \\
-  Bronze               &Lightning                \\
-  Copper               &Acid                     \\
-  Gold                 &Fire                     \\
-  Green                &Poison                   \\
-  Red                  &Fire                     \\
-  \textbf{Silver}      &\textbf{Cold}            \\
-  White                &Cold                     \\
+\begin{DndTable}[header=Draconic Ancestry]{xlX}
+          &\textbf{Dragon}      &\textbf{Damage Type}     \\
+          &Black                &Acid                     \\
+          &Blue                 &Lightning                \\
+          &Brass                &Fire                     \\
+          &Bronze               &Lightning                \\
+          &Copper               &Acid                     \\
+          &Gold                 &Fire                     \\
+          &Green                &Poison                   \\
+          &Red                  &Fire                     \\
+\bullet   &\textbf{Silver}      &\textbf{Cold}            \\
+          &White                &Cold                     \\
 \end{DndTable}
 
 You can speak, read and write Draconic. Additionally whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.
@@ -358,6 +369,18 @@ You can use an action to cause the ring to become invisible until you use anothe
 
 If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. A wearer can't prevent this telepathic communication.
 
+\subsection*{Wand of Web}
+\textit{Wand, uncommon (requires attunement)}
+
+This wand has 7 Charges. While holding it, you can use an action to expend 1 of it's Charges to cast the web spell (save DC 15) from it.
+
+The wand regains 1d6 + 1 expended Charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.
+
+
+\subsection*{Ring of Fire Resistance}
+\textit{Ring (requires attunement)}
+
+You have resistance to fire damage while wearing this ring.
 
 \section*{Spells}
  
