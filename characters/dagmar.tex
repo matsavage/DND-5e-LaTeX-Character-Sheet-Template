@@ -13,14 +13,14 @@
 
 
 % Headline
-\CharacterName{Dagmar}
+\CharacterName{Unnamed Silver Orb}
 
-\Class{Sorcerer 10}
+\Class{Sorcerer 11}
 \Background{Noble}
 \PlayerName{Mathew}
 \Race{Human}
 \Alignment{Neutral Good}
-\XP{64191}
+\XP{87345}
 
 % Ability scores
 \StrengthScore{13}
@@ -98,11 +98,11 @@
 \ArmorClass{13}
 \Initiative{0}
 \Speed{30ft}
-\MaxHitPoints{72}
-\CurrentHitPoints{72}
+\MaxHitPoints{76}
+\CurrentHitPoints{76}
 \TemporaryHitPoints{}
-\MaxHitDice{9d6}
-\CurrentHitDice{9d6}
+\MaxHitDice{11d6}
+\CurrentHitDice{11d6}
 
 \CP{}
 \SP{}
@@ -113,9 +113,12 @@
 
 \AddWeapon{Dagger}{+5}{1d4+1 p}
 \AddWeapon{Light Crossbow}{+4}{1d8 p}
+\AddWeapon{Stiletto Dagger}{+5}{1d3 p}
 
 \AttacksSpellcasting{
-\textbf{Arcane Focus:}\\A glass orb filled with moving smoke
+\textbf{Arcane Focus:}\\A glass orb filled with moving smoke, known as Dagmar\\
+\textbf{Stiletto Dagger:}\\Advantage on stealth checks to conceal\\
+\textbf{Resistances:}\\Ice and Fire damage\\
 }
 
 \OtherProficienciesLanguages{
@@ -136,7 +139,7 @@ a tinderbox,
 a waterskin,
 50 ft hempen rope,
 Jeweller's tools,
-Potion of superior healing
+Gilbmarrow's map of Northern Gulala
 }
 
 \PersonalityTraits{
@@ -158,7 +161,7 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 \FeaturesTraits{
 \textbf{Font of Magic}
 \begin{itemize}
-  \item Sorcery Points (10)
+  \item Sorcery Points (11)
   \item Flexible Casting
 \end{itemize}
 \textbf{Metamagic}
@@ -184,7 +187,10 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 \end{itemize}
 \textbf{Magical Items}
 \begin{itemize}
-  \item Ring of Mind Shielding 
+  \item Ring of Mind Shielding
+  \item Wand of Web (7)
+  \item Stiletto Dagger
+  \item Ring of Fire Resistance (loaned)
 \end{itemize}
 }
 
@@ -209,9 +215,9 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 \FirstLevelSpellSlotB{Magic Missile (V, S)}
 
 \SecondLevelSpellSlotsTotal{3}
-\SecondLevelSpellSlotA{Enlarge/Reduce (V, S, M)}
-\SecondLevelSpellSlotB{Misty Step (V)}
-\SecondLevelSpellSlotC{Scorching Ray (V, S)}
+\SecondLevelSpellSlotA{Misty Step (V)}
+\SecondLevelSpellSlotB{Scorching Ray (V, S)}
+\SecondLevelSpellSlotC{Web (V, S, M (Wand of Web)}
 
 \ThirdLevelSpellSlotsTotal{3}
 \ThirdLevelSpellSlotA{Lighting Bolt (V, S, M)}
@@ -224,6 +230,10 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 
 \FifthLevelSpellSlotsTotal{2}
 \FifthLevelSpellSlotA{Telekinesis (V, S)}
+
+\SixthLevelSpellSlotsTotal{1}
+\SixthLevelSpellSlotA{Investiture of Ice (V, S)}
+\SixthLevelSpellSlotB{Chain Lightning (V, S, M)}
 
 \begin{document}
 \newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
@@ -290,18 +300,18 @@ Your innate magic comes from draconic magic that was mingled with your blood or 
 At 1st level, you choose a type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.
 
 
-\begin{DndTable}[header=Draconic Ancestry]{lX}
-  \textbf{Dragon}      &\textbf{Damage Type}     \\
-  Black                &Acid                     \\
-  Blue                 &Lightning                \\
-  Brass                &Fire                     \\
-  Bronze               &Lightning                \\
-  Copper               &Acid                     \\
-  Gold                 &Fire                     \\
-  Green                &Poison                   \\
-  Red                  &Fire                     \\
-  \textbf{Silver}      &\textbf{Cold}            \\
-  White                &Cold                     \\
+\begin{DndTable}[header=Draconic Ancestry]{llX}
+            &\textbf{Dragon}      &\textbf{Damage Type}     \\
+            &Black                &Acid                     \\
+            &Blue                 &Lightning                \\
+            &Brass                &Fire                     \\
+            &Bronze               &Lightning                \\
+            &Copper               &Acid                     \\
+            &Gold                 &Fire                     \\
+            &Green                &Poison                   \\
+            &Red                  &Fire                     \\
+$\bullet$   &\textbf{Silver}      &\textbf{Cold}            \\
+            &White                &Cold                     \\
 \end{DndTable}
 
 You can speak, read and write Draconic. Additionally whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.
@@ -358,6 +368,18 @@ You can use an action to cause the ring to become invisible until you use anothe
 
 If you die while wearing the ring, your soul enters it, unless it already houses a soul. You can remain in the ring or depart for the afterlife. As long as your soul is in the ring, you can telepathically communicate with any creature wearing it. A wearer can't prevent this telepathic communication.
 
+\subsection*{Wand of Web}
+\textit{Wand, uncommon (requires attunement)}
+
+This wand has 7 Charges. While holding it, you can use an action to expend 1 of it's Charges to cast the web spell (save DC 15) from it.
+
+The wand regains 1d6 + 1 expended Charges daily at dawn. If you expend the wand's last charge, roll a d20. On a 1, the wand crumbles into ashes and is destroyed.
+
+
+\subsection*{Ring of Fire Resistance}
+\textit{Ring (requires attunement)}
+
+You have resistance to fire damage while wearing this ring.
 
 \section*{Spells}
  
@@ -529,27 +551,6 @@ You create three glowing darts of magical force. Each dart hits a creature of yo
 \subsection*{Level 2}
 
 \DndSpellHeader
-  {Enlarge/Reduce}
-  {2nd-level transmutation}
-  {1 action}
-  {30 feet}
-  {V, S, M (A pinch of powdered iron)}
-  {Concentration, up to 1 minute}
-
-You cause a creature or an object you can see within range to grow larger or smaller for the duration. Choose either a creature or an object that is neither worn nor carried. If the target is unwilling, it can make a Constitution saving throw. On a success, the spell has no effect. 
-    
-If the target is a creature, everything it is wearing and carrying changes size with it. Any item dropped by an affected creature returns to normal size at once. 
-    
-\subparagraph*{Enlarge} The target’s size doubles in all dimensions, and its weight is multiplied by eight. This growth increases its size by one category - from Medium to Large, for example. If there isn't enough room for the target to double its size, the creature or object attains the maximum possible size in the space available. Until the spell ends, the target also has advantage on Strength checks and Strength saving throws. The target's weapons also grow to match its new size. While these weapons are enlarged, the target's attack with them deal 1d4 extra damage. 
-    
-\subparagraph*{Reduce} The target’s size is halved in all dimensions, and its weight is reduced to one-eighth of normal. This reduction decreases its size by one category - from Medium to Small, for example. Until the spell ends, the target also has disadvantage on Strength checks and Strength saving throws. The target's weapons also shrink to match its new size. While these weapons are reduced, the target's attacks with them deal 1d4 less damage (this can't reduce the damage below 1).
-
-\subparagraph*{Abilities}
-\begin{itemize}
-  \item Heightened Spell
-\end{itemize}
-
-\DndSpellHeader
   {Misty Step}
   {2nd-level conjuration}
   {1 bonus action}
@@ -714,6 +715,52 @@ You can exert fine control on objects with your telekinetic grip, such as manipu
   \item Heightened Spell
   \item Quickened Spell
   \item Twinned Spell
+\end{itemize}
+
+
+\subsection*{Level 6}
+
+\DndSpellHeader
+  {Investiture of Ice}
+  {6th-level transmutation}
+  {1 action}
+  {Self}
+  {V, S}
+  {Concentration, up to 10 minutes}
+
+Until the spell ends, ice rimes your body, and you gain the following benefits:
+\begin{itemize}
+  \item You are immune to cold damage and have resistance to fire damage.
+  \item You can move across difficult terrain created by ice or snow without expending extra movement.
+  \item The ground in a 10-foot radius around you is icy and id difficult terrain for creatures other than you. The radius moves with you.
+  \item You can use your action to create a 15-foot cone of freezing wind extending from your outstretched hand in a direction you choose. Each creature in the cone must make a Constitution saving throw. A creature takes 4d6 cold damage on a failed save, or half as much on a successful one. A creature that fails its save against this effect has its speed halved until the start of your next turn.
+\end{itemize}
+
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Heightened Spell
+  \item Quickened Spell
+  \item Elemental Affinity
+\end{itemize}
+
+\DndSpellHeader
+  {Chain Lightning}
+  {6th-level evocation}
+  {1 action}
+  {150 feet}
+  {V, S, M (a bit of fur; a piece of amber, glass or a crystal rod; and three silver pins}
+  {Instantaneous}
+
+You create a bolt of lightning that arcs towards a target of your choice that you can see within range. Three bolts then leap from that target to as many as three other targets, each of which must be within 30 feet of the first target. A target can be a creature or object and can be targeted by only one of the bolts.
+
+A target must make a Dexterity saving throw. The target takes 10d6 lightning damage on a failed save, or half as much damage on a successful one.
+
+\subparagraph*{At higher levels} When this spell is cast using a spell slot of 7th level or higher, one additional bolt leaps from the first target to another target for each slot level above 6th.
+
+\subparagraph*{Abilities}
+\begin{itemize}
+  \item Heightened Spell
+  \item Quickened Spell
 \end{itemize}
 
 \end{document}
