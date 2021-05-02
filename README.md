@@ -4,12 +4,24 @@
 
 ## Features
 
-*
+* Character and Spell sheets
+* High degree of customisation available
+* Works with XeTeX locally or via GitHub actions
 
 <img src=https://github.com/matsavage/DND-5e-LaTeX-Character-Template/blob/documentation/fighter_character_sheet.png />
+
+
 ## Usage
 
+### Building a character sheet
+
+### Compliation
+
+If you use this as a template repository, there is a configured [GitHub Action](https://github.com/matsavage/dnd-latex-action) which will compile all `.tex` files in the `characters` directory to PDF sheets in situ. Alternatively it is reccomended to use XeLaTeX and the [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template).
+
 ### Customisation
+
+There are a large number of character sheet customisation options available in [`character-sheet-settings.tex`](https://github.com/matsavage/DND-5e-LaTeX-Character-Template/blob/documentation/character-sheet-settings.tex) which acts a central location to modify colour and opacity for a number of character sheet elements.
 
 ## Dependencies
 
@@ -17,4 +29,4 @@ This package requires LaTeX and the [DnD 5e LaTeX Template](https://github.com/r
 
 ## Credits
 
-* This is the modification of the standard [Wizards of the Coast PDF character sheet](https://media.wizards.com/2016/dnd/downloads/5E_CharacterSheet_Fillable.pdf) template
+* This package was generated from the standard Wizards of the Coast [PDF character sheet](https://media.wizards.com/2016/dnd/downloads/5E_CharacterSheet_Fillable.pdf) template
