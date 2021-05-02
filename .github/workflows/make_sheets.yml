@@ -19,7 +19,7 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v1
       - name: Compile character tex files
-        uses: matsavage/latex-action@master
+        uses: matsavage/dnd-latex-action@master
         with:
           working_directory: characters
           compiler: xelatex
