@@ -1,4 +1,4 @@
-# DND 5e LaTeX Character Template
+# DND 5e LaTeX Character Sheet Template
 
 > LaTeX template to typeset Dungeons and Dragons 5th edition character sheets.
 
@@ -8,7 +8,7 @@
 * High degree of customisation available
 * Works with XeTeX locally or via GitHub actions
 
-<img src=https://github.com/matsavage/DND-5e-LaTeX-Character-Template/blob/documentation/fighter_character_sheet.png />
+<img src=https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/blob/documentation/fighter_character_sheet.png />
 
 
 ## Usage
