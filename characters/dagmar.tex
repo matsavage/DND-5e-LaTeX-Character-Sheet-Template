@@ -1,4 +1,4 @@
-\documentclass[a4paper,openany,twocolumn]{book}
+\documentclass[letterpaper,openany,oneside,twocolumn]{book}
 
 \usepackage{fontspec}
 \usepackage[justified]{dnd}
@@ -7,9 +7,10 @@
 
 \usepackage[UKenglish]{babel}
 
-\input{../character-sheet-settings}
-\input{../template/character-sheet-commands}
+\usepackage{dndtemplate}
 
+\setlength\oddsidemargin{\dimexpr(\paperwidth-\textwidth)/2 - 1in\relax}
+\setlength\evensidemargin{\oddsidemargin}
 
 % Headline
 \CharacterName{Unnamed Silver Orb}
@@ -202,7 +203,7 @@ My noble upbringing and demeanour makes it hard for me to connect with people, a
 \Skin{Reflective}
 \Hair{Short brown}
 
-% Backstory
+% background
 
 \CharacterAppearance{
 The character is short and stout. With small arms. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Dictumst quisque sagittis purus sit. Mattis nunc sed blandit libero volutpat sed cras ornare. Blandit cursus risus at ultrices mi tempus imperdiet. Et netus et malesuada fames ac turpis egestas maecenas. Nibh cras pulvinar mattis nunc sed blandit. Varius vel pharetra vel turpis nunc eget lorem dolor.
@@ -210,7 +211,7 @@ The character is short and stout. With small arms. Lorem ipsum dolor sit amet, c
 \AdditionalFeaturesAndTraits{
 Capable of rolling around like a regular orb. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Dictumst quisque sagittis purus sit. Mattis nunc sed blandit libero volutpat sed cras ornare. Blandit cursus risus at ultrices mi tempus imperdiet. Et netus et malesuada fames ac turpis egestas maecenas. Nibh cras pulvinar mattis nunc sed blandit. Varius vel pharetra vel turpis nunc eget lorem dolor. Tellus orci ac auctor augue. Nulla aliquet enim tortor at auctor urna nunc id cursus. A condimentum vitae sapien pellentesque habitant morbi tristique. Viverra suspendisse potenti nullam ac tortor. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Nisl condimentum id venenatis a. Dui nunc mattis enim ut tellus elementum sagittis.
 }
-\CharacterBackstory{
+\Characterbackground{
 Born of a volcanic eruption this orb. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nullam eget felis eget nunc lobortis mattis aliquam faucibus. Dictumst quisque sagittis purus sit. Mattis nunc sed blandit libero volutpat sed cras ornare. Blandit cursus risus at ultrices mi tempus imperdiet. Et netus et malesuada fames ac turpis egestas maecenas. Nibh cras pulvinar mattis nunc sed blandit. Varius vel pharetra vel turpis nunc eget lorem dolor. Tellus orci ac auctor augue. Nulla aliquet enim tortor at auctor urna nunc id cursus. A condimentum vitae sapien pellentesque habitant morbi tristique. Viverra suspendisse potenti nullam ac tortor. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Nisl condimentum id venenatis a. Dui nunc mattis enim ut tellus elementum sagittis.
 }
 \Treasure{
@@ -267,12 +268,13 @@ Allied with the cult of the dragon. Lorem ipsum dolor sit amet, consectetur adip
 
 
 % CHARACTER PAGE
-\input{../template/character-sheet.tex}
+\rendercharactersheet
 
-\input{../template/backstory-sheet.tex}
+% BACKSTORY PAGE
+\renderbackgroundsheet
 
 % SPELLCASTING PAGE
-\input{../template/spell-sheet.tex}
+\renderspellsheet
 
 
 

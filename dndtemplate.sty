@@ -5,6 +5,7 @@
 \usepackage{ifthen}
 \usepackage{pstricks}
 
+<<<<<<< HEAD
 % DEFINE FONT FOR USER INPUTTED TEXT
 \newfontfamily\entryfont{Kalam}[Path=template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
 
@@ -63,3 +64,11 @@
 \newcommand{\rendercharactersheet}{\input{template/character-sheet.tex}}
 \newcommand{\renderbackgroundsheet}{\input{template/background-sheet.tex}}
 \newcommand{\renderspellsheet}{\input{template/spell-sheet.tex}}
+=======
+\input{character-sheet-settings}
+\input{template/character-sheet-commands}
+
+\newcommand{\rendercharactersheet}{\input{template/character-sheet.tex}}
+\newcommand{\renderbackgroundsheet}{\input{template/background-sheet.tex}}
+\newcommand{\renderspellsheet}{\input{template/spell-sheet.tex}}
+>>>>>>> 309a169... Make latex class (#10)
