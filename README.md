@@ -6,7 +6,7 @@
 
 * Character and Spell sheets
 * High degree of customisation available
-* Works with XeTeX locally or via GitHub actions
+* Works with XeLaTeX locally
 
 <img src=https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/raw/main/fighter_character_sheet.png/>
 
