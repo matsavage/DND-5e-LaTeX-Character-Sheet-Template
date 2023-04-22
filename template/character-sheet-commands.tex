@@ -156,7 +156,7 @@
 
 \makeatletter
 \newcommand\AddWeapon[3]{%
-  \g@addto@macro\WeaponsHeld{\\ \entryfont #1 & \entryfont #2 & \entryfont #3}
+  \g@addto@macro\WeaponsHeld{\\ \entryfont \textcolor{text-color}{#1} & \entryfont \textcolor{text-color}{#2} & \entryfont \textcolor{text-color}{#3}}
 }
 \makeatother
 
