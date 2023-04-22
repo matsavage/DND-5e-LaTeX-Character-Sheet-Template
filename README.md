@@ -23,7 +23,7 @@ If you use this as a template repository, there is a configured [GitHub Action](
 
 ### Customisation
 
-There are a large number of character sheet customisation options available in [`character-sheet-settings.tex`](https://github.com/matsavage/DND-5e-LaTeX-Character-Template/blob/documentation/character-sheet-settings.tex) which acts a central location to modify colour and opacity for a number of character sheet elements.
+There are a large number of character sheet customisation options available in [`character-sheet-settings.tex`](https://github.com/matsavage/DND-5e-LaTeX-Character-Template/blob/documentation/character-sheet-settings.tex) which acts a central location to modify colour and opacity for a number of character sheet elements. There are some commands with the example sheet that were made to auto calcuulate the modifiers and proficiencies, and auto complete a few inputs.
 
 ## Dependencies
 
