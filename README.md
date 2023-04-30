@@ -6,7 +6,7 @@
 
 * Character and Spell sheets
 * High degree of customisation available
-* Works with XeTeX locally or via GitHub actions
+* Works with XeTeX or Nix locally or via GitHub actions
 
 <img src=https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/raw/main/fighter_character_sheet.png/>
 
@@ -19,7 +19,16 @@ It is reccomended to look at pre-existing character sheets in the `characters` d
 
 ### Compliation
 
-If you use this as a template repository, there is a configured [GitHub Action](https://github.com/matsavage/dnd-latex-action) which will compile all `.tex` files in the `characters` directory to PDF sheets in situ. Alternatively it is reccomended to use XeLaTeX and the [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template) if compiling locally.
+If you use this as a template repository, there is a configured [GitHub Action](https://github.com/matsavage/dnd-latex-action) which will compile all `.tex` files in the `characters` directory to PDF sheets in situ. Alternatively it is recommended to use XeLaTeX and the [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template) if compiling locally.
+
+#### Nix
+A nix flake is a reproducible way to describe the building process to [nix](https://nixos.org/).
+See https://nixos.org/download.html, on how to install nix.
+Afterwards running `nix build` in the repository will result in a successful build.
+
+Flakes and Nix-Commands are still experimental, so they must be enabled
+as described at https://nixos.wiki/wiki/Flakes#Enable_flakes.
+
 
 ### Customisation
 
