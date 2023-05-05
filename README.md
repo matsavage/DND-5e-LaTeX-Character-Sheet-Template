@@ -12,6 +12,7 @@
 * High degree of customisation available
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * Works with XeLaTeX locally
 
 <img src=https://github.com/Chery-cake/DND-5e-LaTeX-Character-Sheet-Template/raw/main/bard-druid_character_sheet.png/>
@@ -23,6 +24,11 @@
 
 <img src=https://github.com/matsavage/DND-5e-LaTeX-Character-Template/blob/documentation/fighter_character_sheet.png />
 >>>>>>> b354a92... Documentation (#6)
+=======
+* Works with XeLaTeX locally
+
+<img src=https://github.com/Chery-cake/DND-5e-LaTeX-Character-Sheet-Template/raw/main/bard-druid_character_sheet.png/>
+>>>>>>> 41ccb6b... Added auto calculation of modifier
 
 
 ## Usage
@@ -63,8 +69,12 @@ as described at https://nixos.wiki/wiki/Flakes#Enable_flakes.
 
 ### Customisation
 
+<<<<<<< HEAD
 There are a large number of character sheet customisation options available in [`character-sheet-settings.tex`](https://github.com/matsavage/DND-5e-LaTeX-Character-Template/blob/documentation/character-sheet-settings.tex) which acts a central location to modify colour and opacity for a number of character sheet elements.
 >>>>>>> b354a92... Documentation (#6)
+=======
+There are a large number of character sheet customisation options available in [`character-sheet-settings.tex`](https://github.com/matsavage/DND-5e-LaTeX-Character-Template/blob/documentation/character-sheet-settings.tex) which acts a central location to modify colour and opacity for a number of character sheet elements. There are some commands in `sheet-calculations` that were made to auto calculate the modifiers and proficiencies, and auto complete a few inputs.
+>>>>>>> 41ccb6b... Added auto calculation of modifier
 
 ## Dependencies
 
