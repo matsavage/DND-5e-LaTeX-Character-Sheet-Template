@@ -1,0 +1,772 @@
+\newcommand{\SetProficiency}[1]{
+	\Proficiency{#1}
+	\FPeval{\ProficiencyHalfValue}{clip(trunc(\fpeval{#1/2} :0))}	
+}
+
+\newcommand{\SetStrength}[1]{
+	\StrengthScore{#1}
+	\FPeval{\StrengthModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+}
+
+\newcommand{\SetDexterity}[1]{
+	\DexterityScore{#1}
+	\FPeval{\DexterityModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+}
+
+\newcommand{\SetConstitution}[1]{
+	\ConstitutionScore{#1}
+	\FPeval{\ConstitutionModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+}
+
+\newcommand{\SetIntelligence}[1]{
+	\IntelligenceScore{#1}
+	\FPeval{\IntelligenceModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+}
+
+\newcommand{\SetWisdom}[1]{
+	\WisdomScore{#1}
+	\FPeval{\WisdomModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+}
+
+\newcommand{\SetCharisma}[1]{
+	\CharismaScore{#1}
+	\FPeval{\CharismaModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+}
+
+\newcommand{\StrengthProficiencyValue}{}
+\newcommand{\SetStrengthProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{
+		\StrengthProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\StrengthProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\StrengthProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\StrengthProficiencyValue}{#1}
+}
+
+\newcommand{\DexterityProficiencyValue}{}
+\newcommand{\SetDexterityProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{
+		\DexterityProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\DexterityProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\DexterityProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\DexterityProficiencyValue}{#1}
+}
+
+\newcommand{\ConstitutionProficiencyValue}{}
+\newcommand{\SetConstitutionProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{
+		\ConstitutionProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\ConstitutionProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\ConstitutionProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\ConstitutionProficiencyValue}{#1}
+}
+
+\newcommand{\IntelligenceProficiencyValue}{}
+\newcommand{\SetIntelligenceProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{
+		\IntelligenceProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\IntelligenceProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\IntelligenceProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\IntelligenceProficiencyValue}{#1}
+}
+
+\newcommand{\WisdomProficiencyValue}{}
+\newcommand{\SetWisdomProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{
+		\WisdomProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\WisdomProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\WisdomProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\WisdomProficiencyValue}{#1}
+}
+
+\newcommand{\CharismaProficiencyValue}{}
+\newcommand{\SetCharismaProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{
+		\CharismaProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\CharismaProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\CharismaProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\CharismaProficiencyValue}{#1}
+}
+
+\newcommand{\SetStrengthSavingThrowModifier}[1]{
+	\ifdimequal{\StrengthProficiencyValue pt}{0 pt}{
+		\StrengthSavingThrowModifier{\fpeval{#1 + \StrengthModifierValue}}	
+	}{
+		\ifdimequal{\StrengthProficiencyValue pt}{1 pt}{
+			\StrengthSavingThrowModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyValue}}	
+		}{
+			\ifdimequal{\StrengthProficiencyValue pt}{2 pt}{
+				\StrengthSavingThrowModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\StrengthSavingThrowModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetDexteritySavingThrowModifier}[1]{
+	\ifdimequal{\DexterityProficiencyValue pt}{0 pt}{
+		\DexteritySavingThrowModifier{\fpeval{#1 + \DexterityModifierValue}}	
+	}{
+		\ifdimequal{\DexterityProficiencyValue pt}{1 pt}{
+			\DexteritySavingThrowModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\DexterityProficiencyValue pt}{2 pt}{
+				\DexteritySavingThrowModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\DexteritySavingThrowModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetConstitutionSavingThrowModifier}[1]{
+	\ifdimequal{\ConstitutionProficiencyValue pt}{0 pt}{
+		\ConstitutionSavingThrowModifier{\fpeval{#1 + \ConstitutionModifierValue}}	
+	}{
+		\ifdimequal{\ConstitutionProficiencyValue pt}{1 pt}{
+			\ConstitutionSavingThrowModifier{\fpeval{#1 + \ConstitutionModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\ConstitutionProficiencyValue pt}{2 pt}{
+				\ConstitutionSavingThrowModifier{\fpeval{#1 + \ConstitutionModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\ConstitutionSavingThrowModifier{\fpeval{#1 + \ConstitutionModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetIntelligenceSavingThrowModifier}[1]{
+	\ifdimequal{\IntelligenceProficiencyValue pt}{0 pt}{
+		\IntelligenceSavingThrowModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+	}{
+		\ifdimequal{\IntelligenceProficiencyValue pt}{1 pt}{
+			\IntelligenceSavingThrowModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\IntelligenceProficiencyValue pt}{2 pt}{
+				\IntelligenceSavingThrowModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\IntelligenceSavingThrowModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetWisdomSavingThrowModifier}[1]{
+	\ifdimequal{\WisdomProficiencyValue pt}{0 pt}{
+		\WisdomSavingThrowModifier{\fpeval{#1 + \WisdomModifierValue}}	
+	}{
+		\ifdimequal{\WisdomProficiencyValue pt}{1 pt}{
+			\WisdomSavingThrowModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\WisdomProficiencyValue pt}{2 pt}{
+				\WisdomSavingThrowModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\WisdomSavingThrowModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetCharismaSavingThrowModifier}[1]{
+	\ifdimequal{\CharismaProficiencyValue pt}{0 pt}{
+		\CharismaSavingThrowModifier{\fpeval{#1 + \CharismaModifierValue}}	
+	}{
+		\ifdimequal{\CharismaProficiencyValue pt}{1 pt}{
+			\CharismaSavingThrowModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\CharismaProficiencyValue pt}{2 pt}{
+				\CharismaSavingThrowModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\CharismaSavingThrowModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\AcrobaticsProficiencyValue}{}
+\newcommand{\SetAcrobaticsProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\AcrobaticsProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\AcrobaticsProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\AcrobaticsProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\AcrobaticsProficiencyValue}{#1}
+}
+
+\newcommand{\AnimalHandlingProficiencyValue}{}
+\newcommand{\SetAnimalHandlingProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\AnimalHandlingProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\AnimalHandlingProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\AnimalHandlingProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\AnimalHandlingProficiencyValue}{#1}
+}
+
+\newcommand{\ArcanaProficiencyValue}{}
+\newcommand{\SetArcanaProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\ArcanaProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\ArcanaProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\ArcanaProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\ArcanaProficiencyValue}{#1}
+}
+
+\newcommand{\AthleticsProficiencyValue}{}
+\newcommand{\SetAthleticsProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\AthleticsProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\AthleticsProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\AthleticsProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\AthleticsProficiencyValue}{#1}
+}
+
+\newcommand{\DeceptionProficiencyValue}{}
+\newcommand{\SetDeceptionProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\DeceptionProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\DeceptionProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\DeceptionProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\DeceptionProficiencyValue}{#1}
+}
+
+\newcommand{\HistoryProficiencyValue}{}
+\newcommand{\SetHistoryProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\HistoryProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\HistoryProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\HistoryProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\HistoryProficiencyValue}{#1}
+}
+
+\newcommand{\InsightProficiencyValue}{}
+\newcommand{\SetInsightProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\InsightProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\InsightProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\InsightProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\InsightProficiencyValue}{#1}
+}
+
+\newcommand{\IntimidationProficiencyValue}{}
+\newcommand{\SetIntimidationProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\IntimidationProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\IntimidationProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\IntimidationProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\IntimidationProficiencyValue}{#1}
+}
+
+\newcommand{\InvestigationProficiencyValue}{}
+\newcommand{\SetInvestigationProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\InvestigationProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\InvestigationProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\InvestigationProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\InvestigationProficiencyValue}{#1}
+}
+
+\newcommand{\MedicineProficiencyValue}{}
+\newcommand{\SetMedicineProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\MedicineProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\MedicineProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\MedicineProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\MedicineProficiencyValue}{#1}
+}
+
+\newcommand{\NatureProficiencyValue}{}
+\newcommand{\SetNatureProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\NatureProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\NatureProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\NatureProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\NatureProficiencyValue}{#1}
+}
+
+\newcommand{\PerceptionProficiencyValue}{}
+\newcommand{\SetPerceptionProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\PerceptionProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\PerceptionProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\PerceptionProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\PerceptionProficiencyValue}{#1}
+}
+
+\newcommand{\PerformanceProficiencyValue}{}
+\newcommand{\SetPerformanceProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\PerformanceProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\PerformanceProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\PerformanceProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\PerformanceProficiencyValue}{#1}
+}
+
+\newcommand{\PersuasionProficiencyValue}{}
+\newcommand{\SetPersuasionProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\PersuasionProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\PersuasionProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\PersuasionProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\PersuasionProficiencyValue}{#1}
+}
+
+\newcommand{\ReligionProficiencyValue}{}
+\newcommand{\SetReligionProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\ReligionProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\ReligionProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\ReligionProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\ReligionProficiencyValue}{#1}
+}
+
+\newcommand{\SleightOfHandProficiencyValue}{}
+\newcommand{\SetSleightOfHandProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\SleightOfHandProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\SleightOfHandProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\SleightOfHandProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\SleightOfHandProficiencyValue}{#1}
+}
+
+\newcommand{\StealthProficiencyValue}{}
+\newcommand{\SetStealthProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\StealthProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\StealthProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\StealthProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\StealthProficiencyValue}{#1}
+}
+
+\newcommand{\SurvivalProficiencyValue}{}
+\newcommand{\SetSurvivalProficiency}[1]{
+	\ifdimequal{#1 pt}{1 pt}{\SurvivalProficiency{Proficient}}{
+		\ifdimequal{#1 pt}{0 pt}{}{
+			\SurvivalProficiency{Half}
+			\ifdimequal{#1 pt}{2 pt}{
+				\SurvivalProficiency{Expert}
+			}{}
+		}
+	}
+	\renewcommand{\SurvivalProficiencyValue}{#1}
+}
+
+\newcommand{\SetAcrobaticsSkillModifier}[1]{
+	\ifdimequal{\AcrobaticsProficiencyValue pt}{0 pt}{
+		\AcrobaticsSkillModifier{\fpeval{#1 + \DexterityModifierValue}}	
+	}{
+		\ifdimequal{\AcrobaticsProficiencyValue pt}{1 pt}{
+			\AcrobaticsSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\AcrobaticsProficiencyValue pt}{2 pt}{
+				\AcrobaticsSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\AcrobaticsSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetAnimalHandlingSkillModifier}[1]{
+	\ifdimequal{\AnimalHandlingProficiencyValue pt}{0 pt}{
+		\AnimalHandlingSkillModifier{\fpeval{#1 + \WisdomModifierValue}}	
+	}{
+		\ifdimequal{\AnimalHandlingProficiencyValue pt}{1 pt}{
+			\AnimalHandlingSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\AnimalHandlingProficiencyValue pt}{2 pt}{
+				\AnimalHandlingSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\AnimalHandlingSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetArcanaSkillModifier}[1]{
+	\ifdimequal{\ArcanaProficiencyValue pt}{0 pt}{
+		\ArcanaSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+	}{
+		\ifdimequal{\ArcanaProficiencyValue pt}{1 pt}{
+			\ArcanaSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\ArcanaProficiencyValue pt}{2 pt}{
+				\ArcanaSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\ArcanaSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetAthleticsSkillModifier}[1]{
+	\ifdimequal{\AthleticsProficiencyValue pt}{0 pt}{
+		\AthleticsSkillModifier{\fpeval{#1 + \StrengthModifierValue}}	
+	}{
+		\ifdimequal{\AthleticsProficiencyValue pt}{1 pt}{
+			\AthleticsSkillModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\AthleticsProficiencyValue pt}{2 pt}{
+				\AthleticsSkillModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\AthleticsSkillModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetDeceptionSkillModifier}[1]{
+	\ifdimequal{\DeceptionProficiencyValue pt}{0 pt}{
+		\DeceptionSkillModifier{\fpeval{#1 + \CharismaModifierValue}}	
+	}{
+		\ifdimequal{\DeceptionProficiencyValue pt}{1 pt}{
+			\DeceptionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\DeceptionProficiencyValue pt}{2 pt}{
+				\DeceptionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\DeceptionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetHistorySkillModifier}[1]{
+	\ifdimequal{\HistoryProficiencyValue pt}{0 pt}{
+		\HistorySkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+	}{
+		\ifdimequal{\HistoryProficiencyValue pt}{1 pt}{
+			\HistorySkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\HistoryProficiencyValue pt}{2 pt}{
+				\HistorySkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\HistorySkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetInsightSkillModifier}[1]{
+	\ifdimequal{\InsightProficiencyValue pt}{0 pt}{
+		\InsightSkillModifier{\fpeval{#1 + \WisdomModifierValue}}	
+	}{
+		\ifdimequal{\InsightProficiencyValue pt}{1 pt}{
+			\InsightSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\InsightProficiencyValue pt}{2 pt}{
+				\InsightSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\InsightSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetIntimidationSkillModifier}[1]{
+	\ifdimequal{\IntimidationProficiencyValue pt}{0 pt}{
+		\IntimidationSkillModifier{\fpeval{#1 + \CharismaModifierValue}}	
+	}{
+		\ifdimequal{\IntimidationProficiencyValue pt}{1 pt}{
+			\IntimidationSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\IntimidationProficiencyValue pt}{2 pt}{
+				\IntimidationSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\IntimidationSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetInvestigationSkillModifier}[1]{
+	\ifdimequal{\InvestigationProficiencyValue pt}{0 pt}{
+		\InvestigationSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+	}{
+		\ifdimequal{\InvestigationProficiencyValue pt}{1 pt}{
+			\InvestigationSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\InvestigationProficiencyValue pt}{2 pt}{
+				\InvestigationSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\InvestigationSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetMedicineSkillModifier}[1]{
+	\ifdimequal{\MedicineProficiencyValue pt}{0 pt}{
+		\MedicineSkillModifier{\fpeval{#1 + \WisdomModifierValue}}	
+	}{
+		\ifdimequal{\MedicineProficiencyValue pt}{1 pt}{
+			\MedicineSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\MedicineProficiencyValue pt}{2 pt}{
+				\MedicineSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\MedicineSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetNatureSkillModifier}[1]{
+	\ifdimequal{\NatureProficiencyValue pt}{0 pt}{
+		\NatureSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+	}{
+		\ifdimequal{\NatureProficiencyValue pt}{1 pt}{
+			\NatureSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\NatureProficiencyValue pt}{2 pt}{
+				\NatureSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\NatureSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetPerceptionSkillModifier}[1]{
+	\ifdimequal{\PerceptionProficiencyValue pt}{0 pt}{
+		\PerceptionSkillModifier{\fpeval{#1 + \WisdomModifierValue}}	
+	}{
+		\ifdimequal{\PerceptionProficiencyValue pt}{1 pt}{
+			\PerceptionSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\PerceptionProficiencyValue pt}{2 pt}{
+				\PerceptionSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\PerceptionSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetPerformanceSkillModifier}[1]{
+	\ifdimequal{\PerformanceProficiencyValue pt}{0 pt}{
+		\PerformanceSkillModifier{\fpeval{#1 + \CharismaModifierValue}}	
+	}{
+		\ifdimequal{\PerformanceProficiencyValue pt}{1 pt}{
+			\PerformanceSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\PerformanceProficiencyValue pt}{2 pt}{
+				\PerformanceSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\PerformanceSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetPersuasionSkillModifier}[1]{
+	\ifdimequal{\PersuasionProficiencyValue pt}{0 pt}{
+		\PersuasionSkillModifier{\fpeval{#1 + \CharismaModifierValue}}	
+	}{
+		\ifdimequal{\PersuasionProficiencyValue pt}{1 pt}{
+			\PersuasionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\PersuasionProficiencyValue pt}{2 pt}{
+				\PersuasionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\PersuasionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetReligionSkillModifier}[1]{
+	\ifdimequal{\ReligionProficiencyValue pt}{0 pt}{
+		\ReligionSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+	}{
+		\ifdimequal{\ReligionProficiencyValue pt}{1 pt}{
+			\ReligionSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\ReligionProficiencyValue pt}{2 pt}{
+				\ReligionSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\ReligionSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetSleightOfHandSkillModifier}[1]{
+	\ifdimequal{\SleightOfHandProficiencyValue pt}{0 pt}{
+		\SleightOfHandSkillModifier{\fpeval{#1 + \DexterityModifierValue}}	
+	}{
+		\ifdimequal{\SleightOfHandProficiencyValue pt}{1 pt}{
+			\SleightOfHandSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\SleightOfHandProficiencyValue pt}{2 pt}{
+				\SleightOfHandSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\SleightOfHandSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetStealthSkillModifier}[1]{
+	\ifdimequal{\StealthProficiencyValue pt}{0 pt}{
+		\StealthSkillModifier{\fpeval{#1 + \DexterityModifierValue}}	
+	}{
+		\ifdimequal{\StealthProficiencyValue pt}{1 pt}{
+			\StealthSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\StealthProficiencyValue pt}{2 pt}{
+				\StealthSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\StealthSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetSurvivalSkillModifier}[1]{
+	\ifdimequal{\SurvivalProficiencyValue pt}{0 pt}{
+		\SurvivalSkillModifier{\fpeval{#1 + \WisdomModifierValue}}	
+	}{
+		\ifdimequal{\SurvivalProficiencyValue pt}{1 pt}{
+			\SurvivalSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+		}{
+			\ifdimequal{\SurvivalProficiencyValue pt}{2 pt}{
+				\SurvivalSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
+			}{
+				\SurvivalSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyHalfValue}}
+			}
+		}
+	}
+}
+
+\newcommand{\SetSpellModifierStrength}[1]{
+	\SpellcastingAbility{STR}
+	\SpellSaveDC{\fpeval{8 + \StrengthModifierValue + \ProficiencyValue + #1}}
+	\SpellAttackBonus{\fpeval{\StrengthModifierValue + \ProficiencyValue}}
+}
+
+\newcommand{\SetSpellModifierDexterity}[1]{
+	\SpellcastingAbility{DEX}
+	\SpellSaveDC{\fpeval{8 + \DexterityModifierValue + \ProficiencyValue + #1}}
+	\SpellAttackBonus{\fpeval{\DexterityModifierValue + \ProficiencyValue}}
+}
+
+\newcommand{\SetSpellModifierConstitution}[1]{
+	\SpellcastingAbility{CON}
+	\SpellSaveDC{\fpeval{8 + \ConstitutionModifierValue + \ProficiencyValue + #1}}
+	\SpellAttackBonus{\fpeval{\ConstitutionModifierValue + \ProficiencyValue}}
+}
+
+\newcommand{\SetSpellModifierIntelligence}[1]{
+	\SpellcastingAbility{INT}
+	\SpellSaveDC{\fpeval{8 + \IntelligenceModifierValue + \ProficiencyValue + #1}}
+	\SpellAttackBonus{\fpeval{\IntelligenceModifierValue + \ProficiencyValue}}
+}
+
+\newcommand{\SetSpellModifierWisdom}[1]{
+	\SpellcastingAbility{WIS}
+	\SpellSaveDC{\fpeval{8 + \WisdomModifierValue + \ProficiencyValue + #1}}
+	\SpellAttackBonus{\fpeval{\WisdomModifierValue + \ProficiencyValue}}
+}
+
+\newcommand{\SetSpellModifierCharisma}[1]{
+	\SpellcastingAbility{CHA}
+	\SpellSaveDC{\fpeval{8 + \CharismaModifierValue + \ProficiencyValue + #1}}
+	\SpellAttackBonus{\fpeval{\CharismaModifierValue + \ProficiencyValue}}
+}

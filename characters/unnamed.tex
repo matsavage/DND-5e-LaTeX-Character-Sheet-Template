@@ -1,0 +1,43 @@
+\documentclass[letterpaper,openany,oneside,twocolumn]{book}
+
+\usepackage{fontspec}
+\usepackage[justified]{dnd}
+\usepackage{ifthen}
+\usepackage{pstricks}
+
+\usepackage[UKenglish]{babel}
+
+\usepackage{dndtemplate}
+
+
+\setlength\oddsidemargin{\dimexpr(\paperwidth-\textwidth)/2 - 1in\relax}
+\setlength\evensidemargin{\oddsidemargin}
+
+\begin{document}
+	\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+	\onecolumn
+	
+	
+	% CHARACTER PAGE
+	\include{unnamed/general}
+	\rendercharactersheet
+	
+	% BACKSTORY PAGE
+	\include{unnamed/background}
+	\renderbackgroundsheet
+	
+	% SPELLCASTING PAGES
+	\include{unnamed/bard}
+	\renderspellsheet
+	
+	\include{unnamed/druid}
+	\renderspellsheet
+	
+	\include{unnamed/sorcerer}
+	\renderspellsheet
+	
+	\restoregeometry
+	\twocolumn
+	
+\end{document}
+ 

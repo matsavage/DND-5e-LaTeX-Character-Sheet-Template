@@ -156,7 +156,7 @@
 
 \makeatletter
 \newcommand\AddWeapon[3]{%
-  \g@addto@macro\WeaponsHeld{\\ \entryfont #1 & \entryfont #2 & \entryfont #3}
+  \g@addto@macro\WeaponsHeld{\\ \entryfont \textcolor{text-color}{#1} & \entryfont \textcolor{text-color}{#2} & \entryfont \textcolor{text-color}{#3}}
 }
 \makeatother
 
@@ -467,31 +467,295 @@
 \newcommand{\NinthLevelSpellSlotG}[1]{\renewcommand{\NinthLevelSpellSlotGValue}{#1}}
 
 % PROFICIENCY COLOR CHANGES
-\newrgbcolor{strengthproficiency}{1 1 1}\newcommand{\StrengthProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{strengthproficiency}{0 0 0}}{}}
-\newrgbcolor{dexterityproficiency}{1 1 1}\newcommand{\DexterityProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{dexterityproficiency}{0 0 0}}{}}
-\newrgbcolor{constitutionproficiency}{1 1 1}\newcommand{\ConstitutionProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{constitutionproficiency}{0 0 0}}{}}
-\newrgbcolor{intelligenceproficiency}{1 1 1}\newcommand{\IntelligenceProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{intelligenceproficiency}{0 0 0}}{}}
-\newrgbcolor{wisdomproficiency}{1 1 1}\newcommand{\WisdomProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{wisdomproficiency}{0 0 0}}{}}
-\newrgbcolor{charismaproficiency}{1 1 1}\newcommand{\CharismaProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{charismaproficiency}{0 0 0}}{}}
-\newrgbcolor{acrobaticsproficiency}{1 1 1}\newcommand{\AcrobaticsProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{acrobaticsproficiency}{0 0 0}}{}}
+\newrgbcolor{strengthproficiency}{1 1 1}
+\newrgbcolor{strengthproficiencyhalf}{1 1 1}
 
-\newrgbcolor{animalhandlingproficiency}{1 1 1}\newcommand{\AnimalHandlingProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{animalhandlingproficiency}{0 0 0}}{}}
-\newrgbcolor{arcanaproficiency}{1 1 1}\newcommand{\ArcanaProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{arcanaproficiency}{0 0 0}}{}}
-\newrgbcolor{athleticsproficiency}{1 1 1}\newcommand{\AthleticsProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{athleticsproficiency}{0 0 0}}{}}
-\newrgbcolor{deceptionproficiency}{1 1 1}\newcommand{\DeceptionProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{deceptionproficiency}{0 0 0}}{}}
-\newrgbcolor{historyproficiency}{1 1 1}\newcommand{\HistoryProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{historyproficiency}{0 0 0}}{}}
-\newrgbcolor{insightproficiency}{1 1 1}\newcommand{\InsightProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{insightproficiency}{0 0 0}}{}}
-\newrgbcolor{intimidationproficiency}{1 1 1}\newcommand{\IntimidationProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{intimidationproficiency}{0 0 0}}{}}
-\newrgbcolor{investigationproficiency}{1 1 1}\newcommand{\InvestigationProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{investigationproficiency}{0 0 0}}{}}
-\newrgbcolor{medicineproficiency}{1 1 1}\newcommand{\MedicineProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{medicineproficiency}{0 0 0}}{}}
-\newrgbcolor{natureproficiency}{1 1 1}\newcommand{\NatureProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{natureproficiency}{0 0 0}}{}}
-\newrgbcolor{perceptionproficiency}{1 1 1}\newcommand{\PerceptionProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{perceptionproficiency}{0 0 0}}{}}
-\newrgbcolor{performanceproficiency}{1 1 1}\newcommand{\PerformanceProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{performanceproficiency}{0 0 0}}{}}
-\newrgbcolor{persuasionproficiency}{1 1 1}\newcommand{\PersuasionProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{persuasionproficiency}{0 0 0}}{}}
-\newrgbcolor{religionproficiency}{1 1 1}\newcommand{\ReligionProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{religionproficiency}{0 0 0}}{}}
-\newrgbcolor{sleightofhandproficiency}{1 1 1}\newcommand{\SleightOfHandProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{sleightofhandproficiency}{0 0 0}}{}}
-\newrgbcolor{stealthproficiency}{1 1 1}\newcommand{\StealthProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{stealthproficiency}{0 0 0}}{}}
-\newrgbcolor{survivalproficiency}{1 1 1}\newcommand{\SurvivalProficiency}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{survivalproficiency}{0 0 0}}{}}
+\newcommand{\StrengthProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{strengthproficiency}{proficiency-marker-color} \colorlet{strengthproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{strengthproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{strengthproficiency}{expert-proficiency-marker-color} \colorlet{strengthproficiencyhalf}{expert-proficiency-marker-color}}{}
+}
+
+\newrgbcolor{dexterityproficiency}{1 1 1}
+\newrgbcolor{dexterityproficiencyhalf}{1 1 1}
+
+\newcommand{\DexterityProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{dexterityproficiency}{proficiency-marker-color} \colorlet{dexterityproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{dexterityproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{dexterityproficiency}{expert-proficiency-marker-color} \colorlet{dexterityproficiencyhalf}{expert-proficiency-marker-color}}{}
+}
+
+\newrgbcolor{constitutionproficiency}{1 1 1}
+\newrgbcolor{constitutionproficiencyhalf}{1 1 1}
+
+\newcommand{\ConstitutionProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{constitutionproficiency}{proficiency-marker-color} \colorlet{constitutionproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{constitutionproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{constitutionproficiency}{expert-proficiency-marker-color} \colorlet{constitutionproficiencyhalf}{expert-proficiency-marker-color}}{}
+}
+
+\newrgbcolor{intelligenceproficiency}{1 1 1}
+\newrgbcolor{intelligenceproficiencyhalf}{1 1 1}
+
+\newcommand{\IntelligenceProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{intelligenceproficiency}{proficiency-marker-color} \colorlet{intelligenceproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{intelligenceproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{intelligenceproficiency}{expert-proficiency-marker-color} \colorlet{intelligenceproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{wisdomproficiency}{1 1 1}
+\newrgbcolor{wisdomproficiencyhalf}{1 1 1}
+
+\newcommand{\WisdomProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{wisdomproficiency}{proficiency-marker-color} \colorlet{wisdomproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{wisdomproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{wisdomproficiency}{expert-proficiency-marker-color} \colorlet{wisdomproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{charismaproficiency}{1 1 1}
+\newrgbcolor{charismaproficiencyhalf}{1 1 1}
+
+\newcommand{\CharismaProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{charismaproficiency}{proficiency-marker-color} \colorlet{charismaproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{charismaproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{charismaproficiency}{expert-proficiency-marker-color} \colorlet{charismaproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+
+\newrgbcolor{acrobaticsproficiency}{1 1 1}
+\newrgbcolor{acrobaticsproficiencyhalf}{1 1 1}
+
+\newcommand{\AcrobaticsProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{acrobaticsproficiency}{proficiency-marker-color} \colorlet{acrobaticsproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{acrobaticsproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{acrobaticsproficiency}{expert-proficiency-marker-color} \colorlet{acrobaticsproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{animalhandlingproficiency}{1 1 1}
+\newrgbcolor{animalhandlingproficiencyhalf}{1 1 1}
+
+\newcommand{\AnimalHandlingProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{animalhandlingproficiency}{proficiency-marker-color} \colorlet{animalhandlingproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{animalhandlingproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{animalhandlingproficiency}{expert-proficiency-marker-color} \colorlet{animalhandlingproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{arcanaproficiency}{1 1 1}
+\newrgbcolor{arcanaproficiencyhalf}{1 1 1}
+
+\newcommand{\ArcanaProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{arcanaproficiency}{proficiency-marker-color} \colorlet{arcanaproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{arcanaproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{arcanaproficiency}{expert-proficiency-marker-color} \colorlet{arcanaproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{athleticsproficiency}{1 1 1}
+\newrgbcolor{athleticsproficiencyhalf}{1 1 1}
+
+\newcommand{\AthleticsProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{athleticsproficiency}{proficiency-marker-color} \colorlet{athleticsproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{athleticsproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{athleticsproficiency}{expert-proficiency-marker-color} \colorlet{athleticsproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{deceptionproficiency}{1 1 1}
+\newrgbcolor{deceptionproficiencyhalf}{1 1 1}
+
+\newcommand{\DeceptionProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{deceptionproficiency}{proficiency-marker-color} \colorlet{deceptionproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{deceptionproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{deceptionproficiency}{expert-proficiency-marker-color} \colorlet{deceptionproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{historyproficiency}{1 1 1}
+\newrgbcolor{historyproficiencyhalf}{1 1 1}
+
+\newcommand{\HistoryProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{historyproficiency}{proficiency-marker-color} \colorlet{historyproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{historyproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{historyproficiency}{expert-proficiency-marker-color} \colorlet{historyproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{insightproficiency}{1 1 1}
+\newrgbcolor{insightproficiencyhalf}{1 1 1}
+
+\newcommand{\InsightProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{insightproficiency}{proficiency-marker-color} \colorlet{insightproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{insightproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{insightproficiency}{expert-proficiency-marker-color} \colorlet{insightproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{intimidationproficiency}{1 1 1}
+\newrgbcolor{intimidationproficiencyhalf}{1 1 1}
+
+\newcommand{\IntimidationProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{intimidationproficiency}{proficiency-marker-color} \colorlet{intimidationproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{intimidationproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{intimidationproficiency}{expert-proficiency-marker-color} \colorlet{intimidationproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{investigationproficiency}{1 1 1}
+\newrgbcolor{investigationproficiencyhalf}{1 1 1}
+
+\newcommand{\InvestigationProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{investigationproficiency}{proficiency-marker-color} \colorlet{investigationproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{investigationproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{investigationproficiency}{expert-proficiency-marker-color} \colorlet{investigationproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{medicineproficiency}{1 1 1}
+\newrgbcolor{medicineproficiencyhalf}{1 1 1}
+
+\newcommand{\MedicineProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{medicineproficiency}{proficiency-marker-color} \colorlet{medicineproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{medicineproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{medicineproficiency}{expert-proficiency-marker-color} \colorlet{medicineproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{natureproficiency}{1 1 1}
+\newrgbcolor{natureproficiencyhalf}{1 1 1}
+
+\newcommand{\NatureProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{natureproficiency}{proficiency-marker-color} \colorlet{natureproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{natureproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{natureproficiency}{expert-proficiency-marker-color} \colorlet{natureproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{perceptionproficiency}{1 1 1}
+\newrgbcolor{perceptionproficiencyhalf}{1 1 1}
+
+\newcommand{\PerceptionProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{perceptionproficiency}{proficiency-marker-color} \colorlet{perceptionproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{perceptionproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{perceptionproficiency}{expert-proficiency-marker-color} \colorlet{perceptionproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{performanceproficiency}{1 1 1}
+\newrgbcolor{performanceproficiencyhalf}{1 1 1}
+
+\newcommand{\PerformanceProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{performanceproficiency}{proficiency-marker-color} \colorlet{performanceproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{performanceproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{performanceproficiency}{expert-proficiency-marker-color} \colorlet{performanceproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{persuasionproficiency}{1 1 1}
+\newrgbcolor{persuasionproficiencyhalf}{1 1 1}
+
+\newcommand{\PersuasionProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{persuasionproficiency}{proficiency-marker-color} \colorlet{persuasionproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{persuasionproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{persuasionproficiency}{expert-proficiency-marker-color} \colorlet{persuasionproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{religionproficiency}{1 1 1}
+\newrgbcolor{religionproficiencyhalf}{1 1 1}
+
+\newcommand{\ReligionProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{religionproficiency}{proficiency-marker-color} \colorlet{religionproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{religionproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{religionproficiency}{expert-proficiency-marker-color} \colorlet{religionproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{sleightofhandproficiency}{1 1 1}
+\newrgbcolor{sleightofhandproficiencyhalf}{1 1 1}
+
+\newcommand{\SleightOfHandProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{sleightofhandproficiency}{proficiency-marker-color} \colorlet{sleightofhandproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{sleightofhandproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{sleightofhandproficiency}{expert-proficiency-marker-color} \colorlet{sleightofhandproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{stealthproficiency}{1 1 1}
+\newrgbcolor{stealthproficiencyhalf}{1 1 1}
+
+\newcommand{\StealthProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{stealthproficiency}{proficiency-marker-color} \colorlet{stealthproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{stealthproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{stealthproficiency}{expert-proficiency-marker-color} \colorlet{stealthproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
+\newrgbcolor{survivalproficiency}{1 1 1}
+\newrgbcolor{survivalproficiencyhalf}{1 1 1}
+
+\newcommand{\SurvivalProficiency}[1]{
+	\ifthenelse{\equal{#1}{Proficient}}{
+		\colorlet{survivalproficiency}{proficiency-marker-color} \colorlet{survivalproficiencyhalf}{proficiency-marker-color}}{} 
+	\ifthenelse{\equal{#1}{Half}}{
+		\colorlet{survivalproficiencyhalf}{proficiency-marker-color}}{}
+	\ifthenelse{\equal{#1}{Expert}}{
+		\colorlet{survivalproficiency}{expert-proficiency-marker-color} \colorlet{survivalproficiencyhalf}{expert-proficiency-marker-color}}{} 
+}
+
 % SPELL PREPARED COLOR CHANGES
 
 % LEVEL 1
