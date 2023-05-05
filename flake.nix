@@ -46,7 +46,7 @@ nixpkgs_old.url = "github:NixOS/nixpkgs/release-22.11";
           inherit buildInputs;
 
           patchPhase = ''
-            sed -i '2s|Path=template/fonts/,Extension=.ttf,||' character-sheet-settings.tex
+            sed -i '2s|Path=template/fonts/,Extension=.ttf,||' dndtemplate.sty
 
             # the following input should be safe, as nix builds things in a sandbox.
             cat << EOF > latexmkrc
@@ -55,12 +55,12 @@ nixpkgs_old.url = "github:NixOS/nixpkgs/release-22.11";
           '';
 
           buildPhase = ''
-            latexmk -file-line-error -xelatex -outdir=build characters/dagmar.tex
+            latexmk -file-line-error -xelatex -outdir=build -auxdir=aux characters/unnamed/sheet.tex
           '';
 
           installPhase = ''
             mkdir --parents $out
-            cp build/dagmar.pdf $out/
+            cp build/sheet.pdf $out/
           '';
         }
         envVars);

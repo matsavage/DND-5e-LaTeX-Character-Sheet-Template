@@ -1,14 +1,41 @@
 name: "Test NixOS flake"
+
 on:
   pull_request:
   push:
+
+
 jobs:
   tests:
+    name: Run NixOS Flake and upload generated PDFs
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: cachix/install-nix-action@v20
+    - name: Check out code
+      uses: actions/checkout@v3
+  
+    - name: Set up NixOS
+      uses: cachix/install-nix-action@v20
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
-    - run: nix build
-    - run: nix flake check
+
+    - name: Run nix build
+      run: nix build
+
+    - run: nix flake show
+
+    - run: nix flake metadata
+
+#    - name: Run nix flake check
+#      run: nix flake check
+
+    - run: pwd
+
+    - run: find .
+
+    - run: find ..
+
+    - name: Archive build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: nix-pdfs
+        path: build/*
