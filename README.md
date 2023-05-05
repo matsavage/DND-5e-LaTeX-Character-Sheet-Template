@@ -19,11 +19,17 @@ It is reccomended to look at pre-existing character sheets in the `characters` d
 
 ### Compliation
 
-If you use this as a template repository, there is a configured [GitHub Action](https://github.com/matsavage/dnd-latex-action) which will compile all `.tex` files in the `characters` directory to PDF sheets in situ. Alternatively it is reccomended to use XeLaTeX and the [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template) if compiling locally.
+The example or specific character sheets can be compiled using the following `make` commands:
+
+``` console
+make example              # Will complile the example "unnamed" character
+
+make character_name.pdf   # Will compile a character by name from the character directory
+```
 
 ### Customisation
 
-There are a large number of character sheet customisation options available in [`character-sheet-settings.tex`](https://github.com/matsavage/DND-5e-LaTeX-Character-Template/blob/documentation/character-sheet-settings.tex) which acts a central location to modify colour and opacity for a number of character sheet elements. There are some commands in `sheet-calculations` that were made to auto calculate the modifiers and proficiencies, and auto complete a few inputs.
+There are a large number of character sheet customisation options available in [`dndtemplate.sty`](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/blob/main/dndtemplate.sty) which acts a central location to modify colour and opacity for a number of character sheet elements. There are some commands in `sheet-calculations` that were made to auto calculate the modifiers and proficiencies, and auto complete a few inputs.
 
 ## Dependencies
 
