@@ -6,9 +6,9 @@
 
 * Character and Spell sheets
 * High degree of customisation available
-* Works with XeTeX or Nix locally or via GitHub actions
+* Works with XeLaTeX locally
 
-<img src=https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/raw/main/fighter_character_sheet.png/>
+<img src=https://github.com/Chery-cake/DND-5e-LaTeX-Character-Sheet-Template/raw/main/bard-druid_character_sheet.png/>
 
 
 ## Usage
@@ -17,11 +17,18 @@
 
 It is reccomended to look at pre-existing character sheets in the `characters` directory when using this repository for the first time, each text input area of the character sheet is fillable with functions defined in the template, however it may require some trial and error to have the sheet looking as you intend.
 
-### Compliation
+## Compliation
 
-If you use this as a template repository, there is a configured [GitHub Action](https://github.com/matsavage/dnd-latex-action) which will compile all `.tex` files in the `characters` directory to PDF sheets in situ. Alternatively it is recommended to use XeLaTeX and the [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template) if compiling locally.
+### Makefile
+The example or specific character sheets can be compiled using the following `make` commands:
 
-#### Nix
+``` console
+make example              # Will complile the example "unnamed" character
+
+make character_name.pdf   # Will compile a character by name from the character directory
+```
+
+### Nix
 A nix flake is a reproducible way to describe the building process to [nix](https://nixos.org/).
 See https://nixos.org/download.html, on how to install nix.
 Afterwards running `nix build` in the repository will result in a successful build.
@@ -32,7 +39,7 @@ as described at https://nixos.wiki/wiki/Flakes#Enable_flakes.
 
 ### Customisation
 
-There are a large number of character sheet customisation options available in [`character-sheet-settings.tex`](https://github.com/matsavage/DND-5e-LaTeX-Character-Template/blob/documentation/character-sheet-settings.tex) which acts a central location to modify colour and opacity for a number of character sheet elements.
+There are a large number of character sheet customisation options available in [`dndtemplate.sty`](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/blob/main/dndtemplate.sty) which acts a central location to modify colour and opacity for a number of character sheet elements. There are some commands in `sheet-calculations` that were made to auto calculate the modifiers and proficiencies, and auto complete a few inputs.
 
 ## Dependencies
 

@@ -5,8 +5,60 @@
 \usepackage{ifthen}
 \usepackage{pstricks}
 
-\input{character-sheet-settings}
+% DEFINE FONT FOR USER INPUTTED TEXT
+\newfontfamily\entryfont{Kalam}[Path=template/fonts/,Extension=.ttf,UprightFont=Kalam-Regular,BoldFont=Kalam-Bold]
+
+% HEADER BACKGROUND COLOR AND OPACITY
+\newrgbcolor{header-background-color}{0.87058824 0.87450981 0.87450981}
+\pgfmathsetmacro{\headercolorbackgroundopacity}{1}
+
+% HEADER DRAWING (DRAGON ETC) COLOR AND OPACITY
+\newrgbcolor{character-sheet-dragon-color}{0 0 0}
+\newrgbcolor{character-sheet-dragon-eye-color}{1 0 0}
+\newrgbcolor{spell-sheet-fireball-color}{0 0 0}
+\pgfmathsetmacro{\headerdragonopacity}{1}
+
+% HEADER TRIM
+\newrgbcolor{header-color}{0.850 0.764 0.466}
+\newrgbcolor{header-color-accent}{0.705 0.607 0.431}
+
+% GREY BACKGROUND FOR STAT BLOCK SECTION
+\pgfmathsetmacro{\generalbackgroundopacity}{0}
+\pgfmathsetmacro{\statsbackgroundopacity}{0}
+
+% WHITE BACKGROUNDS FOR STATS BLOCKS AND MODIFIERS
+\pgfmathsetmacro{\statsscoreopacity}{0}
+\pgfmathsetmacro{\statsmodifieropacity}{0}
+
+% COLOR FOR BLOCK OUTLINES
+\newrgbcolor{outline-color}{0.850 0.764 0.466}
+
+% COLORS FOR MONEY OUTLINES
+\newrgbcolor{money-outline-color}{0.850 0.764 0.466}
+\newrgbcolor{money-outline-color-accent}{0.705 0.607 0.431}
+
+% COLOR INDICATORS
+\newrgbcolor{primary-indicator-color}{0 0 0}
+\newrgbcolor{secondary-indicator-color}{0.1 0.1 0.1}
+\newrgbcolor{tertiary-indicator-color}{0.6 0.6 0.6}
+
+% SPELL HEADER COLOR AND BACKGROUND OPACITY
+\pgfmathsetmacro{\spellheaderbackgroundopacity}{0}
+\pgfmathsetmacro{\spellheaderbackgroundinfillopacity}{1}
+
+% PROFICIENCY MARKER COLOR
+\newrgbcolor{proficiency-marker-color}{0 0 0}
+\newrgbcolor{expert-proficiency-marker-color}{0.18 0.04 0.39}
+
+% TEXT COLOR
+\newrgbcolor{text-color}{0 0 0}
+
+% SPELL LINE COLOR
+\newrgbcolor{spell-line-color}{0.3 0.3 0.3}
+
+
 \input{template/character-sheet-commands}
+\input{template/sheet-calculations}
 
 \newcommand{\rendercharactersheet}{\input{template/character-sheet.tex}}
 \newcommand{\renderbackgroundsheet}{\input{template/background-sheet.tex}}
