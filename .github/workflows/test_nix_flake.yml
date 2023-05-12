@@ -24,8 +24,8 @@ jobs:
       if: failure()
       run: nix log /nix/store/*dnd-char-sheet*.drv
 
-#    - name: Run nix flake check
-#      run: nix flake check
+    - name: Run nix flake check
+      run: nix flake check
 
     - name: Copy output to archive directory
       run: |
