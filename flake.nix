@@ -55,13 +55,12 @@ nixpkgs_old.url = "github:NixOS/nixpkgs/release-22.11";
           '';
 
           buildPhase = ''
-            mkdir unnamed
-            latexmk -file-line-error -xelatex -outdir=build -auxdir=aux characters/unnamed.tex
+            latexmk -file-line-error -xelatex -outdir=build -auxdir=aux characters/unnamed/sheet.tex
           '';
 
           installPhase = ''
             mkdir --parents $out/pdf
-            mv build/*.pdf $out/pdf
+            cp build/*.pdf $out/pdf
             cp build/* $out
           '';
         }
