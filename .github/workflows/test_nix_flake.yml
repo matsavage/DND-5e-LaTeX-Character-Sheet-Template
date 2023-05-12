@@ -50,13 +50,11 @@ jobs:
       working-directory: result
 
     - name: Copy output to archive directory
-      if: always()
       run: |
        mkdir archive
        cp -r ./result/* ./archive
 
     - name: Archive build artifacts
-      if: always()
       uses: actions/upload-artifact@v3
       with:
         name: result
