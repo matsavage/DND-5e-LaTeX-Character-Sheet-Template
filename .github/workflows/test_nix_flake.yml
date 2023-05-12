@@ -48,6 +48,5 @@ jobs:
     - name: Archive build artifacts
       uses: actions/upload-artifact@v3
       with:
-        working-directory: result
         name: result
-        path: .
+        path: result
