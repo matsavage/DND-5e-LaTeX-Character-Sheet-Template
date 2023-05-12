@@ -30,6 +30,8 @@ jobs:
 
     - run: pwd
 
+    - run: ls -lah
+
     - run: find .
 
     - run: find ..
