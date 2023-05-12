@@ -21,6 +21,10 @@ jobs:
     - name: Run nix build
       run: nix build
 
+    - name: Show logs on failure
+      if: failure()
+      run: nix log /nix/store/*dnd-char-sheet*
+
     - run: nix flake show
 
     - run: nix flake metadata
