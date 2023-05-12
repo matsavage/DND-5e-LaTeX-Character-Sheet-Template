@@ -45,8 +45,13 @@ jobs:
     - run: find .
       working-directory: result
 
+    - name: Copy output to archive directory
+      run: |
+       mkdir archive
+       cp ./result/* ./archive
+
     - name: Archive build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: result
-        path: result
+        path: archive
