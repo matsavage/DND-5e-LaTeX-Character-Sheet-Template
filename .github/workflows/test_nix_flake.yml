@@ -23,7 +23,7 @@ jobs:
 
     - name: Show logs on failure
       if: failure()
-      run: nix log /nix/store/*dnd-char-sheet*
+      run: nix log /nix/store/*dnd-char-sheet*.drv
 
     - run: nix flake show
 
