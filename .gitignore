@@ -1,4 +1,5 @@
 .DS_Store
+.direnv
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

@@ -17,8 +17,9 @@
 
 It is reccomended to look at pre-existing character sheets in the `characters` directory when using this repository for the first time, each text input area of the character sheet is fillable with functions defined in the template, however it may require some trial and error to have the sheet looking as you intend.
 
-### Compliation
+## Compliation
 
+### Makefile
 The example or specific character sheets can be compiled using the following `make` commands:
 
 ``` console
@@ -26,6 +27,15 @@ make example              # Will complile the example "unnamed" character
 
 make character_name.pdf   # Will compile a character by name from the character directory
 ```
+
+### Nix
+A nix flake is a reproducible way to describe the building process to [nix](https://nixos.org/).
+See https://nixos.org/download.html, on how to install nix.
+Afterwards running `nix build` in the repository will result in a successful build.
+
+Flakes and Nix-Commands are still experimental, so they must be enabled
+as described at https://nixos.wiki/wiki/Flakes#Enable_flakes.
+
 
 ### Customisation
 

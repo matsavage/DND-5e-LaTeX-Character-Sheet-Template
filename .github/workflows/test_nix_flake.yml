@@ -1,0 +1,39 @@
+name: "Test NixOS flake"
+
+on:
+  pull_request:
+
+
+jobs:
+  tests:
+    name: Run NixOS Flake and upload generated PDFs
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+  
+    - name: Set up NixOS
+      uses: cachix/install-nix-action@v20
+      with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Run nix build
+      run: nix build
+
+    - name: Show logs on failure
+      if: failure()
+      run: nix log /nix/store/*dnd-char-sheet*.drv
+
+    - name: Run nix flake check
+      run: nix flake check
+
+    - name: Copy output to archive directory
+      run: |
+       mkdir archive
+       cp -r ./result/* ./archive
+
+    - name: Archive build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: result
+        path: archive
