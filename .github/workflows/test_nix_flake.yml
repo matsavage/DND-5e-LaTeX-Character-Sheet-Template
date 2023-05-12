@@ -36,16 +36,18 @@ jobs:
 
     - run: find ..
 
-    - run: cd result
-
     - run: pwd
+      working-directory: result
 
     - run: ls -lah
+      working-directory: result
 
     - run: find .
+      working-directory: result
 
     - name: Archive build artifacts
       uses: actions/upload-artifact@v3
       with:
+        working-directory: result
         name: result
-        path: /result
+        path: .
