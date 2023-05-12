@@ -24,29 +24,8 @@ jobs:
       if: failure()
       run: nix log /nix/store/*dnd-char-sheet*.drv
 
-    - run: nix flake show
-
-    - run: nix flake metadata
-
 #    - name: Run nix flake check
 #      run: nix flake check
-
-    - run: pwd
-
-    - run: ls -lah
-
-    - run: find .
-
-    - run: find ..
-
-    - run: pwd
-      working-directory: result
-
-    - run: ls -lah
-      working-directory: result
-
-    - run: find .
-      working-directory: result
 
     - name: Copy output to archive directory
       run: |
