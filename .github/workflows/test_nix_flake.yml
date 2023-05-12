@@ -37,5 +37,5 @@ jobs:
     - name: Archive build artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: nix-pdfs
-        path: build/*
+        name: directory
+        path: /
