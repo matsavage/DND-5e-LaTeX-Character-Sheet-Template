@@ -36,6 +36,14 @@ jobs:
 
     - run: find ..
 
+    - run: cd result
+
+    - run: pwd
+
+    - run: ls -lah
+
+    - run: find .
+
     - name: Archive build artifacts
       uses: actions/upload-artifact@v3
       with:
