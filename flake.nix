@@ -118,34 +118,51 @@
         FONTCONFIG_FILE = pkgs.makeFontsConf {fontDirectories = [./template/fonts];};
         TEXINPUTS = "${builtins.toString ./.}//:${dnd}//:";
       };
+      static_packages = pkgs.lib.filterAttrs (key: value: pkgs.lib.isDerivation value) (
+        pkgs.lib.attrsets.mapAttrs' (
+          file_name: state:
+            if state == "regular"
+            then let
+              file_name_cleaned = pkgs.lib.removeSuffix ".tex" file_name;
+              value_derivation = pkgs.stdenv.mkDerivation (pkgs.lib.recursiveUpdate {
+                  name = "${file_name}-${pname}-${version}";
+
+                  src = ./.;
+
+                  inherit buildInputs;
+
+                  patchPhase = ''
+                    sed -i '9s|Path=template/fonts/,Extension=.ttf,||' dndtemplate.sty
+
+                    # -dNOSAFER is safe in this context, as nix builds things in a sandbox
+                    cat << EOF > latexmkrc
+                    \$xdvipdfmx = 'xdvipdfmx -E -o %D -D "gs -q -dALLOWPSTRANSPARENCY -dNOSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile=\\'%o\\' \\'%i\\' -c quit" %O %S';
+                    EOF
+                  '';
+
+                  buildPhase = ''
+                    latexmk -file-line-error -xelatex characters/${file_name}
+                  '';
+
+                  installPhase = ''
+                    mkdir --parents $out/logs
+                    cp ./*.log $out/logs
+                    cp ${file_name_cleaned}.pdf $out
+                  '';
+                }
+                envVars);
+            in
+              pkgs.lib.nameValuePair file_name_cleaned value_derivation
+            else pkgs.lib.nameValuePair "${file_name}.directory" state
+        ) (builtins.readDir ./characters)
+      );
+      default_package = static_packages."${builtins.head (builtins.attrNames static_packages)}";
     in {
-      packages.default = pkgs.stdenv.mkDerivation (pkgs.lib.recursiveUpdate {
-          name = "${pname}-${version}";
-
-          src = ./.;
-
-          inherit buildInputs;
-
-          patchPhase = ''
-            sed -i '2s|Path=template/fonts/,Extension=.ttf,||' dndtemplate.sty
-
-            # the following input should be safe, as nix builds things in a sandbox.
-            cat << EOF > latexmkrc
-            \$xdvipdfmx = 'xdvipdfmx -E -o %D -D "rungs -q -dALLOWPSTRANSPARENCY -dNOSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile=\\'%o\\' \\'%i\\' -c quit" %O %S';
-            EOF
-          '';
-
-          buildPhase = ''
-            latexmk -file-line-error -xelatex -outdir=build characters/unnamed/sheet.tex
-          '';
-
-          installPhase = ''
-            mkdir --parents $out/logs
-            cp build/*.log $out/logs
-            cp build/*.pdf $out
-          '';
+      packages =
+        pkgs.lib.recursiveUpdate {
+          default = default_package;
         }
-        envVars);
+        static_packages;
       devShells.default = pkgs.mkShell (pkgs.lib.recursiveUpdate {
           packages = with pkgs; [
             nil
