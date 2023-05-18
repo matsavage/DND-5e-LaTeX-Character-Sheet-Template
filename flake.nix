@@ -3,13 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-nixpkgs_old.url = "github:NixOS/nixpkgs/release-22.11";
 
     flake-utils = {
       url = "github:numtide/flake-utils";
       inputs = {};
     };
 
+    # latex specific
     dnd = {
       url = "github:rpgtex/DND-5e-LaTeX-Template";
       flake = false;
@@ -18,19 +18,100 @@ nixpkgs_old.url = "github:NixOS/nixpkgs/release-22.11";
 
   outputs = {
     nixpkgs,
-    nixpkgs_old,
     flake-utils,
     dnd,
     ...
   }:
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
-      pkgs_old = nixpkgs_old.legacyPackages.${system};
+
+      texlive = pkgs.texlive.combine {
+        # inherits {{{
+        inherit
+          (pkgs.texlive)
+          scheme-minimal
+          # executables:
+
+          latexmk
+          xetex
+          # packages:
+
+          ## For DND 5e latex template (see: their packages.txt):
+
+          amsfonts
+          atbegshi
+          babel
+          babel-english
+          bookman
+          cfr-initials
+          cm
+          colortbl
+          contour
+          courier
+          ec
+          enumitem
+          environ
+          epstopdf-pkg
+          etex-pkg
+          etoolbox
+          fancyhdr
+          fontaxes
+          fp
+          geometry
+          gillius
+          hang
+          initials
+          keycommand
+          kpfonts
+          kvsetkeys
+          l3backend
+          l3kernel
+          l3packages
+          latex-fonts
+          lettrine
+          lm
+          ltxcmds
+          luacolor
+          microtype
+          minifp
+          ms
+          numprint
+          oberdiek
+          pgf
+          psnfss
+          ragged2e
+          tcolorbox
+          titlesec
+          tocloft
+          tools
+          trimspaces
+          was
+          xcolor
+          xkeyval
+          xstring
+          ## For this project:
+
+          fontspec
+          gensymb
+          kpfonts-otf
+          pdfcol
+          pstricks
+          tikzfill
+          ### Needed for xdv to pdf:
+
+          pst-tools
+          xetex-pstricks
+          ;
+
+        #}}}
+      };
 
       buildInputs = [
-        pkgs_old.texlive.combined.scheme-full # use as rungs has been removed
+        texlive
+        pkgs.ghostscript_headless # needed for the xdv to pdf step
         pkgs.gnused
       ];
+
       pname = "dnd-char-sheet";
       version = "1.0";
       envVars = {
