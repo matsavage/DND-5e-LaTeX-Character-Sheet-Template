@@ -2,6 +2,8 @@ name: "Test NixOS flake"
 
 on:
   pull_request:
+  schedule:
+    - cron: "0 13 * * 1"
 
 
 jobs:
