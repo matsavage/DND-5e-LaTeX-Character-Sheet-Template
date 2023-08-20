@@ -1,6 +1,7 @@
 name: "Test NixOS flake"
 
 on:
+  push:
   pull_request:
   schedule:
     - cron: "0 13 * * 1"
@@ -39,3 +40,10 @@ jobs:
       with:
         name: result
         path: archive
+
+    - name: Compare to known good pdf
+      uses: nowsprinting/diff-pdf-action@v1
+      with:
+        file1: ./character.pdf
+        file2: ./result/unnamed.pdf
+        options: --verbose
