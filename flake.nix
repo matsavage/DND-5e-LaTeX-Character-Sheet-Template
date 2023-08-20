@@ -141,7 +141,7 @@
                   '';
 
                   buildPhase = ''
-                    latexmk -file-line-error -xelatex characters/${file_name}
+                    latexmk -file-line-error -xelatex characters/*
                   '';
 
                   installPhase = ''
