@@ -1,36 +1,36 @@
 \newcommand{\SetProficiency}[1]{
 	\Proficiency{#1}
-	\FPeval{\ProficiencyHalfValue}{clip(round(\fpeval{#1/2} :0))}
+        \newcommand\ProficiencyHalfValue{\fpeval{floor(#1/2,0)}}
 }
 
 \newcommand{\SetStrength}[1]{
 	\StrengthScore{#1}
-	\FPeval{\StrengthModifierValue}{clip(round(\fpeval{(#1-10)/2} :0))}
+        \renewcommand\StrengthModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\SetDexterity}[1]{
 	\DexterityScore{#1}
-	\FPeval{\DexterityModifierValue}{clip(round(\fpeval{(#1-10)/2} :0))}
+        \renewcommand\DexterityModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\SetConstitution}[1]{
 	\ConstitutionScore{#1}
-	\FPeval{\ConstitutionModifierValue}{clip(round(\fpeval{(#1-10)/2} :0))}
+        \renewcommand\ConstitutionModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\SetIntelligence}[1]{
 	\IntelligenceScore{#1}
-	\FPeval{\IntelligenceModifierValue}{clip(round(\fpeval{(#1-10)/2} :0))}
+        \renewcommand\IntelligenceModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\SetWisdom}[1]{
 	\WisdomScore{#1}
-	\FPeval{\WisdomModifierValue}{clip(round(\fpeval{(#1-10)/2} :0))}
+        \renewcommand\WisdomModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\SetCharisma}[1]{
 	\CharismaScore{#1}
-	\FPeval{\CharismaModifierValue}{clip(round(\fpeval{(#1-10)/2} :0))}
+        \renewcommand\CharismaModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\StrengthProficiencyValue}{}
