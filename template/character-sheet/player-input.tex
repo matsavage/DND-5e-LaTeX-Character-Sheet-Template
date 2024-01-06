@@ -1,4 +1,4 @@
-\newcommand{\addplus}[1] {\ifnum#1<0 #1 \else +#1 \fi}
+\newcommand{\addplus}[1]{\IfBeginWith{#1}{-}{#1}{+#1}}
 
 % CHARACTER NAME
 \rput[cc](201.61106163,959.86850934){\LARGE \entryfont \textcolor{text-color}{\CharacterNameValue}}
