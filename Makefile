@@ -10,3 +10,6 @@ clean:
 	rm -rdf CHARACTERNAME
 	mkdir CHARACTERNAME
 	xelatex $<
+
+nix_build:
+	nix build --extra-experimental-features nix-command --extra-experimental-features flakes
