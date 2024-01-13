@@ -5,10 +5,18 @@ on:
   schedule:
     - cron: "0 13 * * 1"
 
-
 jobs:
-  tests:
+  pre-commit:
+    name: Checks linting
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+    - uses: pre-commit/action@v3.0.0
+
+  nix-run:
     name: Run NixOS Flake and upload generated PDFs
+    needs: pre-commit
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
