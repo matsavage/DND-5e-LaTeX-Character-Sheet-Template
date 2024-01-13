@@ -156,7 +156,7 @@
 
 \makeatletter
 \newcommand\AddWeapon[3]{%
-  \g@addto@macro\WeaponsHeld{\\ \entryfont \textcolor{text-color}{#1} & \entryfont \textcolor{text-color}{#2} & \entryfont \textcolor{text-color}{#3}}
+	\g@addto@macro\WeaponsHeld{\\ \entryfont \textcolor{text-color}{#1} & \entryfont \textcolor{text-color}{#2} & \entryfont \textcolor{text-color}{#3}}
 }
 \makeatother
 
@@ -211,7 +211,6 @@
 \newcommand{\SpellcastingAbility}[1]{\renewcommand{\SpellcastingAbilityValue}{#1}}
 \newcommand{\SpellSaveDC}[1]{\renewcommand{\SpellSaveDCValue}{#1}}
 \newcommand{\SpellAttackBonus}[1]{\renewcommand{\SpellAttackBonusValue}{#1}}
-
 
 % TOTAL SPELL SLOTS
 \newcommand{\FirstLevelSpellSlotsTotalValue}{}
@@ -538,7 +537,6 @@
 	\ifthenelse{\equal{#1}{Expert}}{
 		\colorlet{charismaproficiency}{expert-proficiency-marker-color} \colorlet{charismaproficiencyhalf}{expert-proficiency-marker-color}}{}
 }
-
 
 \newrgbcolor{acrobaticsproficiency}{1 1 1}
 \newrgbcolor{acrobaticsproficiencyhalf}{1 1 1}
