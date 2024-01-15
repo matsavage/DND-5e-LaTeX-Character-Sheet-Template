@@ -1,3 +1,5 @@
+\newcommand{\addplus}[1]{\IfBeginWith{#1}{-}{#1}{+#1}}
+
 % CHARACTER NAME
 \rput[cc](201.61106163,959.86850934){\LARGE \entryfont \textcolor{text-color}{\CharacterNameValue}}
 
@@ -11,63 +13,62 @@
 
 % PROFICIENCY ETC
 \rput[cc](143.42533022,869.816111585){\Large \entryfont \textcolor{text-color}{\InspirationValue}}
-\rput[cc](143.42533022,819.541712845){\Large \entryfont \textcolor{text-color}{\ProficiencyValue}}
+\rput[cc](143.42533022,819.541712845){\Large \entryfont \textcolor{text-color}{\addplus{\ProficiencyValue}}}
 \rput[cc]( 57.99946577,256.785460244){\Large \entryfont \textcolor{text-color}{\PerceptionValue}}
 
-% ABILITY SCORES
-\rput[cc](76.251064759,830.67824602){\LARGE \entryfont \textcolor{text-color}{\StrengthScoreValue}}
-\rput[cc](76.251064759,735.51598173){\LARGE \entryfont \textcolor{text-color}{\DexterityScoreValue}}
-\rput[cc](76.251064759,640.06185079){\LARGE \entryfont \textcolor{text-color}{\ConstitutionScoreValue}}
-\rput[cc](76.251064759,544.60758651){\LARGE \entryfont \textcolor{text-color}{\IntelligenceScoreValue}}
-\rput[cc](76.251064759,449.15352223){\LARGE \entryfont \textcolor{text-color}{\WisdomScoreValue}}
-\rput[cc](76.251064759,353.48399129){\LARGE \entryfont \textcolor{text-color}{\CharismaScoreValue}}
-
 % MODIFIERS
-\rput[cc](76.251064759,798.57131337){\footnotesize \entryfont \textcolor{text-color}{\StrengthModifierValue}}
-\rput[cc](76.251064759,702.79878243){\footnotesize \entryfont \textcolor{text-color}{\DexterityModifierValue}}
-\rput[cc](76.251064759,607.67145147){\footnotesize \entryfont \textcolor{text-color}{\ConstitutionModifierValue}}
-\rput[cc](76.251064759,511.89225387){\footnotesize \entryfont \textcolor{text-color}{\IntelligenceModifierValue}}
-\rput[cc](76.251064759,416.43612292){\footnotesize \entryfont \textcolor{text-color}{\WisdomModifierValue}}
-\rput[cc](76.251064759,321.29452530){\footnotesize \entryfont \textcolor{text-color}{\CharismaModifierValue}}
+\rput[cc](76.251064759,830.67824602){\LARGE \entryfont \textcolor{text-color}{\addplus{\StrengthModifierValue}}}
+\rput[cc](76.251064759,735.51598173){\LARGE \entryfont \textcolor{text-color}{\addplus{\DexterityModifierValue}}}
+\rput[cc](76.251064759,640.06185079){\LARGE \entryfont \textcolor{text-color}{\addplus{\ConstitutionModifierValue}}}
+\rput[cc](76.251064759,544.60758651){\LARGE \entryfont \textcolor{text-color}{\addplus{\IntelligenceModifierValue}}}
+\rput[cc](76.251064759,449.15352223){\LARGE \entryfont \textcolor{text-color}{\addplus{\WisdomModifierValue}}}
+\rput[cc](76.251064759,353.48399129){\LARGE \entryfont \textcolor{text-color}{\addplus{\CharismaModifierValue}}}
+
+% ABILITY SCORES
+\rput[cc](76.251064759,798.57131337){\footnotesize \entryfont \textcolor{text-color}{\StrengthScoreValue}}
+\rput[cc](76.251064759,702.79878243){\footnotesize \entryfont \textcolor{text-color}{\DexterityScoreValue}}
+\rput[cc](76.251064759,607.67145147){\footnotesize \entryfont \textcolor{text-color}{\ConstitutionScoreValue}}
+\rput[cc](76.251064759,511.89225387){\footnotesize \entryfont \textcolor{text-color}{\IntelligenceScoreValue}}
+\rput[cc](76.251064759,416.43612292){\footnotesize \entryfont \textcolor{text-color}{\WisdomScoreValue}}
+\rput[cc](76.251064759,321.29452530){\footnotesize \entryfont \textcolor{text-color}{\CharismaScoreValue}}
 
 % SAVING THROWS
-\rput[cc](160.14932933,774.25558064){\footnotesize \entryfont \textcolor{text-color}{\StrengthSavingThrowModifierValue}}
-\rput[cc](160.14932933,756.25558109){\footnotesize \entryfont \textcolor{text-color}{\DexteritySavingThrowModifierValue}}
-\rput[cc](160.14932933,738.25558154){\footnotesize \entryfont \textcolor{text-color}{\ConstitutionSavingThrowModifierValue}}
-\rput[cc](160.14932933,720.25558199){\footnotesize \entryfont \textcolor{text-color}{\IntelligenceSavingThrowModifierValue}}
-\rput[cc](160.14932933,702.25558244){\footnotesize \entryfont \textcolor{text-color}{\WisdomSavingThrowModifierValue}}
-\rput[cc](160.14932933,684.25558289){\footnotesize \entryfont \textcolor{text-color}{\CharismaSavingThrowModifierValue}}
+\rput[cc](160.14932933,774.25558064){\footnotesize \entryfont \textcolor{text-color}{\addplus{\StrengthSavingThrowModifierValue}}}
+\rput[cc](160.14932933,756.25558109){\footnotesize \entryfont \textcolor{text-color}{\addplus{\DexteritySavingThrowModifierValue}}}
+\rput[cc](160.14932933,738.25558154){\footnotesize \entryfont \textcolor{text-color}{\addplus{\ConstitutionSavingThrowModifierValue}}}
+\rput[cc](160.14932933,720.25558199){\footnotesize \entryfont \textcolor{text-color}{\addplus{\IntelligenceSavingThrowModifierValue}}}
+\rput[cc](160.14932933,702.25558244){\footnotesize \entryfont \textcolor{text-color}{\addplus{\WisdomSavingThrowModifierValue}}}
+\rput[cc](160.14932933,684.25558289){\footnotesize \entryfont \textcolor{text-color}{\addplus{\CharismaSavingThrowModifierValue}}}
 
 % SKILS
-\rput[cc](158.81599603,620.5765178){\footnotesize \entryfont \textcolor{text-color}{\AcrobaticsSkillModifierValue}}
-\rput[cc](158.81599603,602.5765182){\footnotesize \entryfont \textcolor{text-color}{\AnimalHandlingSkillModifierValue}}
-\rput[cc](158.81599603,584.5765187){\footnotesize \entryfont \textcolor{text-color}{\ArcanaSkillModifierValue}}
-\rput[cc](158.81599603,566.5765191){\footnotesize \entryfont \textcolor{text-color}{\AthleticsSkillModifierValue}}
-\rput[cc](158.81599603,548.5765196){\footnotesize \entryfont \textcolor{text-color}{\DeceptionSkillModifierValue}}
-\rput[cc](158.81599603,530.5765200){\footnotesize \entryfont \textcolor{text-color}{\HistorySkillModifierValue}}
-\rput[cc](158.81599603,512.5765205){\footnotesize \entryfont \textcolor{text-color}{\InsightSkillModifierValue}}
-\rput[cc](158.81599603,494.5765209){\footnotesize \entryfont \textcolor{text-color}{\IntimidationSkillModifierValue}}
-\rput[cc](158.81599603,476.5765214){\footnotesize \entryfont \textcolor{text-color}{\InvestigationSkillModifierValue}}
-\rput[cc](158.81599603,458.5765218){\footnotesize \entryfont \textcolor{text-color}{\MedicineSkillModifierValue}}
-\rput[cc](158.81599603,440.5765223){\footnotesize \entryfont \textcolor{text-color}{\NatureSkillModifierValue}}
-\rput[cc](158.81599603,422.5765227){\footnotesize \entryfont \textcolor{text-color}{\PerceptionSkillModifierValue}}
-\rput[cc](158.81599603,404.5765232){\footnotesize \entryfont \textcolor{text-color}{\PerformanceSkillModifierValue}}
-\rput[cc](158.81599603,386.5765236){\footnotesize \entryfont \textcolor{text-color}{\PersuasionSkillModifierValue}}
-\rput[cc](158.81599603,368.5765241){\footnotesize \entryfont \textcolor{text-color}{\ReligionSkillModifierValue}}
-\rput[cc](158.81599603,350.5765245){\footnotesize \entryfont \textcolor{text-color}{\SleightOfHandSkillModifierValue}}
-\rput[cc](158.81599603,332.5765250){\footnotesize \entryfont \textcolor{text-color}{\StealthSkillModifierValue}}
-\rput[cc](158.81599603,314.5765254){\footnotesize \entryfont \textcolor{text-color}{\SurvivalSkillModifierValue}}
+\rput[cc](158.81599603,620.5765178){\footnotesize \entryfont \textcolor{text-color}{\addplus{\AcrobaticsSkillModifierValue}}}
+\rput[cc](158.81599603,602.5765182){\footnotesize \entryfont \textcolor{text-color}{\addplus{\AnimalHandlingSkillModifierValue}}}
+\rput[cc](158.81599603,584.5765187){\footnotesize \entryfont \textcolor{text-color}{\addplus{\ArcanaSkillModifierValue}}}
+\rput[cc](158.81599603,566.5765191){\footnotesize \entryfont \textcolor{text-color}{\addplus{\AthleticsSkillModifierValue}}}
+\rput[cc](158.81599603,548.5765196){\footnotesize \entryfont \textcolor{text-color}{\addplus{\DeceptionSkillModifierValue}}}
+\rput[cc](158.81599603,530.5765200){\footnotesize \entryfont \textcolor{text-color}{\addplus{\HistorySkillModifierValue}}}
+\rput[cc](158.81599603,512.5765205){\footnotesize \entryfont \textcolor{text-color}{\addplus{\InsightSkillModifierValue}}}
+\rput[cc](158.81599603,494.5765209){\footnotesize \entryfont \textcolor{text-color}{\addplus{\IntimidationSkillModifierValue}}}
+\rput[cc](158.81599603,476.5765214){\footnotesize \entryfont \textcolor{text-color}{\addplus{\InvestigationSkillModifierValue}}}
+\rput[cc](158.81599603,458.5765218){\footnotesize \entryfont \textcolor{text-color}{\addplus{\MedicineSkillModifierValue}}}
+\rput[cc](158.81599603,440.5765223){\footnotesize \entryfont \textcolor{text-color}{\addplus{\NatureSkillModifierValue}}}
+\rput[cc](158.81599603,422.5765227){\footnotesize \entryfont \textcolor{text-color}{\addplus{\PerceptionSkillModifierValue}}}
+\rput[cc](158.81599603,404.5765232){\footnotesize \entryfont \textcolor{text-color}{\addplus{\PerformanceSkillModifierValue}}}
+\rput[cc](158.81599603,386.5765236){\footnotesize \entryfont \textcolor{text-color}{\addplus{\PersuasionSkillModifierValue}}}
+\rput[cc](158.81599603,368.5765241){\footnotesize \entryfont \textcolor{text-color}{\addplus{\ReligionSkillModifierValue}}}
+\rput[cc](158.81599603,350.5765245){\footnotesize \entryfont \textcolor{text-color}{\addplus{\SleightOfHandSkillModifierValue}}}
+\rput[cc](158.81599603,332.5765250){\footnotesize \entryfont \textcolor{text-color}{\addplus{\StealthSkillModifierValue}}}
+\rput[cc](158.81599603,314.5765254){\footnotesize \entryfont \textcolor{text-color}{\addplus{\SurvivalSkillModifierValue}}}
 
 % BATTLE STATS
 \rput[cc](330.04105841,852.46451227){\LARGE \entryfont \textcolor{text-color}{\ArmorClassValue}}
-\rput[cc](405.17452320,847.59717893){\LARGE \entryfont \textcolor{text-color}{\InitiativeValue}}
+\rput[cc](405.17452320,847.59717893){\LARGE \entryfont \textcolor{text-color}{\addplus{\InitiativeValue}}}
 \rput[cc](483.04118792,847.59717893){\LARGE \entryfont \textcolor{text-color}{\SpeedValue}}
 \rput[cc](451.42132215,783.32600593){\footnotesize \entryfont \textcolor{text-color}{\MaxHitPointsValue}}
 \rput[cc](407.99998987,752.58358106){\LARGE \entryfont \textcolor{text-color}{\CurrentHitPointsValue}}
 \rput[cc](407.99998987,684.10878302){\LARGE \entryfont \textcolor{text-color}{\TemporaryHitPointsValue}}
 \rput[cc](362.57465764,622.54787662){\footnotesize \entryfont \textcolor{text-color}{\MaxHitDiceValue}}
 \rput[cc](350.73265790,600.18398492){\LARGE \entryfont \textcolor{text-color}{\CurrentHitDiceValue}}
-
 
 % MONEY
 \rput[cc](325.27479187,245.72826052){\Large \entryfont \textcolor{text-color}{\CPValue}}
@@ -80,14 +81,14 @@
 
 % ATTACKS AND SPELLCASTING
 \rput[lt](296,576){\parbox{167pt}{\justify\entryfont
-\begin{DndTable}{Xll}
-\tiny \textcolor{tertiary-indicator-color}{\textsf{NAME}}        &
-\tiny \textcolor{tertiary-indicator-color}{\textsf{ATK BONUS}}   & 
-\tiny \textcolor{tertiary-indicator-color}{\textsf{DAMAGE/TYPE}}
-\WeaponsHeld
-\end{DndTable}
-\textcolor{text-color}{\AttacksAdditionalValue}
-}
+		\begin{DndTable}{Xll}
+			\tiny \textcolor{tertiary-indicator-color}{\textsf{NAME}}        &
+			\tiny \textcolor{tertiary-indicator-color}{\textsf{ATK BONUS}}   &
+			\tiny \textcolor{tertiary-indicator-color}{\textsf{DAMAGE/TYPE}}
+			\WeaponsHeld
+		\end{DndTable}
+		\textcolor{text-color}{\AttacksAdditionalValue}
+	}
 }
 
 \rput[lt](44,220){\parbox{167pt}{\entryfont \textcolor{text-color}{\OtherProficienciesLanguagesValue}}}

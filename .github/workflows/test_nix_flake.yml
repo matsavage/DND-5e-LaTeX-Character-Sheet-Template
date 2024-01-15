@@ -6,17 +6,25 @@ on:
   schedule:
     - cron: "0 13 * * 1"
 
-
 jobs:
-  tests:
+  pre-commit:
+    name: Checks linting
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+    - uses: pre-commit/action@v3.0.0
+
+  nix-run:
     name: Run NixOS Flake and upload generated PDFs
+    needs: pre-commit
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
-      uses: actions/checkout@v3
-  
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
     - name: Set up NixOS
-      uses: cachix/install-nix-action@v22
+      uses: cachix/install-nix-action@6004951b182f8860210c8d6f0d808ec5b1a33d28 # v25
       with:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -36,7 +44,7 @@ jobs:
        cp -r ./result/* ./archive
 
     - name: Archive build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: result
         path: archive

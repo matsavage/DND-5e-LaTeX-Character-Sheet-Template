@@ -1,36 +1,36 @@
 \newcommand{\SetProficiency}[1]{
 	\Proficiency{#1}
-	\FPeval{\ProficiencyHalfValue}{clip(trunc(\fpeval{#1/2} :0))}	
+	\newcommand\ProficiencyHalfValue{\fpeval{floor(#1/2,0)}}
 }
 
 \newcommand{\SetStrength}[1]{
 	\StrengthScore{#1}
-	\FPeval{\StrengthModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+	\renewcommand\StrengthModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\SetDexterity}[1]{
 	\DexterityScore{#1}
-	\FPeval{\DexterityModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+	\renewcommand\DexterityModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\SetConstitution}[1]{
 	\ConstitutionScore{#1}
-	\FPeval{\ConstitutionModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+	\renewcommand\ConstitutionModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\SetIntelligence}[1]{
 	\IntelligenceScore{#1}
-	\FPeval{\IntelligenceModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+	\renewcommand\IntelligenceModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\SetWisdom}[1]{
 	\WisdomScore{#1}
-	\FPeval{\WisdomModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+	\renewcommand\WisdomModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\SetCharisma}[1]{
 	\CharismaScore{#1}
-	\FPeval{\CharismaModifierValue}{clip(trunc(\fpeval{(#1-10)/2} :0))}
+	\renewcommand\CharismaModifierValue{\fpeval{floor((#1-10)/2,0)}}
 }
 
 \newcommand{\StrengthProficiencyValue}{}
@@ -119,10 +119,10 @@
 
 \newcommand{\SetStrengthSavingThrowModifier}[1]{
 	\ifdimequal{\StrengthProficiencyValue pt}{0 pt}{
-		\StrengthSavingThrowModifier{\fpeval{#1 + \StrengthModifierValue}}	
+		\StrengthSavingThrowModifier{\fpeval{#1 + \StrengthModifierValue}}
 	}{
 		\ifdimequal{\StrengthProficiencyValue pt}{1 pt}{
-			\StrengthSavingThrowModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyValue}}	
+			\StrengthSavingThrowModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\StrengthProficiencyValue pt}{2 pt}{
 				\StrengthSavingThrowModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -135,10 +135,10 @@
 
 \newcommand{\SetDexteritySavingThrowModifier}[1]{
 	\ifdimequal{\DexterityProficiencyValue pt}{0 pt}{
-		\DexteritySavingThrowModifier{\fpeval{#1 + \DexterityModifierValue}}	
+		\DexteritySavingThrowModifier{\fpeval{#1 + \DexterityModifierValue}}
 	}{
 		\ifdimequal{\DexterityProficiencyValue pt}{1 pt}{
-			\DexteritySavingThrowModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}		
+			\DexteritySavingThrowModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\DexterityProficiencyValue pt}{2 pt}{
 				\DexteritySavingThrowModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -151,10 +151,10 @@
 
 \newcommand{\SetConstitutionSavingThrowModifier}[1]{
 	\ifdimequal{\ConstitutionProficiencyValue pt}{0 pt}{
-		\ConstitutionSavingThrowModifier{\fpeval{#1 + \ConstitutionModifierValue}}	
+		\ConstitutionSavingThrowModifier{\fpeval{#1 + \ConstitutionModifierValue}}
 	}{
 		\ifdimequal{\ConstitutionProficiencyValue pt}{1 pt}{
-			\ConstitutionSavingThrowModifier{\fpeval{#1 + \ConstitutionModifierValue + \ProficiencyValue}}		
+			\ConstitutionSavingThrowModifier{\fpeval{#1 + \ConstitutionModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\ConstitutionProficiencyValue pt}{2 pt}{
 				\ConstitutionSavingThrowModifier{\fpeval{#1 + \ConstitutionModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -167,10 +167,10 @@
 
 \newcommand{\SetIntelligenceSavingThrowModifier}[1]{
 	\ifdimequal{\IntelligenceProficiencyValue pt}{0 pt}{
-		\IntelligenceSavingThrowModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+		\IntelligenceSavingThrowModifier{\fpeval{#1 + \IntelligenceModifierValue}}
 	}{
 		\ifdimequal{\IntelligenceProficiencyValue pt}{1 pt}{
-			\IntelligenceSavingThrowModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+			\IntelligenceSavingThrowModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\IntelligenceProficiencyValue pt}{2 pt}{
 				\IntelligenceSavingThrowModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -183,10 +183,10 @@
 
 \newcommand{\SetWisdomSavingThrowModifier}[1]{
 	\ifdimequal{\WisdomProficiencyValue pt}{0 pt}{
-		\WisdomSavingThrowModifier{\fpeval{#1 + \WisdomModifierValue}}	
+		\WisdomSavingThrowModifier{\fpeval{#1 + \WisdomModifierValue}}
 	}{
 		\ifdimequal{\WisdomProficiencyValue pt}{1 pt}{
-			\WisdomSavingThrowModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+			\WisdomSavingThrowModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\WisdomProficiencyValue pt}{2 pt}{
 				\WisdomSavingThrowModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -199,10 +199,10 @@
 
 \newcommand{\SetCharismaSavingThrowModifier}[1]{
 	\ifdimequal{\CharismaProficiencyValue pt}{0 pt}{
-		\CharismaSavingThrowModifier{\fpeval{#1 + \CharismaModifierValue}}	
+		\CharismaSavingThrowModifier{\fpeval{#1 + \CharismaModifierValue}}
 	}{
 		\ifdimequal{\CharismaProficiencyValue pt}{1 pt}{
-			\CharismaSavingThrowModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}		
+			\CharismaSavingThrowModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\CharismaProficiencyValue pt}{2 pt}{
 				\CharismaSavingThrowModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -449,10 +449,10 @@
 
 \newcommand{\SetAcrobaticsSkillModifier}[1]{
 	\ifdimequal{\AcrobaticsProficiencyValue pt}{0 pt}{
-		\AcrobaticsSkillModifier{\fpeval{#1 + \DexterityModifierValue}}	
+		\AcrobaticsSkillModifier{\fpeval{#1 + \DexterityModifierValue}}
 	}{
 		\ifdimequal{\AcrobaticsProficiencyValue pt}{1 pt}{
-			\AcrobaticsSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}		
+			\AcrobaticsSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\AcrobaticsProficiencyValue pt}{2 pt}{
 				\AcrobaticsSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -465,10 +465,10 @@
 
 \newcommand{\SetAnimalHandlingSkillModifier}[1]{
 	\ifdimequal{\AnimalHandlingProficiencyValue pt}{0 pt}{
-		\AnimalHandlingSkillModifier{\fpeval{#1 + \WisdomModifierValue}}	
+		\AnimalHandlingSkillModifier{\fpeval{#1 + \WisdomModifierValue}}
 	}{
 		\ifdimequal{\AnimalHandlingProficiencyValue pt}{1 pt}{
-			\AnimalHandlingSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+			\AnimalHandlingSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\AnimalHandlingProficiencyValue pt}{2 pt}{
 				\AnimalHandlingSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -481,10 +481,10 @@
 
 \newcommand{\SetArcanaSkillModifier}[1]{
 	\ifdimequal{\ArcanaProficiencyValue pt}{0 pt}{
-		\ArcanaSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+		\ArcanaSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}
 	}{
 		\ifdimequal{\ArcanaProficiencyValue pt}{1 pt}{
-			\ArcanaSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+			\ArcanaSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\ArcanaProficiencyValue pt}{2 pt}{
 				\ArcanaSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -497,10 +497,10 @@
 
 \newcommand{\SetAthleticsSkillModifier}[1]{
 	\ifdimequal{\AthleticsProficiencyValue pt}{0 pt}{
-		\AthleticsSkillModifier{\fpeval{#1 + \StrengthModifierValue}}	
+		\AthleticsSkillModifier{\fpeval{#1 + \StrengthModifierValue}}
 	}{
 		\ifdimequal{\AthleticsProficiencyValue pt}{1 pt}{
-			\AthleticsSkillModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyValue}}		
+			\AthleticsSkillModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\AthleticsProficiencyValue pt}{2 pt}{
 				\AthleticsSkillModifier{\fpeval{#1 + \StrengthModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -513,10 +513,10 @@
 
 \newcommand{\SetDeceptionSkillModifier}[1]{
 	\ifdimequal{\DeceptionProficiencyValue pt}{0 pt}{
-		\DeceptionSkillModifier{\fpeval{#1 + \CharismaModifierValue}}	
+		\DeceptionSkillModifier{\fpeval{#1 + \CharismaModifierValue}}
 	}{
 		\ifdimequal{\DeceptionProficiencyValue pt}{1 pt}{
-			\DeceptionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}		
+			\DeceptionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\DeceptionProficiencyValue pt}{2 pt}{
 				\DeceptionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -529,10 +529,10 @@
 
 \newcommand{\SetHistorySkillModifier}[1]{
 	\ifdimequal{\HistoryProficiencyValue pt}{0 pt}{
-		\HistorySkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+		\HistorySkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}
 	}{
 		\ifdimequal{\HistoryProficiencyValue pt}{1 pt}{
-			\HistorySkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+			\HistorySkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\HistoryProficiencyValue pt}{2 pt}{
 				\HistorySkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -545,10 +545,10 @@
 
 \newcommand{\SetInsightSkillModifier}[1]{
 	\ifdimequal{\InsightProficiencyValue pt}{0 pt}{
-		\InsightSkillModifier{\fpeval{#1 + \WisdomModifierValue}}	
+		\InsightSkillModifier{\fpeval{#1 + \WisdomModifierValue}}
 	}{
 		\ifdimequal{\InsightProficiencyValue pt}{1 pt}{
-			\InsightSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+			\InsightSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\InsightProficiencyValue pt}{2 pt}{
 				\InsightSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -561,10 +561,10 @@
 
 \newcommand{\SetIntimidationSkillModifier}[1]{
 	\ifdimequal{\IntimidationProficiencyValue pt}{0 pt}{
-		\IntimidationSkillModifier{\fpeval{#1 + \CharismaModifierValue}}	
+		\IntimidationSkillModifier{\fpeval{#1 + \CharismaModifierValue}}
 	}{
 		\ifdimequal{\IntimidationProficiencyValue pt}{1 pt}{
-			\IntimidationSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}		
+			\IntimidationSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\IntimidationProficiencyValue pt}{2 pt}{
 				\IntimidationSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -577,10 +577,10 @@
 
 \newcommand{\SetInvestigationSkillModifier}[1]{
 	\ifdimequal{\InvestigationProficiencyValue pt}{0 pt}{
-		\InvestigationSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+		\InvestigationSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}
 	}{
 		\ifdimequal{\InvestigationProficiencyValue pt}{1 pt}{
-			\InvestigationSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+			\InvestigationSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\InvestigationProficiencyValue pt}{2 pt}{
 				\InvestigationSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -593,10 +593,10 @@
 
 \newcommand{\SetMedicineSkillModifier}[1]{
 	\ifdimequal{\MedicineProficiencyValue pt}{0 pt}{
-		\MedicineSkillModifier{\fpeval{#1 + \WisdomModifierValue}}	
+		\MedicineSkillModifier{\fpeval{#1 + \WisdomModifierValue}}
 	}{
 		\ifdimequal{\MedicineProficiencyValue pt}{1 pt}{
-			\MedicineSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+			\MedicineSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\MedicineProficiencyValue pt}{2 pt}{
 				\MedicineSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -609,10 +609,10 @@
 
 \newcommand{\SetNatureSkillModifier}[1]{
 	\ifdimequal{\NatureProficiencyValue pt}{0 pt}{
-		\NatureSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+		\NatureSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}
 	}{
 		\ifdimequal{\NatureProficiencyValue pt}{1 pt}{
-			\NatureSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+			\NatureSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\NatureProficiencyValue pt}{2 pt}{
 				\NatureSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -625,10 +625,10 @@
 
 \newcommand{\SetPerceptionSkillModifier}[1]{
 	\ifdimequal{\PerceptionProficiencyValue pt}{0 pt}{
-		\PerceptionSkillModifier{\fpeval{#1 + \WisdomModifierValue}}	
+		\PerceptionSkillModifier{\fpeval{#1 + \WisdomModifierValue}}
 	}{
 		\ifdimequal{\PerceptionProficiencyValue pt}{1 pt}{
-			\PerceptionSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+			\PerceptionSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\PerceptionProficiencyValue pt}{2 pt}{
 				\PerceptionSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -641,10 +641,10 @@
 
 \newcommand{\SetPerformanceSkillModifier}[1]{
 	\ifdimequal{\PerformanceProficiencyValue pt}{0 pt}{
-		\PerformanceSkillModifier{\fpeval{#1 + \CharismaModifierValue}}	
+		\PerformanceSkillModifier{\fpeval{#1 + \CharismaModifierValue}}
 	}{
 		\ifdimequal{\PerformanceProficiencyValue pt}{1 pt}{
-			\PerformanceSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}		
+			\PerformanceSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\PerformanceProficiencyValue pt}{2 pt}{
 				\PerformanceSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -657,10 +657,10 @@
 
 \newcommand{\SetPersuasionSkillModifier}[1]{
 	\ifdimequal{\PersuasionProficiencyValue pt}{0 pt}{
-		\PersuasionSkillModifier{\fpeval{#1 + \CharismaModifierValue}}	
+		\PersuasionSkillModifier{\fpeval{#1 + \CharismaModifierValue}}
 	}{
 		\ifdimequal{\PersuasionProficiencyValue pt}{1 pt}{
-			\PersuasionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}		
+			\PersuasionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\PersuasionProficiencyValue pt}{2 pt}{
 				\PersuasionSkillModifier{\fpeval{#1 + \CharismaModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -673,10 +673,10 @@
 
 \newcommand{\SetReligionSkillModifier}[1]{
 	\ifdimequal{\ReligionProficiencyValue pt}{0 pt}{
-		\ReligionSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}	
+		\ReligionSkillModifier{\fpeval{#1 + \IntelligenceModifierValue}}
 	}{
 		\ifdimequal{\ReligionProficiencyValue pt}{1 pt}{
-			\ReligionSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}		
+			\ReligionSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\ReligionProficiencyValue pt}{2 pt}{
 				\ReligionSkillModifier{\fpeval{#1 + \IntelligenceModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -689,10 +689,10 @@
 
 \newcommand{\SetSleightOfHandSkillModifier}[1]{
 	\ifdimequal{\SleightOfHandProficiencyValue pt}{0 pt}{
-		\SleightOfHandSkillModifier{\fpeval{#1 + \DexterityModifierValue}}	
+		\SleightOfHandSkillModifier{\fpeval{#1 + \DexterityModifierValue}}
 	}{
 		\ifdimequal{\SleightOfHandProficiencyValue pt}{1 pt}{
-			\SleightOfHandSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}		
+			\SleightOfHandSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\SleightOfHandProficiencyValue pt}{2 pt}{
 				\SleightOfHandSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -705,10 +705,10 @@
 
 \newcommand{\SetStealthSkillModifier}[1]{
 	\ifdimequal{\StealthProficiencyValue pt}{0 pt}{
-		\StealthSkillModifier{\fpeval{#1 + \DexterityModifierValue}}	
+		\StealthSkillModifier{\fpeval{#1 + \DexterityModifierValue}}
 	}{
 		\ifdimequal{\StealthProficiencyValue pt}{1 pt}{
-			\StealthSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}		
+			\StealthSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\StealthProficiencyValue pt}{2 pt}{
 				\StealthSkillModifier{\fpeval{#1 + \DexterityModifierValue + \ProficiencyValue + \ProficiencyValue}}
@@ -721,10 +721,10 @@
 
 \newcommand{\SetSurvivalSkillModifier}[1]{
 	\ifdimequal{\SurvivalProficiencyValue pt}{0 pt}{
-		\SurvivalSkillModifier{\fpeval{#1 + \WisdomModifierValue}}	
+		\SurvivalSkillModifier{\fpeval{#1 + \WisdomModifierValue}}
 	}{
 		\ifdimequal{\SurvivalProficiencyValue pt}{1 pt}{
-			\SurvivalSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}		
+			\SurvivalSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue}}
 		}{
 			\ifdimequal{\SurvivalProficiencyValue pt}{2 pt}{
 				\SurvivalSkillModifier{\fpeval{#1 + \WisdomModifierValue + \ProficiencyValue + \ProficiencyValue}}

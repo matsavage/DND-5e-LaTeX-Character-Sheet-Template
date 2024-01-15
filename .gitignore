@@ -280,3 +280,6 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# LaTeX linter atifacts
+**.bak0
