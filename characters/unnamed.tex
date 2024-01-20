@@ -10,30 +10,30 @@
 \usepackage{dndtemplate}
 
 
-% \setlength\oddsidemargin{\dimexpr(\paperwidth-\textwidth)/2 - 1in\relax}
-% \setlength\evensidemargin{\oddsidemargin}
+\setlength\oddsidemargin{\dimexpr(\paperwidth-\textwidth)/2 - 1in\relax}
+\setlength\evensidemargin{\oddsidemargin}
 
-% \begin{document}
-% \newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
-% \onecolumn
+\begin{document}
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+\onecolumn
 
-% % CHARACTER PAGE
-% \include{characters/unnamed/general}
-% \rendercharactersheet
+% CHARACTER PAGE
+\include{characters/unnamed/general}
+\rendercharactersheet
 
-% % BACKSTORY PAGE
-% \include{characters/unnamed/background}
-% \renderbackgroundsheet
+% BACKSTORY PAGE
+\include{characters/unnamed/background}
+\renderbackgroundsheet
 
-% % SPELLCASTING PAGES
-% \include{characters/unnamed/bard}
-% \renderspellsheet
+% SPELLCASTING PAGES
+\include{characters/unnamed/bard}
+\renderspellsheet
 
 \include{characters/unnamed/druid}
 \renderspellsheet
 
 \include{characters/unnamed/sorcerer}
-\renderhalfspellsheet
+\renderspellsheet
 
 \restoregeometry
 \twocolumn
