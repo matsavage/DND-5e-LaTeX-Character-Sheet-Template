@@ -26,7 +26,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
 
       texlive = pkgs.texlive.combine {
-        # inherits {{{
         inherit
           (pkgs.texlive)
           scheme-minimal
@@ -102,8 +101,6 @@
           pst-tools
           xetex-pstricks
           ;
-
-        #}}}
       };
 
       buildInputs = [
@@ -156,11 +153,14 @@
             else pkgs.lib.nameValuePair "${file_name}.directory" state
         ) (builtins.readDir ./characters)
       );
-      default_package = static_packages."${builtins.head (builtins.attrNames static_packages)}";
-    in {
+      all_packages =  pkgs.symlinkJoin{
+        name = "all";
+        paths = pkgs.lib.attrValues static_packages;
+         };
+    in rec {
       packages =
         pkgs.lib.recursiveUpdate {
-          default = default_package;
+          default = all_packages;
         }
         static_packages;
       devShells.default = pkgs.mkShell (pkgs.lib.recursiveUpdate {

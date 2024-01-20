@@ -1,15 +1,12 @@
-.PHONY: example clean
+CHARACTER=unnamed
+NIX_SETTINGS=--extra-experimental-features nix-command --extra-experimental-features flakes
 
-example: unnamed.pdf
 
-clean:
-	rm *.pdf
+build:
+	nix ${NIX_SETTINGS} build
 
-%.pdf: characters/%.tex
-	CHARACTERNAME=$(basename $< |  sed 's:.*/::')
-	rm -rdf CHARACTERNAME
-	mkdir CHARACTERNAME
-	xelatex $<
+build_character:
+	nix ${NIX_SETTINGS} build .#${CHARACTER}
 
-nix_build:
-	nix build --extra-experimental-features nix-command --extra-experimental-features flakes
+develop:
+	nix ${NIX_SETTINGS} develop
