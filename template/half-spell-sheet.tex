@@ -1,0 +1,24 @@
+\newgeometry{left=-0.6cm,right=0cm,top=0cm,bottom=0cm}
+
+\newpage
+
+%\hspace*{-9mm}
+\makebox[\paperwidth][s]{
+	%\newpage
+	\thispagestyle{empty}
+	\psset{xunit=0.75pt,yunit=0.75pt,runit=0.75pt}
+	\begin{pspicture}(816,1056)
+		{
+				%\psframe[fillstyle=solid,fillcolor=blue!20,linewidth=3pt,linecolor=black](0,0)(816,1056)
+				\input{template/spell-sheet/header.tex}
+				\input{template/spell-sheet/outlines.tex}
+				\input{template/half-spell-sheet/spell-level-headers.tex}
+				\input{template/half-spell-sheet/player-input.tex}
+				\input{template/half-spell-sheet/spell-slots.tex}
+				\input{template/half-spell-sheet/template-text.tex}
+			}
+
+	\end{pspicture}
+}
+
+\restoregeometry
