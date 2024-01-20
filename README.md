@@ -19,15 +19,6 @@ It is reccomended to look at pre-existing character sheets in the `characters` d
 
 ## Compliation
 
-### Makefile
-The example or specific character sheets can be compiled using the following `make` commands:
-
-``` console
-make example              # Will complile the example "unnamed" character
-
-make character_name.pdf   # Will compile a character by name from the character directory
-```
-
 ### Nix
 A nix flake is a reproducible way to describe the building process to [nix](https://nixos.org/).
 See https://nixos.org/download.html, on how to install nix.
@@ -36,6 +27,16 @@ Afterwards running `nix build` in the repository will result in a successful bui
 Flakes and Nix-Commands are still experimental, so they must be enabled
 as described at https://nixos.wiki/wiki/Flakes#Enable_flakes.
 
+### Makefile
+The example or specific character sheets can be compiled using the following `make` commands:
+
+``` console
+name build                               # Will complile all characters
+
+make build_character CHARACTER=unnamed   # Will complile the example "unnamed" character
+
+make develop                             # Will drop you into a shell with all dependencies installed
+```
 
 ### Customisation
 
