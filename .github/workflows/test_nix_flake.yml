@@ -45,7 +45,7 @@ jobs:
        run: |
         mkdir archive
         cp -rL ./result/* ./archive
-        cp difference * ./archive
+        cp difference* ./archive
 
      - name: Archive build artifacts
        uses: actions/upload-artifact@v4
