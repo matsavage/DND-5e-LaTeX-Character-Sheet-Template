@@ -10,3 +10,9 @@ build_character:
 
 develop:
 	nix ${NIX_SETTINGS} develop
+
+test:
+	nix ${NIX_SETTINGS} build .#test
+
+validate_test:
+	./scripts/check_test_output.sh
