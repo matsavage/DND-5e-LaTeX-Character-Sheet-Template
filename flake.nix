@@ -164,7 +164,7 @@
     in rec {
       packages =
         pkgs.lib.recursiveUpdate {
-          default =(build_from_directory "characters").combined;
+          default = (build_from_directory "characters").combined;
           test = (build_from_directory "tests").combined;
         }
         (build_from_directory "characters").individual;
