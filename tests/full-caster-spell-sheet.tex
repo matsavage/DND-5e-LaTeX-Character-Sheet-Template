@@ -1,0 +1,215 @@
+\documentclass[letterpaper,openany,oneside,twocolumn]{book}
+
+\usepackage{fontspec}
+\usepackage[justified]{dnd}
+\usepackage{ifthen}
+\usepackage{pstricks}
+
+\usepackage[UKenglish]{babel}
+
+\usepackage{dndtemplate}
+
+
+\setlength\oddsidemargin{\dimexpr(\paperwidth-\textwidth)/2 - 1in\relax}
+\setlength\evensidemargin{\oddsidemargin}
+
+\begin{document}
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+\onecolumn
+
+% Druid spell sheet
+\SpellcastingClass{Full Caster Test}
+\SetSpellModifierCharisma{9}
+
+\CantripSlotA{Cantrip Slot A}
+\CantripSlotB{Cantrip Slot B}
+\CantripSlotC{Cantrip Slot C}
+\CantripSlotD{Cantrip Slot D}
+\CantripSlotE{Cantrip Slot E}
+\CantripSlotF{Cantrip Slot F}
+\CantripSlotG{Cantrip Slot G}
+\CantripSlotH{Cantrip Slot H}
+
+\FirstLevelSpellSlotsTotal{13}
+\FirstLevelSpellSlotA{First Level Spell Slot A}
+\FirstLevelSpellSlotB{First Level Spell Slot B}
+\FirstLevelSpellSlotC{First Level Spell Slot C}
+\FirstLevelSpellSlotD{First Level Spell Slot D}
+\FirstLevelSpellSlotE{First Level Spell Slot E}
+\FirstLevelSpellSlotF{First Level Spell Slot F}
+\FirstLevelSpellSlotG{First Level Spell Slot G}
+\FirstLevelSpellSlotH{First Level Spell Slot H}
+\FirstLevelSpellSlotI{First Level Spell Slot I}
+\FirstLevelSpellSlotJ{First Level Spell Slot J}
+\FirstLevelSpellSlotK{First Level Spell Slot K}
+\FirstLevelSpellSlotL{First Level Spell Slot L}
+\FirstLevelSpellSlotM{First Level Spell Slot M}
+
+\FirstLevelSpellSlotAPrepared{True}
+\FirstLevelSpellSlotCPrepared{True}
+\FirstLevelSpellSlotEPrepared{True}
+\FirstLevelSpellSlotGPrepared{True}
+\FirstLevelSpellSlotIPrepared{True}
+\FirstLevelSpellSlotKPrepared{True}
+\FirstLevelSpellSlotMPrepared{True}
+
+
+\SecondLevelSpellSlotsTotal{13}
+\SecondLevelSpellSlotA{Second Level Spell Slot A}
+\SecondLevelSpellSlotB{Second Level Spell Slot B}
+\SecondLevelSpellSlotC{Second Level Spell Slot C}
+\SecondLevelSpellSlotD{Second Level Spell Slot D}
+\SecondLevelSpellSlotE{Second Level Spell Slot E}
+\SecondLevelSpellSlotF{Second Level Spell Slot F}
+\SecondLevelSpellSlotG{Second Level Spell Slot G}
+\SecondLevelSpellSlotH{Second Level Spell Slot H}
+\SecondLevelSpellSlotI{Second Level Spell Slot I}
+\SecondLevelSpellSlotJ{Second Level Spell Slot J}
+\SecondLevelSpellSlotK{Second Level Spell Slot K}
+\SecondLevelSpellSlotL{Second Level Spell Slot L}
+\SecondLevelSpellSlotM{Second Level Spell Slot M}
+
+\SecondLevelSpellSlotAPrepared{True}
+\SecondLevelSpellSlotCPrepared{True}
+\SecondLevelSpellSlotEPrepared{True}
+\SecondLevelSpellSlotGPrepared{True}
+\SecondLevelSpellSlotIPrepared{True}
+\SecondLevelSpellSlotKPrepared{True}
+\SecondLevelSpellSlotMPrepared{True}
+
+\ThirdLevelSpellSlotsTotal{13}
+\ThirdLevelSpellSlotA{Third Level Spell Slot A}
+\ThirdLevelSpellSlotB{Third Level Spell Slot B}
+\ThirdLevelSpellSlotC{Third Level Spell Slot C}
+\ThirdLevelSpellSlotD{Third Level Spell Slot D}
+\ThirdLevelSpellSlotE{Third Level Spell Slot E}
+\ThirdLevelSpellSlotF{Third Level Spell Slot F}
+\ThirdLevelSpellSlotG{Third Level Spell Slot G}
+\ThirdLevelSpellSlotH{Third Level Spell Slot H}
+\ThirdLevelSpellSlotI{Third Level Spell Slot I}
+\ThirdLevelSpellSlotJ{Third Level Spell Slot J}
+\ThirdLevelSpellSlotK{Third Level Spell Slot K}
+\ThirdLevelSpellSlotL{Third Level Spell Slot L}
+\ThirdLevelSpellSlotM{Third Level Spell Slot M}
+
+\ThirdLevelSpellSlotAPrepared{True}
+\ThirdLevelSpellSlotCPrepared{True}
+\ThirdLevelSpellSlotEPrepared{True}
+\ThirdLevelSpellSlotGPrepared{True}
+\ThirdLevelSpellSlotIPrepared{True}
+\ThirdLevelSpellSlotKPrepared{True}
+\ThirdLevelSpellSlotMPrepared{True}
+
+
+\FourthLevelSpellSlotsTotal{13}
+\FourthLevelSpellSlotA{Fourth Level Spell Slot A}
+\FourthLevelSpellSlotB{Fourth Level Spell Slot B}
+\FourthLevelSpellSlotC{Fourth Level Spell Slot C}
+\FourthLevelSpellSlotD{Fourth Level Spell Slot D}
+\FourthLevelSpellSlotE{Fourth Level Spell Slot E}
+\FourthLevelSpellSlotF{Fourth Level Spell Slot F}
+\FourthLevelSpellSlotG{Fourth Level Spell Slot G}
+\FourthLevelSpellSlotH{Fourth Level Spell Slot H}
+\FourthLevelSpellSlotI{Fourth Level Spell Slot I}
+\FourthLevelSpellSlotJ{Fourth Level Spell Slot J}
+\FourthLevelSpellSlotK{Fourth Level Spell Slot K}
+\FourthLevelSpellSlotL{Fourth Level Spell Slot L}
+\FourthLevelSpellSlotM{Fourth Level Spell Slot M}
+
+\FourthLevelSpellSlotAPrepared{True}
+\FourthLevelSpellSlotCPrepared{True}
+\FourthLevelSpellSlotEPrepared{True}
+\FourthLevelSpellSlotGPrepared{True}
+\FourthLevelSpellSlotIPrepared{True}
+\FourthLevelSpellSlotKPrepared{True}
+\FourthLevelSpellSlotMPrepared{True}
+
+
+\FifthLevelSpellSlotsTotal{9}
+\FifthLevelSpellSlotA{Fifth Level Spell Slot A}
+\FifthLevelSpellSlotB{Fifth Level Spell Slot B}
+\FifthLevelSpellSlotC{Fifth Level Spell Slot C}
+\FifthLevelSpellSlotD{Fifth Level Spell Slot D}
+\FifthLevelSpellSlotE{Fifth Level Spell Slot E}
+\FifthLevelSpellSlotF{Fifth Level Spell Slot F}
+\FifthLevelSpellSlotG{Fifth Level Spell Slot G}
+\FifthLevelSpellSlotH{Fifth Level Spell Slot H}
+\FifthLevelSpellSlotI{Fifth Level Spell Slot I}
+
+\FifthLevelSpellSlotAPrepared{True}
+\FifthLevelSpellSlotCPrepared{True}
+\FifthLevelSpellSlotEPrepared{True}
+\FifthLevelSpellSlotGPrepared{True}
+\FifthLevelSpellSlotIPrepared{True}
+
+
+\SixthLevelSpellSlotsTotal{9}
+\SixthLevelSpellSlotA{Sixth Level Spell Slot A}
+\SixthLevelSpellSlotB{Sixth Level Spell Slot B}
+\SixthLevelSpellSlotC{Sixth Level Spell Slot C}
+\SixthLevelSpellSlotD{Sixth Level Spell Slot D}
+\SixthLevelSpellSlotE{Sixth Level Spell Slot E}
+\SixthLevelSpellSlotF{Sixth Level Spell Slot F}
+\SixthLevelSpellSlotG{Sixth Level Spell Slot G}
+\SixthLevelSpellSlotH{Sixth Level Spell Slot H}
+\SixthLevelSpellSlotI{Sixth Level Spell Slot I}
+
+\SixthLevelSpellSlotAPrepared{True}
+\SixthLevelSpellSlotCPrepared{True}
+\SixthLevelSpellSlotEPrepared{True}
+\SixthLevelSpellSlotGPrepared{True}
+\SixthLevelSpellSlotIPrepared{True}
+
+
+\SeventhLevelSpellSlotsTotal{9}
+\SeventhLevelSpellSlotA{Seventh Level Spell Slot A}
+\SeventhLevelSpellSlotB{Seventh Level Spell Slot B}
+\SeventhLevelSpellSlotC{Seventh Level Spell Slot C}
+\SeventhLevelSpellSlotD{Seventh Level Spell Slot D}
+\SeventhLevelSpellSlotE{Seventh Level Spell Slot E}
+\SeventhLevelSpellSlotF{Seventh Level Spell Slot F}
+\SeventhLevelSpellSlotG{Seventh Level Spell Slot G}
+\SeventhLevelSpellSlotH{Seventh Level Spell Slot H}
+\SeventhLevelSpellSlotI{Seventh Level Spell Slot I}
+
+\SeventhLevelSpellSlotAPrepared{True}
+\SeventhLevelSpellSlotCPrepared{True}
+\SeventhLevelSpellSlotEPrepared{True}
+\SeventhLevelSpellSlotGPrepared{True}
+\SeventhLevelSpellSlotIPrepared{True}
+
+
+\EighthLevelSpellSlotsTotal{7}
+\EighthLevelSpellSlotA{Eighth Level Spell Slot A}
+\EighthLevelSpellSlotB{Eighth Level Spell Slot B}
+\EighthLevelSpellSlotC{Eighth Level Spell Slot C}
+\EighthLevelSpellSlotD{Eighth Level Spell Slot D}
+\EighthLevelSpellSlotE{Eighth Level Spell Slot E}
+\EighthLevelSpellSlotF{Eighth Level Spell Slot F}
+\EighthLevelSpellSlotG{Eighth Level Spell Slot G}
+
+\EighthLevelSpellSlotAPrepared{True}
+\EighthLevelSpellSlotCPrepared{True}
+\EighthLevelSpellSlotEPrepared{True}
+\EighthLevelSpellSlotGPrepared{True}
+
+
+\NinthLevelSpellSlotsTotal{7}
+\NinthLevelSpellSlotA{Ninth Level Spell Slot A}
+\NinthLevelSpellSlotB{Ninth Level Spell Slot B}
+\NinthLevelSpellSlotC{Ninth Level Spell Slot C}
+\NinthLevelSpellSlotD{Ninth Level Spell Slot D}
+\NinthLevelSpellSlotE{Ninth Level Spell Slot E}
+\NinthLevelSpellSlotF{Ninth Level Spell Slot F}
+\NinthLevelSpellSlotG{Ninth Level Spell Slot G}
+
+\NinthLevelSpellSlotAPrepared{True}
+\NinthLevelSpellSlotCPrepared{True}
+\NinthLevelSpellSlotEPrepared{True}
+\NinthLevelSpellSlotGPrepared{True}
+
+\renderspellsheet
+\restoregeometry
+\twocolumn
+
+\end{document}

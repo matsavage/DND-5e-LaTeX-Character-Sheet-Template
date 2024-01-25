@@ -29,13 +29,11 @@
         inherit
           (pkgs.texlive)
           scheme-minimal
-          # executables:
+          # Executables:
 
           latexmk
           xetex
-          # packages:
-
-          ## For DND 5e latex template (see: their packages.txt):
+          # For DND 5e latex template (see: their packages.txt):
 
           amsfonts
           atbegshi
@@ -88,7 +86,7 @@
           xcolor
           xkeyval
           xstring
-          ## For this project:
+          # For this project:
 
           fontspec
           gensymb
@@ -96,7 +94,7 @@
           pdfcol
           pstricks
           tikzfill
-          ### Needed for xdv to pdf:
+          # Needed for xdv to pdf:
 
           pst-tools
           xetex-pstricks
@@ -115,54 +113,62 @@
         FONTCONFIG_FILE = pkgs.makeFontsConf {fontDirectories = [./template/fonts];};
         TEXINPUTS = "${builtins.toString ./.}//:${dnd}//:";
       };
-      static_packages = pkgs.lib.filterAttrs (key: value: pkgs.lib.isDerivation value) (
-        pkgs.lib.attrsets.mapAttrs' (
-          file_name: state:
-            if state == "regular"
-            then let
-              file_name_cleaned = pkgs.lib.removeSuffix ".tex" file_name;
-              value_derivation = pkgs.stdenv.mkDerivation (pkgs.lib.recursiveUpdate {
-                  name = "${file_name}-${pname}-${version}";
 
-                  src = ./.;
+      build_character = (
+        directory: file_name: let
+          file_name_cleaned = pkgs.lib.removeSuffix ".tex" file_name;
 
-                  inherit buildInputs;
+          value_derivation = pkgs.stdenv.mkDerivation (pkgs.lib.recursiveUpdate {
+              name = "${directory}-${file_name_cleaned}-${pname}-${version}";
+              src = ./.;
 
-                  patchPhase = ''
-                    sed -i '9s|Path=template/fonts/,Extension=.ttf,||' dndtemplate.sty
+              inherit buildInputs;
 
-                    # -dNOSAFER is safe in this context, as nix builds things in a sandbox
-                    cat << EOF > latexmkrc
-                    \$xdvipdfmx = 'xdvipdfmx -E -o %D -D "gs -q -dALLOWPSTRANSPARENCY -dNOSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile=\\'%o\\' \\'%i\\' -c quit" %O %S';
-                    EOF
-                  '';
+              patchPhase = ''
+                sed -i '9s|Path=template/fonts/,Extension=.ttf,||' dndtemplate.sty
 
-                  buildPhase = ''
-                    latexmk -file-line-error -xelatex characters/${file_name}
-                  '';
+                # -dNOSAFER is safe in this context, as nix builds things in a sandbox
+                cat << EOF > latexmkrc
+                \$xdvipdfmx = 'xdvipdfmx -E -o %D -D "gs -q -dALLOWPSTRANSPARENCY -dNOSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile=\\'%o\\' \\'%i\\' -c quit" %O %S';
+                EOF
+              '';
 
-                  installPhase = ''
-                    mkdir --parents $out/logs
-                    cp ./*.log $out/logs
-                    cp ${file_name_cleaned}.pdf $out
-                  '';
-                }
-                envVars);
-            in
-              pkgs.lib.nameValuePair file_name_cleaned value_derivation
-            else pkgs.lib.nameValuePair "${file_name}.directory" state
-        ) (builtins.readDir ./characters)
+              buildPhase = ''
+                latexmk -file-line-error -xelatex ${directory}/${file_name}
+              '';
+
+              installPhase = ''
+                mkdir --parents $out/logs
+                cp ./*.log $out/logs
+                cp ${file_name_cleaned}.pdf $out
+              '';
+            }
+            envVars);
+        in
+          pkgs.lib.nameValuePair file_name_cleaned value_derivation
       );
-      all_packages =  pkgs.symlinkJoin{
-        name = "all";
-        paths = pkgs.lib.attrValues static_packages;
-         };
+
+      build_from_directory = (directory: let
+        tex_paths = pkgs.lib.filterAttrs (key: value: value == "regular") (builtins.readDir ./${directory});
+        tex_files = pkgs.lib.mapAttrs' (name: _: build_character directory name) tex_paths;
+        all_tex_files = pkgs.symlinkJoin {
+          name = "${directory}-all";
+          paths = pkgs.lib.attrValues tex_files;
+        };
+      in {
+        individual = tex_files;
+        combined = all_tex_files;
+      });
+
+
     in rec {
       packages =
         pkgs.lib.recursiveUpdate {
-          default = all_packages;
+          default = (build_from_directory "characters").combined;
+          test = (build_from_directory "tests").combined;
         }
-        static_packages;
+        (build_from_directory "characters").individual;
+
       devShells.default = pkgs.mkShell (pkgs.lib.recursiveUpdate {
           packages = with pkgs; [
             nil

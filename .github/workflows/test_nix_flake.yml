@@ -14,9 +14,49 @@ jobs:
     - uses: actions/setup-python@v5
     - uses: pre-commit/action@v3.0.0
 
+
+  nix-test:
+    name: Test template sheets against pre-compiled examples
+    needs: pre-commit
+    runs-on: ubuntu-latest
+    steps:
+     - name: Check out code
+       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+     - name: Set up Nix
+       uses: cachix/install-nix-action@6004951b182f8860210c8d6f0d808ec5b1a33d28 # v25
+       with:
+        github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+     - name: Install Imagemagick
+       uses: mfinelli/setup-imagemagick@v5
+
+     - name: Install Ghostscript
+       run: sudo apt-get install ghostscript -y
+
+     - name: Build test sheets
+       run: make test
+
+     - name: Compare test sheets with reference
+       run: make validate_test
+
+     - name: Copy output to archive directory
+       if: always()
+       run: |
+        mkdir archive
+        cp -rL ./result/* ./archive
+        cp difference* ./archive
+
+     - name: Archive build artifacts
+       uses: actions/upload-artifact@v4
+       if: always()
+       with:
+         name: test_result
+         path: archive
+
   nix-run:
     name: Run NixOS Flake and upload generated PDFs
-    needs: pre-commit
+    needs: nix-test
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
