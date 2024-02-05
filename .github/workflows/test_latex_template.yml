@@ -1,4 +1,4 @@
-name: "Test NixOS flake"
+name: "Test LaTeX Template"
 
 on:
   pull_request:
