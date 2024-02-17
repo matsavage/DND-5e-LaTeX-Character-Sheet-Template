@@ -1,0 +1,256 @@
+\documentclass[letterpaper,openany,oneside,twocolumn]{book}
+
+\usepackage[justified]{dnd}
+\usepackage{ifthen}
+
+\usepackage{dndtemplate}
+\usepackage{bookmark}
+
+\setlength\oddsidemargin{\dimexpr(\paperwidth-\textwidth)/2 - 1in\relax}
+\setlength\evensidemargin{\oddsidemargin}
+
+% Headline
+\CharacterName{Nende Firiel}
+
+% adds only main class and total level to prevent overflow
+\Class{Sorceror 2}
+\Background{Adopted}
+\PlayerName{Flr}
+\Race{Triton}
+\Alignment{Neutral good}
+\XP{Milestone}
+
+% Ability scores
+\StrengthScore{9}
+\DexterityScore{14}
+\ConstitutionScore{14}
+\IntelligenceScore{12}
+\WisdomScore{10}
+\CharismaScore{16}
+
+% Ability modifiers
+\StrengthModifier{-1}
+\DexterityModifier{2}
+\ConstitutionModifier{2}
+\IntelligenceModifier{1}
+\WisdomModifier{0}
+\CharismaModifier{3}
+
+% Saving Throws
+\StrengthSavingThrowModifier{-1}
+\DexteritySavingThrowModifier{2}
+\ConstitutionSavingThrowModifier{4}
+\IntelligenceSavingThrowModifier{1}
+\WisdomSavingThrowModifier{0}
+\CharismaSavingThrowModifier{5}
+
+\AcrobaticsSkillModifier{2}
+\AnimalHandlingSkillModifier{0}
+\ArcanaSkillModifier{3}
+\AthleticsSkillModifier{-1}
+\DeceptionSkillModifier{3}
+\HistorySkillModifier{1}
+\InsightSkillModifier{2}
+\IntimidationSkillModifier{3}
+\InvestigationSkillModifier{3}
+\MedicineSkillModifier{0}
+\NatureSkillModifier{1}
+\PerceptionSkillModifier{0}
+\PerformanceSkillModifier{3}
+\PersuasionSkillModifier{3}
+\ReligionSkillModifier{1}
+\SleightOfHandSkillModifier{2}
+\StealthSkillModifier{2}
+\SurvivalSkillModifier{2}
+
+% Proficiencies
+\SetStrengthProficiency{0}
+\SetDexterityProficiency{0}
+\SetConstitutionProficiency{1}
+\SetIntelligenceProficiency{0}
+\SetWisdomProficiency{0}
+\SetCharismaProficiency{1}
+
+\SetAcrobaticsProficiency{0}
+\SetAnimalHandlingProficiency{0}
+\SetArcanaProficiency{1}
+\SetAthleticsProficiency{0}
+\SetDeceptionProficiency{0}
+\SetHistoryProficiency{0}
+\SetInsightProficiency{1}
+\SetIntimidationProficiency{0}
+\SetInvestigationProficiency{1}
+\SetMedicineProficiency{0}
+\SetNatureProficiency{0}
+\SetPerceptionProficiency{0}
+\SetPerformanceProficiency{0}
+\SetPersuasionProficiency{0}
+\SetReligionProficiency{0}
+\SetSleightOfHandProficiency{0}
+\SetStealthProficiency{0}
+\SetSurvivalProficiency{1}
+
+\Inspiration{}
+\Proficiency{2}
+\Perception{10}
+
+\ArmorClass{12}
+\Initiative{2}
+\Speed{\parbox{40pt}{\centering 30
+
+\small{(30~swim)}}}
+\MaxHitPoints{13}
+
+
+\MaxHitDice{2d6}
+\CurrentHitDice{}
+
+\CP{}
+\SP{}
+\GP{}
+\EP{}
+\PP{}
+
+
+\AddWeapon{Dagger}{+4}{1d4+2/p}
+
+\AddWeapon{Quarterstaff}{+1}{1d6-1/b}
+
+\AddWeapon{Dart}{+4}{1d4+2/p}
+
+
+\AttacksAdditional{
+\textbf{Guiding Bolt}: att. +4, dmg 4d6/r
+}
+
+\OtherProficienciesLanguages{\textbf{Languages:} Elvish, Common, Primordial. \\
+\textbf{Weapons}: Quarterstaff, Sling, Dart, Dagger, Light Crossbow. \\
+\textbf{Other}: Herbalism Kit. \\}
+
+\Equipment{
+Quarterstaff, Sling, 20 Dart, Dagger, Backpack, Bedroll, Mess Kit, Tinderbox, 10 Torches,
+10 Days of Rations, Waterskin, 50 Feet of Hempen Rope, Scroll Case, Winter Blanket, Common Clothes, Herbalism Kit, Pouch \\
+\textbf{Weight:} 82.25 lb \\
+\textbf{Capacity:} 135 lb
+}
+
+\PersonalityTraits{
+I love learning about new things, partially about other
+races and sub-races work.
+I enjoy puzzles and thinking things through.
+I always felt out of place, like a swan raised by ducks, or maybe a duck raised by swans…
+}
+
+\Ideals{
+Belonging: Everyone should know where they belong (good).
+Opinions: Everyone is entitled to there own opinions, of course this includes myself (Any).
+}
+
+\Bonds{
+I must find my birth parents, they have to be out there.
+All I want is to find a place where I belong.
+}
+
+\Flaws{
+I hoard what’s mine, I'm quite possessive. I don't like
+others touching my things, or parting with what's mine.
+I am aware that I'm different, making it hard
+for myself to get close to others.
+}
+
+\FeaturesTraits{
+\textbf{Features} \\
+Amphibious \\
+Control Air and Water \\
+Divine Magic \\
+Emissary Of The Sea \\
+Favored by the Gods \\
+Font of Magic \\
+Guardians of the Depths \\
+Trust Issues
+}
+
+
+% Appearance
+
+\Age{21}
+\Height{1,60m}
+\Weight{98 lbs}
+\Eyes{Amber}
+\Skin{Blue}
+\Hair{Bright Green}
+
+% background
+
+\CharacterAppearance{
+\includegraphics[width=5.75cm]{characters/images/nende.png}
+}
+
+\AdditionalFeaturesAndTraits{
+}
+
+\Characterbackground{
+Attack when I was twelve, had to flee towards the forbidden tunnels, got lost, then swept away, and ended up with the elves.
+
+With my adoptive brothers and sisters, I tried to help in collecting food. We went out hunting, gathering food. And I tried
+to help them, but did so in my own way, helped by the arcane powers granted to me by Mizket.
+
+ }
+
+\Treasure{
+}
+
+\AlliesAndOrganizations{
+}
+
+\OrganizationName{
+}
+
+
+%Magic
+\SpellcastingClass{Sorceror 2}
+\SpellcastingAbility{CHA}
+\SpellSaveDC{13}
+\SpellAttackBonus{+5}
+
+\FirstLevelSpellSlotsTotal{3}
+
+\FirstLevelSpellSlotA{Cure Wounds}
+\FirstLevelSpellSlotAPrepared{True}
+\FirstLevelSpellSlotB{Fog Cloud}
+\FirstLevelSpellSlotBPrepared{True}
+\FirstLevelSpellSlotC{Guiding Bolt}
+\FirstLevelSpellSlotCPrepared{True}
+\FirstLevelSpellSlotD{Mage Armor}
+\FirstLevelSpellSlotDPrepared{True}
+\FirstLevelSpellSlotE{Sleep}
+\FirstLevelSpellSlotEPrepared{True}
+\CantripSlotA{Guidance}
+\CantripSlotB{Mage Hand}
+\CantripSlotC{Ray Of Frost}
+\CantripSlotD{Thaumaturgy}
+
+\newcommand{\spellsheetchoice}{\renderspellsheet}
+
+
+
+\begin{document}
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+\onecolumn
+
+
+% CHARACTER PAGE
+\pdfbookmark[0]{Character Sheet}{Character Sheet}
+\rendercharactersheet
+
+% BACKSTORY PAGE
+\pdfbookmark[0]{Background Sheet}{Background Sheet}
+\renderbackgroundsheet
+
+
+% SPELLCASTING PAGE
+\pdfbookmark[0]{Spellcasting Sheet}{Spellcasting Sheet}
+\spellsheetchoice
+
+
+\end{document}
