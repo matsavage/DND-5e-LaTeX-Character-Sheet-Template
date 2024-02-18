@@ -8,7 +8,7 @@ on:
 
 jobs:
   pre-commit:
-    name: Checks linting
+    name: Check linting
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -31,22 +31,9 @@ jobs:
 
      - name: Build test sheets
        id: build-sheets-test
-       run: make test
+       run: make test_ci
 
-     - name: Show logs on failure
-       if: always() && steps.build-sheets-test.conclusion == 'failure'
-       run: nix log /nix/store/*dnd-char-sheet*.drv
-
-     - name: Build test sheets
-       id: build-sheets
-       run: make test
-
-     - name: Show logs on failure
-       if: always() && steps.build-sheets.conclusion == 'failure'
-       run: nix log /nix/store/*dnd-char-sheet*.drv
-
-     - name: Install Imagemagick#
-       if: always() && steps.build-sheets.conclusion == 'success'
+     - name: Install Imagemagick
        uses: mfinelli/setup-imagemagick@v5
 
      - name: Install Ghostscript
@@ -69,7 +56,7 @@ jobs:
          path: archive
 
   nix-run:
-    name: Run NixOS Flake and upload generated PDFs
+    name: Build repo character sheets
     needs: nix-test
     runs-on: ubuntu-latest
     steps:
@@ -82,15 +69,10 @@ jobs:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Run nix flake check
-      run: nix flake check
+      run: make check
 
     - name: Run nix build
-      id: build-sheets
-      run: nix build
-
-    - name: Show logs on failure
-      if: always() && steps.build-sheets.conclusion == 'failure'
-      run: nix log /nix/store/*dnd-char-sheet*.drv
+      run: make build_ci
 
     - name: Copy output to archive directory
       run: |
