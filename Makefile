@@ -14,5 +14,8 @@ develop:
 test:
 	nix ${NIX_SETTINGS} build .#test
 
+test_ci:
+	./scripts/run_with_log.sh nix ${NIX_SETTINGS} build .#test
+
 validate_test:
 	./scripts/check_test_output.sh

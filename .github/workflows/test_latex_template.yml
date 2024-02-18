@@ -31,11 +31,7 @@ jobs:
 
      - name: Build test sheets
        id: build-sheets-test
-       run: |
-          make test 2> errors.txt || true
-          echo ::set-output name=errors::`cat errors.txt`
-          # run again to get exit code
-          make test
+       run: make test_ci
 
      - name: Show logs on failure
        if: always() && steps.build-sheets-test.conclusion == 'failure'
