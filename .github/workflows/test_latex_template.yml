@@ -31,22 +31,14 @@ jobs:
 
      - name: Build test sheets
        id: build-sheets-test
-       run: make test
+       run: make testfe
 
      - name: Show logs on failure
        if: always() && steps.build-sheets-test.conclusion == 'failure'
-       run: nix log /nix/store/*dnd-char-sheet*.drv
+       run: echo ${{ steps.build-sheets-test.outputs.errors }} | ./scripts/print_log.sh
 
-     - name: Build test sheets
-       id: build-sheets
-       run: make test
-
-     - name: Show logs on failure
-       if: always() && steps.build-sheets.conclusion == 'failure'
-       run: nix log /nix/store/*dnd-char-sheet*.drv
-
-     - name: Install Imagemagick#
-       if: always() && steps.build-sheets.conclusion == 'success'
+     - name: Install Imagemagick
+       if: always() && steps.build-sheets-test.conclusion == 'success'
        uses: mfinelli/setup-imagemagick@v5
 
      - name: Install Ghostscript
@@ -90,7 +82,7 @@ jobs:
 
     - name: Show logs on failure
       if: always() && steps.build-sheets.conclusion == 'failure'
-      run: nix log /nix/store/*dnd-char-sheet*.drv
+      run: echo ${{ steps.build-sheets.outputs.errors }} | ./scripts/print_log.sh
 
     - name: Copy output to archive directory
       run: |
