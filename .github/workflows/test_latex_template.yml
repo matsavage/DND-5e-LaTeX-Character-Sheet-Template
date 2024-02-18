@@ -31,7 +31,7 @@ jobs:
 
      - name: Build test sheets
        id: build-sheets-test
-       run: make testfe
+       run: make test
 
      - name: Show logs on failure
        if: always() && steps.build-sheets-test.conclusion == 'failure'
