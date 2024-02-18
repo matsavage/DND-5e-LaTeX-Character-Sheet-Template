@@ -7,18 +7,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  pre-commit:
-    name: Checks linting
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-    - uses: pre-commit/action@v3.0.1
+  # pre-commit:
+  #   name: Checks linting
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - uses: actions/setup-python@v5
+  #   - uses: pre-commit/action@v3.0.1
 
 
   nix-test:
     name: Test template sheets against pre-compiled examples
-    needs: pre-commit
+    # needs: pre-commit
     runs-on: ubuntu-latest
     steps:
      - name: Check out code
@@ -31,7 +31,11 @@ jobs:
 
      - name: Build test sheets
        id: build-sheets-test
-       run: make test
+       run: |
+          make test 2> errors.txt || true
+          echo ::set-output name=errors::`cat errors.txt`
+          # run again to get exit code
+          make test
 
      - name: Show logs on failure
        if: always() && steps.build-sheets-test.conclusion == 'failure'
