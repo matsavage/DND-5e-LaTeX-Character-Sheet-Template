@@ -37,7 +37,16 @@ jobs:
        if: always() && steps.build-sheets.conclusion == 'failure'
        run: nix log /nix/store/*dnd-char-sheet*.drv
 
-     - name: Install Imagemagick
+     - name: Build test sheets
+       id: build-sheets
+       run: make test
+
+     - name: Show logs on failure
+       if: always() && steps.build-sheets.conclusion == 'failure'
+       run: nix log /nix/store/*dnd-char-sheet*.drv
+
+     - name: Install Imagemagick#
+       if: always() && steps.build-sheets.conclusion == 'success'
        uses: mfinelli/setup-imagemagick@v5
 
      - name: Install Ghostscript
