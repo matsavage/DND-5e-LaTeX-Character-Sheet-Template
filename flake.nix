@@ -29,10 +29,14 @@
         inherit
           (pkgs.texlive)
           scheme-minimal
+          collection-luatex
           # Executables:
 
           latexmk
           xetex
+          luatex
+          luahbtex
+          latex-bin
           # For DND 5e latex template (see: their packages.txt):
 
           amsfonts
@@ -40,6 +44,7 @@
           babel
           babel-english
           bookman
+          bookmark
           cfr-initials
           cm
           colortbl
@@ -57,6 +62,7 @@
           geometry
           gillius
           hang
+          hyperref
           initials
           keycommand
           kpfonts
@@ -98,6 +104,10 @@
 
           pst-tools
           xetex-pstricks
+          # Needed for lualatex and transparencies:
+
+          luapstricks
+          pdfmanagement-testphase
           ;
       };
 
@@ -112,6 +122,7 @@
       envVars = {
         FONTCONFIG_FILE = pkgs.makeFontsConf {fontDirectories = [./template/fonts];};
         TEXINPUTS = "${builtins.toString ./.}//:${dnd}//:";
+        TTFONTS = "${builtins.toString ./.}//:${dnd}//:";
       };
 
       build_character = (
@@ -125,16 +136,11 @@
               inherit buildInputs;
 
               patchPhase = ''
-                sed -i '9s|Path=template/fonts/,Extension=.ttf,||' dndtemplate.sty
-
-                # -dNOSAFER is safe in this context, as nix builds things in a sandbox
-                cat << EOF > latexmkrc
-                \$xdvipdfmx = 'xdvipdfmx -E -o %D -D "gs -q -dALLOWPSTRANSPARENCY -dNOSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile=\\'%o\\' \\'%i\\' -c quit" %O %S';
-                EOF
               '';
 
               buildPhase = ''
-                latexmk -file-line-error -xelatex ${directory}/${file_name}
+                env TEXMFHOME=.cache TEXMFVAR=.cache/texmf-var \
+                  latexmk -interaction=nonstopmode -pdf -lualatex ${directory}/${file_name}
               '';
 
               postBuild = ''
