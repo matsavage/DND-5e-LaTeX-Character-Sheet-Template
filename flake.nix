@@ -137,6 +137,10 @@
                 latexmk -file-line-error -xelatex ${directory}/${file_name}
               '';
 
+              postBuild = ''
+                cat ./*.log
+              '';
+
               installPhase = ''
                 mkdir --parents $out/logs
                 cp ./*.log $out/logs
