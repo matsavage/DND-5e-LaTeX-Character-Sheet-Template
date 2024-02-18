@@ -30,11 +30,11 @@ jobs:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
      - name: Build test sheets
-       id: build-sheets
+       id: build-sheets-test
        run: make test
 
      - name: Show logs on failure
-       if: always() && steps.build-sheets.conclusion == 'failure'
+       if: always() && steps.build-sheets-test.conclusion == 'failure'
        run: nix log /nix/store/*dnd-char-sheet*.drv
 
      - name: Build test sheets
@@ -56,7 +56,7 @@ jobs:
        run: make validate_test
 
      - name: Copy output to archive directory
-       if: always() && steps.build-sheets.conclusion == 'success'
+       if: always() && steps.build-sheets-test.conclusion == 'success'
        run: |
         mkdir archive
         cp -rL ./result/* ./archive
