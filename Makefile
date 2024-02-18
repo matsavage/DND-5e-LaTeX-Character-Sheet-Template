@@ -2,6 +2,9 @@ CHARACTER=unnamed
 NIX_SETTINGS=--extra-experimental-features nix-command --extra-experimental-features flakes
 
 
+check:
+	nix flake check
+
 build:
 	nix ${NIX_SETTINGS} build
 

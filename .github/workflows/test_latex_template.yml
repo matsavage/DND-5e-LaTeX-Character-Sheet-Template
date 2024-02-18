@@ -8,7 +8,7 @@ on:
 
 jobs:
   pre-commit:
-    name: Checks linting
+    name: Check linting
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -56,7 +56,7 @@ jobs:
          path: archive
 
   nix-run:
-    name: Run NixOS Flake and upload generated PDFs
+    name: Build repo character sheets
     needs: nix-test
     runs-on: ubuntu-latest
     steps:
@@ -69,11 +69,10 @@ jobs:
         github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Run nix flake check
-      run: nix flake check
+      run: make check
 
     - name: Run nix build
-      id: build-sheets
-      run: nix build_ci
+      run: make build_ci
 
     - name: Copy output to archive directory
       run: |
