@@ -5,6 +5,9 @@ NIX_SETTINGS=--extra-experimental-features nix-command --extra-experimental-feat
 build:
 	nix ${NIX_SETTINGS} build
 
+build_ci:
+	./scripts/run_with_log.sh nix ${NIX_SETTINGS} build
+
 build_character:
 	nix ${NIX_SETTINGS} build .#${CHARACTER}
 

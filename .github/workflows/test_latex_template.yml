@@ -7,18 +7,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  # pre-commit:
-  #   name: Checks linting
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v4
-  #   - uses: actions/setup-python@v5
-  #   - uses: pre-commit/action@v3.0.1
+  pre-commit:
+    name: Checks linting
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+    - uses: pre-commit/action@v3.0.1
 
 
   nix-test:
     name: Test template sheets against pre-compiled examples
-    # needs: pre-commit
+    needs: pre-commit
     runs-on: ubuntu-latest
     steps:
      - name: Check out code
@@ -33,12 +33,7 @@ jobs:
        id: build-sheets-test
        run: make test_ci
 
-     - name: Show logs on failure
-       if: always() && steps.build-sheets-test.conclusion == 'failure'
-       run: echo ${{ steps.build-sheets-test.outputs.errors }} | ./scripts/print_log.sh
-
      - name: Install Imagemagick
-       if: always() && steps.build-sheets-test.conclusion == 'success'
        uses: mfinelli/setup-imagemagick@v5
 
      - name: Install Ghostscript
@@ -78,11 +73,7 @@ jobs:
 
     - name: Run nix build
       id: build-sheets
-      run: nix build
-
-    - name: Show logs on failure
-      if: always() && steps.build-sheets.conclusion == 'failure'
-      run: echo ${{ steps.build-sheets.outputs.errors }} | ./scripts/print_log.sh
+      run: nix build_ci
 
     - name: Copy output to archive directory
       run: |
