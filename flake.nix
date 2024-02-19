@@ -32,7 +32,7 @@
           # Executables:
 
           latexmk
-          xetex
+          latex-bin
           # For DND 5e latex template (see: their packages.txt):
 
           amsfonts
@@ -93,11 +93,8 @@
           kpfonts-otf
           pdfcol
           pstricks
+          luapstricks
           tikzfill
-          # Needed for xdv to pdf:
-
-          pst-tools
-          xetex-pstricks
           ;
       };
 
@@ -112,6 +109,7 @@
       envVars = {
         FONTCONFIG_FILE = pkgs.makeFontsConf {fontDirectories = [./template/fonts];};
         TEXINPUTS = "${builtins.toString ./.}//:${dnd}//:";
+        LANG = "C.UTF-8";
       };
 
       build_character = (
@@ -124,22 +122,13 @@
 
               inherit buildInputs;
 
-              patchPhase = ''
-                sed -i '9s|Path=template/fonts/,Extension=.ttf,||' dndtemplate.sty
-
-                # -dNOSAFER is safe in this context, as nix builds things in a sandbox
-                cat << EOF > latexmkrc
-                \$xdvipdfmx = 'xdvipdfmx -E -o %D -D "gs -q -dALLOWPSTRANSPARENCY -dNOSAFER -dNOPAUSE -dBATCH -dEPSCrop -sPAPERSIZE=a0 -sDEVICE=pdfwrite -dCompatibilityLevel=%v -dAutoFilterGrayImages=false -dGrayImageFilter=/FlateEncode -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -dAutoRotatePages=/None -sOutputFile=\\'%o\\' \\'%i\\' -c quit" %O %S';
-                EOF
-              '';
 
               buildPhase = ''
-                latexmk -file-line-error -xelatex ${directory}/${file_name}
+                export TEXMFHOME=.cache
+                export TEXMFVAR=.cache/texmf-var
+                ./scripts/run_lualatex.sh ${directory}/${file_name}
               '';
 
-              postBuild = ''
-                cat ./*.log
-              '';
 
               installPhase = ''
                 mkdir --parents $out/logs
