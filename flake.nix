@@ -95,6 +95,7 @@
           pstricks
           luapstricks
           tikzfill
+          pdfmanagement-testphase
           ;
       };
 
