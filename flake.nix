@@ -128,6 +128,7 @@
                 export TEXMFHOME=.cache
                 export TEXMFVAR=.cache/texmf-var
                 ./scripts/run_lualatex.sh ${directory}/${file_name}
+                cat ${file_name}.log
               '';
 
 
