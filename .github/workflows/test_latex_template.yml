@@ -50,6 +50,7 @@ jobs:
         cp difference* ./archive
 
      - name: Archive build artifacts
+       if: always() && steps.build-sheets-test.conclusion == 'success'
        uses: actions/upload-artifact@v4
        with:
          name: test_result
