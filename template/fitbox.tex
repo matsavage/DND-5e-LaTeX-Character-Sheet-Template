@@ -1,0 +1,72 @@
+% This code taken from:
+% https://tex.stackexchange.com/questions/26002/fit-text-into-given-box-by-adjusting-the-fontsize
+\usepackage{environ}% http://ctan.org/pkg/environ
+
+\newdimen\fontdim
+\newdimen\upperfontdim
+\newdimen\lowerfontdim
+\newif\ifmoreiterations
+
+\makeatletter
+\NewEnviron{fitbox}[3]{% \begin{fitbox}{<width>}{<height>}{<fontsize>} stuff \end{fitbox}
+  #3 \fontdim\the\fontdimen6\font\relax %
+  \def\buildbox{%
+    \setbox0\vbox{\hbox{\minipage{#1}%
+      \fontsize{\fontdim}{\fontdim}%
+      \selectfont%
+      \stuff%
+    \endminipage}}%
+    \dimen@\ht0
+    \advance\dimen@\dp0
+  }
+  \def\stuff{\BODY}% Store environment body
+  \buildbox
+  % Compute upper and lower bounds
+  \ifdim\dimen@>#2
+    \loop
+      \fontdim.5\fontdim % Reduce font size by half
+      \buildbox
+    \ifdim\dimen@>#2 \repeat
+    \lowerfontdim\fontdim
+    \upperfontdim2\fontdim
+    \fontdim1.5\fontdim
+%  \else
+%    \loop
+%      \fontdim2\fontdim % Double font size
+%      \buildbox
+%    \ifdim\dimen@<#2 \repeat
+%    \upperfontdim\fontdim
+%    \lowerfontdim.5\fontdim
+%    \fontdim.75\fontdim
+  \fi
+  % Now try to find the optimum size
+  \loop
+    %\message{Bounds: \the\lowerfontdim\space
+    %         \the\fontdim\space \the\upperfontdim^^J}
+    \buildbox
+    \ifdim\dimen@>#2
+      \moreiterationstrue
+      \upperfontdim\fontdim
+      \advance\fontdim\lowerfontdim
+      \fontdim.5\fontdim
+    \else
+      \advance\dimen@-#2
+      \ifdim\dimen@<10pt
+        \lowerfontdim\fontdim
+        \advance\fontdim\upperfontdim
+        \fontdim.5\fontdim
+        \dimen@\upperfontdim
+        \advance\dimen@-\lowerfontdim
+        \ifdim\dimen@<.2pt
+          \moreiterationsfalse
+        \else
+          \moreiterationstrue
+        \fi
+      \else
+        \moreiterationsfalse
+      \fi
+    \fi
+  \ifmoreiterations \repeat
+  \box0% Typeset content
+}
+\makeatother
