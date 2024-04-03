@@ -7,7 +7,6 @@
 \newdimen\fontdim
 \newdimen\upperfontdim
 \newdimen\lowerfontdim
-\newdimen\boxheight
 
 \newif\ifmoreiterations
 
@@ -134,19 +133,22 @@
     % Now try to find the optimum height and width
     \loop
         \buildbox
-        \boxheight=\the\dimen@\space%
-        %\message{Height: \the\boxheight}%
+        %\message{Height: \the\dimen@\space^^J}%
         \ifdim\dimen@>#2
-            \moreiterationstrue
-            \upperfontdim\fontdim
-            \advance\fontdim\lowerfontdim
-            \fontdim.5\fontdim
-        \else
-            \ifnum\maxbad>10000
+            \ifdim\fontdim>.2pt
                 \moreiterationstrue
                 \upperfontdim\fontdim
                 \advance\fontdim\lowerfontdim
                 \fontdim.5\fontdim
+            \fi
+        \else
+            \ifnum\maxbad>10000
+                \ifdim\fontdim>.2pt
+                    \moreiterationstrue
+                    \upperfontdim\fontdim
+                    \advance\fontdim\lowerfontdim
+                    \fontdim.5\fontdim
+                \fi
             \else
                 \advance\dimen@-#2
                 \ifdim\dimen@<10pt
@@ -165,9 +167,6 @@
                 \fi
             \fi
         \fi
-        \ifdim\the\boxheight=\the\dimen@\space%
-            \moreiterationsfalse
-        \fi%
     \ifmoreiterations \repeat
     %\message{Selected font: \the\fontdim\space^^J}%
     \vbox to #2{\box0\hbox{}}% Typeset content
