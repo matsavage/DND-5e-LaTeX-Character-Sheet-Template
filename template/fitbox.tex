@@ -7,6 +7,8 @@
 \newdimen\fontdim
 \newdimen\upperfontdim
 \newdimen\lowerfontdim
+\newdimen\boxheight
+
 \newif\ifmoreiterations
 
 \newbox\trialbox
@@ -17,7 +19,7 @@
 
 \makeatletter
 \NewEnviron{fitbox}[3]{% \begin{fitbox}{<width>}{<height>}{<fontsize>} stuff \end{fitbox}
-  #3 \fontdim\the\fontdimen6\font\relax %
+  #3 \fontdim\the\fontdimen6\font\relax%
     % Store environment body
     \def\stuff{%
         \BODY%
@@ -84,7 +86,9 @@
             \fontdim.5\fontdim % Reduce font size by half
             \buildbox
             %\message{Shrinking, new box height: \the\dimen@\space at Fontsize: \the\fontdim\space^^J}%
-        \ifdim\dimen@>#2 \repeat
+        \ifdim\dimen@>#2%
+            \ifdim\fontdim>.1pt \repeat
+        \fi%
         \lowerfontdim\fontdim
         \upperfontdim2\fontdim
         \fontdim1.5\fontdim
@@ -93,7 +97,9 @@
         \loop
             \fontdim.5\fontdim % Reduce font size by half
             \buildbox
-        \ifnum\maxbad>10000 \repeat
+        \ifnum\maxbad>10000%
+            \ifdim\fontdim>.1pt \repeat
+        \fi%
         \lowerfontdim\fontdim
         \upperfontdim2\fontdim
         \fontdim1.5\fontdim
@@ -128,7 +134,8 @@
     % Now try to find the optimum height and width
     \loop
         \buildbox
-        %\message{Height: \the\dimen@\space^^J}%
+        \boxheight=\the\dimen@\space%
+        %\message{Height: \the\boxheight}%
         \ifdim\dimen@>#2
             \moreiterationstrue
             \upperfontdim\fontdim
@@ -158,6 +165,9 @@
                 \fi
             \fi
         \fi
+        \ifdim\the\boxheight=\the\dimen@\space%
+            \moreiterationsfalse
+        \fi%
     \ifmoreiterations \repeat
     %\message{Selected font: \the\fontdim\space^^J}%
     \vbox to #2{\box0\hbox{}}% Typeset content
