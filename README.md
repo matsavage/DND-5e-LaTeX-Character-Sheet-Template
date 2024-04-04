@@ -10,7 +10,7 @@
 * High degree of customisation available
 * Works with XeLaTeX locally
 
-<img src=https://github.com/Chery-cake/DND-5e-LaTeX-Character-Sheet-Template/raw/main/bard-druid_character_sheet.png/>
+<img src=https://github.com/Chery-cake/DND-5e-LaTeX-Character-Sheet-Template/raw/main/aaliyah.png/>
 
 
 ## Usage
