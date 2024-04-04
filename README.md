@@ -12,7 +12,6 @@
 
 <img src=https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/raw/main/aaliyah.png/>
 
-
 ## Usage
 
 ### Building a character sheet
