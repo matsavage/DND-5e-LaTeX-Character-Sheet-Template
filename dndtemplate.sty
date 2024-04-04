@@ -58,6 +58,48 @@
 % SPELL LINE COLOR
 \newrgbcolor{spell-line-color}{0.3 0.3 0.3}
 
+% SIMPLIFY TRANSPARENCY OPTIONS WHEN ALLOWPSTRANSPARENCY ISN'T SET
+\ifnum \headercolorbackgroundopacity=0
+  \def \headercolorbackgroundfill{none}
+\else
+  \def \headercolorbackgroundfill{solid}
+\fi
+\ifnum \headerdragonopacity=0
+  \def \headerdragonfill{none}
+\else
+  \def \headerdragonfill{solid}
+\fi
+\ifnum \generalbackgroundopacity=0
+  \def \generalbackgroundfill{none}
+\else
+  \def \generalbackgroundfill{solid}
+\fi
+\ifnum \statsbackgroundopacity=0
+  \def \statsbackgroundfill{none}
+\else
+  \def \statsbackgroundfill{solid}
+\fi
+\ifnum \statsmodifieropacity=0
+  \def \statsmodifierfill{none}
+\else
+  \def \statsmodifierfill{solid}
+\fi
+\ifnum \statsscoreopacity=0
+  \def \statsscorefill{none}
+\else
+  \def \statsscorefill{solid}
+\fi
+\ifnum \spellheaderbackgroundopacity=0
+  \def \spellheaderbackgroundfill{none}
+\else
+  \def \spellheaderbackgroundfill{solid}
+\fi
+\ifnum \spellheaderbackgroundinfillopacity=0
+  \def \spellheaderbackgroundinfillfill{none}
+\else
+  \def \spellheaderbackgroundinfillfill{solid}
+\fi
+
 \input{template/character-sheet-commands}
 \input{template/sheet-calculations}
 \input{template/fitbox}
