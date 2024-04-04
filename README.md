@@ -10,7 +10,7 @@
 * High degree of customisation available
 * Simplified build with Nix
 
-<img src=https://github.com/Chery-cake/DND-5e-LaTeX-Character-Sheet-Template/raw/main/aaliyah.png/>
+<img src=https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/raw/main/aaliyah.png/>
 
 
 ## Usage
