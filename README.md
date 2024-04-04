@@ -2,7 +2,7 @@
 
 > LaTeX template to typeset Dungeons and Dragons 5th edition character sheets.
 
-[![Test LaTeX Template](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/actions/workflows/test_latex_template.yml/badge.svg)](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/actions/workflows/test_latex_template.yml)
+[![Test LaTeX Template](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/actions/workflows/test_latex_template.yml/badge.svg?branch=main)](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/actions/workflows/test_latex_template.yml)
 
 ## Features
 
