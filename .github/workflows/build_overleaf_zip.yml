@@ -1,0 +1,22 @@
+name: "Build Overleaf Project"
+
+on:
+    workflow_dispatch:
+
+jobs:
+  build-archive:
+    name: Build archive for Overleaf
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: Checkout repo
+       uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+
+     - name: Checkout DND template
+       uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+       with:
+        repository: "git@github.com:rpgtex/DND-5e-LaTeX-Template.git"
+        path: "."
+
+     - name: See what we have
+       run: ls -lah
