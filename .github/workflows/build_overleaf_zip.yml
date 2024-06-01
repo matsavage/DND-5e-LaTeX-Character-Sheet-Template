@@ -2,8 +2,8 @@ name: "Build Overleaf Project"
 
 on:
   push:
-    tags:
-     - 'v*'
+    # tags:
+    #  - 'v*'
 
 jobs:
   build-archive:
