@@ -20,6 +20,17 @@ It is reccomended to look at pre-existing character sheets in the `characters` d
 
 ## Compliation
 
+### Overleaf
+
+This package can be used as-is with Overleaf, however this does not support the DnD 5e template, so will render with a plain white background.
+
+Steps for running on Overleaf:
+* Download latest version of the repo for overleaf from the `releases` tab
+* Create a new project in Overleaf from a zip upload
+* Change the the engine to `LuaLaTeX`
+
+The document should then compile normally.
+
 ### Nix
 A nix flake is a reproducible way to describe the building process to [nix](https://nixos.org/).
 See https://nixos.org/download.html, on how to install nix.
@@ -38,17 +49,6 @@ make build_character CHARACTER=unnamed   # Will complile the example "unnamed" c
 
 make develop                             # Will drop you into a shell with all dependencies installed
 ```
-
-### Overleaf
-
-This package can be used as-is with Overleaf, however this does not support the DnD 5e template, so will render with a plain white background.
-
-Steps for running on Overleaf:
-* Download repository as a .zip file from the `Code <>` menu in GitHub
-* Create a new project in Overleaf from a zip upload
-* Change the root document to `characters/aaliyah-plain.tex` and the engine to `LuaLaTeX`
-
-The document should then compile normally.
 
 ### Customisation
 
