@@ -39,6 +39,17 @@ make build_character CHARACTER=unnamed   # Will complile the example "unnamed" c
 make develop                             # Will drop you into a shell with all dependencies installed
 ```
 
+### Overleaf
+
+This package can be used as-is with Overleaf, however this does not support the DnD 5e template, so will render with a plain white background.
+
+Steps for running on Overleaf:
+* Download repository as a .zip file from the `Code <>` menu in GitHub
+* Create a new project in Overleaf from a zip upload
+* Change the root document to `characters/aaliyah-plain.tex` and the engine to `LuaLaTeX`
+
+The document should then compile normally.
+
 ### Customisation
 
 There are a large number of character sheet customisation options available in [`dndtemplate.sty`](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/blob/main/dndtemplate.sty) which acts a central location to modify colour and opacity for a number of character sheet elements. There are some commands in `sheet-calculations` that were made to auto calculate the modifiers and proficiencies, and auto complete a few inputs.

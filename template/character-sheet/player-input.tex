@@ -80,17 +80,31 @@
 % FREEFORM ENTRY
 
 % ATTACKS AND SPELLCASTING
-\rput[lt](296,576){\parbox{167pt}{\justify\entryfont
-		\begin{DndTable}{Xll}
-			\tiny \textcolor{tertiary-indicator-color}{\textsf{NAME}}        &
-			\tiny \textcolor{tertiary-indicator-color}{\textsf{ATK BONUS}}   &
-			\tiny \textcolor{tertiary-indicator-color}{\textsf{DAMAGE/TYPE}}
-			\WeaponsHeld
-		\end{DndTable}
-		\textcolor{text-color}{\AttacksAdditionalValue}
+\IfPackageLoadedTF{dnd}
+{
+	\rput[lt](296,576){\parbox{167pt}{\justify\entryfont
+			\begin{DndTable}{Xll}
+				\tiny \textcolor{tertiary-indicator-color}{\textsf{NAME}}        &
+				\tiny \textcolor{tertiary-indicator-color}{\textsf{ATK BONUS}}   &
+				\tiny \textcolor{tertiary-indicator-color}{\textsf{DAMAGE/TYPE}}
+				\WeaponsHeld
+			\end{DndTable}
+			\textcolor{text-color}{\AttacksAdditionalValue}
+		}
 	}
 }
-
+{
+	\rput[lt](296,552){\parbox{167pt}{\entryfont
+			\begin{tabular}{lll}
+				\tiny \textcolor{tertiary-indicator-color}{\textsf{NAME}}        &
+				\tiny \textcolor{tertiary-indicator-color}{\textsf{ATK BONUS}}   &
+				\tiny \textcolor{tertiary-indicator-color}{\textsf{DAMAGE/TYPE}}
+				\WeaponsHeld
+			\end{tabular}
+			\textcolor{text-color}{\AttacksAdditionalValue}
+		}
+	}
+}
 \rput[lt](37,220){\begin{fitbox}{168pt}{4.65cm}{\normalsize} \entryfont \justify \textcolor{text-color}{\OtherProficienciesLanguagesValue} \end{fitbox}}
 \rput[lt](353,264){\begin{fitbox}{118pt}{5.8cm}{\normalsize} \entryfont \justify \textcolor{text-color}{\EquipmentValue} \end{fitbox}}
 \rput[lt](541,542){\begin{fitbox}{168pt}{13.2cm}{\normalsize} \entryfont \justify \textcolor{text-color}{\FeaturesTraitsValue} \end{fitbox}}
