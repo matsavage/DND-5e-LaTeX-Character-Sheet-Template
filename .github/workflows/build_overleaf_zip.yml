@@ -2,6 +2,7 @@ name: "Build Overleaf Project"
 
 on:
     workflow_dispatch:
+    push:
 
 jobs:
   build-archive:
