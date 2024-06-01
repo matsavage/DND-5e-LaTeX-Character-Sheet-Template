@@ -30,3 +30,16 @@ jobs:
 
      - name: See what we have
        run: ls -lah repo
+
+     - name: Archive for Overleaf
+       uses: thedoctor0/zip-release@0.7.5
+       with:
+        type: 'zip'
+        filename: 'dndtemplate-overleaf.zip'
+        exclusions: '*.pdf'
+
+     - name: Upload Release
+       uses: ncipollo/release-action@v1.12.0
+       with:
+           artifacts: "dndtemplate-overleaf.zip"
+           token: ${{ secrets.GITHUB_TOKEN }}
