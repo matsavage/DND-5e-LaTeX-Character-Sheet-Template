@@ -46,5 +46,5 @@ jobs:
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
        with:
-         tag_name: ${{ github.ref }}
-         files: 'repo/dndtemplate-overleaf-${{ github.ref_nmame }}.zip'
+         tag_name: ${{ github.ref_name }}
+         files: 'repo/dndtemplate-overleaf-${{ github.ref_name }}.zip'
