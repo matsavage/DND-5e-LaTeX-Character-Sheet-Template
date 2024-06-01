@@ -36,7 +36,7 @@ jobs:
        uses: thedoctor0/zip-release@0.7.5
        with:
         type: 'zip'
-        path: repo
+        directory: repo
         filename: 'dndtemplate-overleaf.zip'
         exclusions: '*.pdf .git*'
 
@@ -50,4 +50,4 @@ jobs:
         #  release_name: "v0.0.1b2"
          draft: false
          prerelease: true
-         files: 'dndtemplate-overleaf.zip'
+         files: 'repo/dndtemplate-overleaf.zip'
