@@ -12,7 +12,8 @@ jobs:
     steps:
      - name: Checkout repo
        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
-
+       with:
+        path: "repo"
      - name: orig pwd
        run: pwd
 
@@ -24,7 +25,7 @@ jobs:
        with:
         repository: rpgtex/DND-5e-LaTeX-Template.git
         ref: v0.8.0
-        # path: "."
+        path: "dndtemplate"
 
      - name: new pwd
        run: pwd
