@@ -38,7 +38,7 @@ jobs:
         type: 'zip'
         directory: repo
         filename: 'dndtemplate-overleaf.zip'
-        exclusions: '*.pdf .git/*'
+        exclusions: '*.pdf *.git*'
 
      - name: Create Release
        id: create_release
