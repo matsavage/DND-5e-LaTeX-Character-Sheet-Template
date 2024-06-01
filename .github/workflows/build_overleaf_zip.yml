@@ -1,0 +1,50 @@
+name: "Build Overleaf Project"
+
+on:
+  push:
+    tags:
+     - 'v*'
+
+jobs:
+  build-archive:
+    name: Build archive for Overleaf
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: Checkout repo
+       uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+       with:
+        path: "repo"
+
+     - name: Checkout DND template
+       uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+       with:
+        repository: rpgtex/DND-5e-LaTeX-Template.git
+        ref: v0.8.0
+        path: "dndtemplate"
+
+     - name: Copy files from template to repo
+       run: |
+         cp ./dndtemplate/dnd* ./repo
+         cp -r ./dndtemplate/img ./repo
+         cp -r ./dndtemplate/lib ./repo
+
+     - name: See what we have
+       run: ls -lah repo
+
+     - name: Archive for Overleaf
+       uses: thedoctor0/zip-release@0.7.5
+       with:
+        type: 'zip'
+        directory: repo
+        filename: 'dndtemplate-overleaf-${{ github.ref }}.zip'
+        exclusions: '*.pdf *.git*'
+
+     - name: Add Overleaf to release
+       id: create_release
+       uses: softprops/action-gh-release@v2
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+       with:
+         tag_name: ${{ github.ref }}
+         files: 'repo/dndtemplate-overleaf-${{ github.ref }}.zip'
