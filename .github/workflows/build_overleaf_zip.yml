@@ -1,8 +1,9 @@
 name: "Build Overleaf Project"
 
 on:
-    workflow_dispatch:
-    push:
+  push:
+    tags:
+     - 'v*'
 
 jobs:
   build-archive:
@@ -40,15 +41,12 @@ jobs:
 
      - name: Create Release
        id: create_release
-       uses: actions/create-release@v1
+       uses: softprops/action-gh-release@v2
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
        with:
          tag_name: ${{ github.ref }}
          release_name: Release ${{ github.ref }}
-         body: |
-           Changes in this Release
-           - First Change
-           - Second Change
-         draft: true
-         prerelease: false
+         draft: false
+         prerelease: true
+         assets: 'dndtemplate-overleaf.zip'
