@@ -18,7 +18,7 @@ jobs:
        with:
         repository: rpgtex/DND-5e-LaTeX-Template.git
         ref: v0.8.0
-        path: "."
+        # path: "."
 
      - name: See what we have
        run: ls -lah
