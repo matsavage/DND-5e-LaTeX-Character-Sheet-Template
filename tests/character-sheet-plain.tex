@@ -1,0 +1,202 @@
+\documentclass[letterpaper,openany,oneside,twocolumn]{book}
+\usepackage{bookmark}
+%\usepackage[justified]{dnd}
+\usepackage{xstring}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{geometry}
+\usepackage{pstricks}
+
+\usepackage{dndtemplate}
+
+\setlength\oddsidemargin{\dimexpr(\paperwidth-\textwidth)/2 - 1in\relax}
+\setlength\evensidemargin{\oddsidemargin}
+
+\begin{document}
+\newgeometry{left=0cm,right=0cm,top=0cm,bottom=0cm}
+\onecolumn
+
+% Headline
+\CharacterName{Character Name}
+
+\Class{Fighter 15}
+\Background{Noble}
+\PlayerName{Player}
+\Race{Dragonborn}
+\Alignment{Neutral good}
+\XP{0}
+
+\CurrentHitPoints{96}
+
+% Ability scores
+\StrengthScore{17}
+\DexterityScore{14}
+\ConstitutionScore{13}
+\IntelligenceScore{12}
+\WisdomScore{10}
+\CharismaScore{9}
+
+% Ability modifiers
+\StrengthModifier{3}
+\DexterityModifier{2}
+\ConstitutionModifier{1}
+\IntelligenceModifier{1}
+\WisdomModifier{0}
+\CharismaModifier{-1}
+
+% Saving Throws
+\StrengthSavingThrowModifier{8}
+\DexteritySavingThrowModifier{2}
+\ConstitutionSavingThrowModifier{6}
+\IntelligenceSavingThrowModifier{1}
+\WisdomSavingThrowModifier{0}
+\CharismaSavingThrowModifier{-1}
+
+\AcrobaticsSkillModifier{2}
+\AnimalHandlingSkillModifier{0}
+\ArcanaSkillModifier{1}
+\AthleticsSkillModifier{8}
+\DeceptionSkillModifier{-1}
+\HistorySkillModifier{6}
+\InsightSkillModifier{0}
+\IntimidationSkillModifier{4}
+\InvestigationSkillModifier{1}
+\MedicineSkillModifier{0}
+\NatureSkillModifier{1}
+\PerceptionSkillModifier{0}
+\PerformanceSkillModifier{-1}
+\PersuasionSkillModifier{4}
+\ReligionSkillModifier{1}
+\SleightOfHandSkillModifier{2}
+\StealthSkillModifier{2}
+\SurvivalSkillModifier{0}
+
+% Prociciencies
+\StrengthProficiency{True}
+\DexterityProficiency{False}
+\ConstitutionProficiency{True}
+\IntelligenceProficiency{False}
+\WisdomProficiency{False}
+\CharismaProficiency{False}
+
+\AcrobaticsProficiency{False}
+\AnimalHandlingProficiency{False}
+\ArcanaProficiency{False}
+\AthleticsProficiency{True}
+\DeceptionProficiency{False}
+\HistoryProficiency{True}
+\InsightProficiency{False}
+\IntimidationProficiency{True}
+\InvestigationProficiency{False}
+\MedicineProficiency{False}
+\NatureProficiency{False}
+\PerceptionProficiency{False}
+\PerformanceProficiency{False}
+\PersuasionProficiency{True}
+\ReligionProficiency{False}
+\SleightOfHandProficiency{False}
+\StealthProficiency{False}
+\SurvivalProficiency{False}
+
+\Inspiration{}
+\Proficiency{5}
+\Perception{10}
+
+\ArmorClass{16}
+\Initiative{2}
+\Speed{30}
+\MaxHitPoints{96}
+
+
+\MaxHitDice{15d10}
+\CurrentHitDice{}
+
+\CP{1}
+\SP{2}
+\GP{3}
+\EP{4}
+\PP{5}
+
+
+\AddWeapon{Greatsword}{8}{2d6+3/s}
+
+\AddWeapon{Longbow}{7}{1d8+2/p}
+
+\AddWeapon{Battleaxe}{8}{1d8+3/s}
+
+
+\AttacksAdditional{
+\textbf{Armour}: Chain Mail
+
+}
+
+\OtherProficienciesLanguages{
+
+\textbf{Languages:}  Elvish, Common, Draconic
+
+\textbf{Weapons}: All weapons.
+
+\textbf{Armor}: All armor, shields.
+
+\textbf{Other}:
+}
+
+\Equipment{
+\textbf{Other Equipment}
+
+\textbf{Weight:} 67.0 lb
+
+\textbf{Capacity:} 255 lb
+}
+
+\PersonalityTraits{
+How does your character behave? See the PHB for
+examples of all the sections below
+}
+
+\Ideals{
+What does your character believe in?
+}
+
+\Bonds{
+Describe what debts your character has to pay, and other commitments or ongoing quests they have.
+}
+
+\Flaws{
+Describe your characters interesting flaws.
+
+}
+
+\FeaturesTraits{
+
+\textbf{Features}
+\\
+Action Surge \\
+Breath Weapon \\
+Combat Superiority (d10) \\
+Commander's Strike \\
+Damage Resistance \\
+Disarming Attack \\
+Distracting Strike \\
+Draconic Ancestry \\
+Evasive Footwork \\
+Extra Attack (3x) \\
+Fighting Style (Select One) \\
+Indomitable (2x/LR) \\
+Know Your Enemy \\
+Lunging Attack \\
+Parry \\
+Position of Privilege \\
+Rally \\
+Relentless \\
+Second Wind \\
+Student of War \\
+Sweeping Attack \\
+}
+
+\rendercharactersheet
+\restoregeometry
+\twocolumn
+
+\end{document}
