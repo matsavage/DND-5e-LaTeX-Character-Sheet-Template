@@ -25,8 +25,8 @@ jobs:
      - name: Copy files from template to repo
        run: |
          cp ./dndtemplate/dnd* ./repo
-         cp ./dndtemplate/img ./repo
-         cp ./dndtemplate/lib ./repo
+         cp -r ./dndtemplate/img ./repo
+         cp -r ./dndtemplate/lib ./repo
 
      - name: See what we have
        run: ls -lah repo
