@@ -36,9 +36,9 @@ jobs:
        uses: thedoctor0/zip-release@0.7.5
        with:
         type: 'zip'
-        directory: repo
+        path: repo
         filename: 'dndtemplate-overleaf.zip'
-        exclusions: '*.pdf'
+        exclusions: '*.pdf .git*'
 
      - name: Create Release
        id: create_release
