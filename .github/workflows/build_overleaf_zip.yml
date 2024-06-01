@@ -37,7 +37,7 @@ jobs:
        with:
         type: 'zip'
         directory: repo
-        filename: 'dndtemplate-overleaf-${{ github.ref }}.zip'
+        filename: 'dndtemplate-overleaf-${{ github.ref_name }}.zip'
         exclusions: '*.pdf *.git*'
 
      - name: Add Overleaf to release
@@ -47,4 +47,4 @@ jobs:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
        with:
          tag_name: ${{ github.ref }}
-         files: 'repo/dndtemplate-overleaf-${{ github.ref }}.zip'
+         files: 'repo/dndtemplate-overleaf-${{ github.ref_nmame }}.zip'
