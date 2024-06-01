@@ -33,7 +33,6 @@
           # Executables:
 
           latexmk
-          xetex
           luatex
           luahbtex
           latex-bin
@@ -100,10 +99,7 @@
           pdfcol
           pstricks
           tikzfill
-          # Needed for xdv to pdf:
-
           pst-tools
-          xetex-pstricks
           # Needed for lualatex and transparencies:
 
           luapstricks
@@ -113,7 +109,7 @@
 
       buildInputs = [
         texlive
-        pkgs.ghostscript_headless # needed for the xdv to pdf step
+        # pkgs.ghostscript_headless # needed for the xdv to pdf step
         pkgs.gnused
       ];
 
@@ -123,6 +119,8 @@
         FONTCONFIG_FILE = pkgs.makeFontsConf {fontDirectories = [./template/fonts];};
         TEXINPUTS = "${builtins.toString ./.}//:${dnd}//:";
         TTFONTS = "${builtins.toString ./.}//:${dnd}//:";
+        TEXMFHOME = ".cache";
+        TEXMFVAR = ".cache/texmf-var";
       };
 
       build_character = (
@@ -135,16 +133,8 @@
 
               inherit buildInputs;
 
-              patchPhase = ''
-              '';
-
               buildPhase = ''
-                env TEXMFHOME=.cache TEXMFVAR=.cache/texmf-var \
-                  latexmk -interaction=nonstopmode -pdf -lualatex ${directory}/${file_name}
-              '';
-
-              postBuild = ''
-                cat ./*.log
+                latexmk -interaction=nonstopmode -pdf -lualatex ${directory}/${file_name}
               '';
 
               installPhase = ''
