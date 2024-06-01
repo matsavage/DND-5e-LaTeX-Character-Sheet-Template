@@ -45,8 +45,8 @@ jobs:
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
        with:
-         tag_name: ${{ github.ref }}
-         release_name: Release ${{ github.ref }}
+         tag_name: "v0.0.1b2"
+         release_name: "v0.0.1b2"
          draft: false
          prerelease: true
          assets: 'dndtemplate-overleaf.zip'
