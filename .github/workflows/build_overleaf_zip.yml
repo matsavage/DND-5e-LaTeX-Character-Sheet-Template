@@ -13,12 +13,21 @@ jobs:
      - name: Checkout repo
        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
 
+     - name: orig pwd
+       run: pwd
+
+     - name: orig ls
+       run: ls -lah
+
      - name: Checkout DND template
        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
        with:
         repository: rpgtex/DND-5e-LaTeX-Template.git
         ref: v0.8.0
         # path: "."
+
+     - name: new pwd
+       run: pwd
 
      - name: See what we have
        run: ls -lah
