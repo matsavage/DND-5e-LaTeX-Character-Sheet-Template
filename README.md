@@ -22,16 +22,17 @@ It is reccomended to look at pre-existing character sheets in the `characters` d
 
 ### Overleaf
 
-This package can be used as-is with Overleaf, however this does not support the DnD 5e template, so will render with a plain white background.
+This package can be used as-is with Overleaf.
 
 Steps for running on Overleaf:
 * Download latest version of the repo for overleaf from the `releases` tab
-* Create a new project in Overleaf from a zip upload
+* Create a new project in Overleaf via a zip upload
 * Change the the engine to `LuaLaTeX`
 
-The document should then compile normally.
+You should then be able to compile any of the example characters in the `characters/` directory.
 
 ### Nix
+
 A nix flake is a reproducible way to describe the building process to [nix](https://nixos.org/).
 See https://nixos.org/download.html, on how to install nix.
 Afterwards running `nix build` in the repository will result in a successful build.
@@ -40,6 +41,7 @@ Flakes and Nix-Commands are still experimental, so they must be enabled
 as described at https://nixos.wiki/wiki/Flakes#Enable_flakes.
 
 ### Makefile
+
 The example or specific character sheets can be compiled using the following `make` commands:
 
 ``` console
@@ -50,13 +52,19 @@ make build_character CHARACTER=unnamed   # Will complile the example "unnamed" c
 make develop                             # Will drop you into a shell with all dependencies installed
 ```
 
+### GitHub Action
+
+This repository contains a GitHub action which will build all pages in the `characters/` directory and upload them as an artifact to the workflow run.
+
 ### Customisation
 
-There are a large number of character sheet customisation options available in [`dndtemplate.sty`](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/blob/main/dndtemplate.sty) which acts a central location to modify colour and opacity for a number of character sheet elements. There are some commands in `sheet-calculations` that were made to auto calculate the modifiers and proficiencies, and auto complete a few inputs.
+There are a large number of character sheet customisation options available in [`dndtemplate.sty`](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/blob/main/dndtemplate.sty) which acts a central location to modify colour and opacity for a number of character sheet elements. 
+
+There are some commands in `sheet-calculations` that were made to auto calculate the modifiers and proficiencies, and auto complete a few inputs.
 
 ## Dependencies
 
-This package requires LaTeX and the [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template). I reccomend using the [instructions](https://github.com/rpgtex/DND-5e-LaTeX-Template/tree/355b9ced1b42324574c2c4e28f9783f29c760a20#dependencies) provided with this package to set up your environment if not using the included GitHub action.
+This package requires LaTeX and (optionally) the [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template). I reccomend using the [instructions](https://github.com/rpgtex/DND-5e-LaTeX-Template/tree/355b9ced1b42324574c2c4e28f9783f29c760a20#dependencies) provided with this package to set up your environment if not using overleaf, nix or the GitHub action in this repository.
 
 ## Credits
 
