@@ -1,11 +1,16 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["group:allNonMajor"],
-    "lockFileMaintenance": {
-      "enabled": true,
-      "extends": ["schedule:weekly"]
-    },
-    "nix": {
-      "enabled": true
-    }
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "extends": [
+      "schedule:weekly",
+      "group:allNonMajor"
+    ]
+  },
+  "nix": {
+    "enabled": true
   }
+}
