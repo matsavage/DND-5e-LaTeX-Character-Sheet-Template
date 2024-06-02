@@ -56,9 +56,9 @@ make develop                             # Will drop you into a shell with all d
 
 This repository contains a GitHub action which will build all pages in the `characters/` directory and upload them as an artifact to the workflow run.
 
-### Customisation
+## Customisation
 
-There are a large number of character sheet customisation options available in [`dndtemplate.sty`](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/blob/main/dndtemplate.sty) which acts a central location to modify colour and opacity for a number of character sheet elements. 
+There are a large number of character sheet customisation options available in [`dndtemplate.sty`](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/blob/main/dndtemplate.sty) which acts a central location to modify colour and opacity for a number of character sheet elements.
 
 There are some commands in `sheet-calculations` that were made to auto calculate the modifiers and proficiencies, and auto complete a few inputs.
 
