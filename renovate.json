@@ -7,20 +7,21 @@
     "enabled": true,
     "extends": [
       "schedule:weekly"
-    ],
-    "packageRules": [
-      {
-        "matchDepTypes": [
-          "*"
-        ],
-        "matchUpdateTypes": [
-          "patch",
-          "minor"
-        ],
-        "groupName": "Dependencies (non-major)"
-      }
     ]
   },
+  "packageRules": [
+    {
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    }
+  ],
   "nix": {
     "enabled": true
   }
