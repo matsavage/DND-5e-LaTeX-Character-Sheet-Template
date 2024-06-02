@@ -6,8 +6,19 @@
   "lockFileMaintenance": {
     "enabled": true,
     "extends": [
-      "schedule:weekly",
-      "group:allNonMajor"
+      "schedule:weekly"
+    ],
+    "packageRules": [
+      {
+        "matchDepTypes": [
+          "*"
+        ],
+        "matchUpdateTypes": [
+          "patch",
+          "minor"
+        ],
+        "groupName": "Dependencies (non-major)"
+      }
     ]
   },
   "nix": {
