@@ -36,20 +36,27 @@ jobs:
        id: build-sheets-test
        run: make test_ci
 
-     - name: Install Imagemagick
-       uses: mfinelli/setup-imagemagick@v5
-
-     - name: Install Ghostscript
-       run: sudo apt-get install ghostscript -y
-
-     - name: Compare test sheets with reference
-       run: make validate_test
-
-     - name: Copy output to archive directory
+     - name: Copy test output to archive directory
        if: always() && steps.build-sheets-test.conclusion == 'success'
        run: |
         mkdir archive
         cp -rL ./result/* ./archive
+
+     - name: Install Imagemagick
+       uses: mfinelli/setup-imagemagick@v5
+
+     - name: Install Ghostscript
+       id: install-ghostscript
+       run: sudo apt-get install ghostscript -y
+
+     - name: Compare test sheets with reference
+       if: always() && steps.install-ghostscript.conclusion == 'success'
+       id: build-sheets-validation
+       run: make validate_test
+
+     - name: Copy difference output to archive directory
+       if: always() && steps.build-sheets-validation.conclusion == 'success'
+       run: |
         cp difference* ./archive
 
      - name: Archive build artifacts
