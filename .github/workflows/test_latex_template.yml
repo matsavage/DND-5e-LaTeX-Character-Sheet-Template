@@ -47,7 +47,9 @@ jobs:
 
      - name: Install Ghostscript
        id: install-ghostscript
-       run: sudo apt-get install ghostscript -y
+       run: |
+        sudo apt-get update -y
+        sudo apt-get install ghostscript -y
 
      - name: Compare test sheets with reference
        if: always() && steps.install-ghostscript.conclusion == 'success'
