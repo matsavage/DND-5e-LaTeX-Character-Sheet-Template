@@ -18,7 +18,7 @@
 
 It is reccomended to look at pre-existing character sheets in the `characters` directory when using this repository for the first time, each text input area of the character sheet is fillable with functions defined in the template, however it may require some trial and error to have the sheet looking as you intend.
 
-## Compliation
+## Compilation
 
 ### Overleaf
 
@@ -45,7 +45,7 @@ as described at https://nixos.wiki/wiki/Flakes#Enable_flakes.
 The example or specific character sheets can be compiled using the following `make` commands:
 
 ``` console
-name build                               # Will complile all characters
+make build                               # Will complile all characters
 
 make build_character CHARACTER=unnamed   # Will complile the example "unnamed" character
 
