@@ -45,7 +45,7 @@ as described at https://nixos.wiki/wiki/Flakes#Enable_flakes.
 The example or specific character sheets can be compiled using the following `make` commands:
 
 ``` console
-name build                               # Will complile all characters
+make build                               # Will complile all characters
 
 make build_character CHARACTER=unnamed   # Will complile the example "unnamed" character
 
