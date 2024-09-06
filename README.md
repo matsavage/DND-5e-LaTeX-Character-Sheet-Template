@@ -7,8 +7,11 @@
 ## Features
 
 * Character and Spell sheets
+* Automatic calculation of modifiers and proficiencies
 * High degree of customisation available
-* Simplified build with Nix
+* Usable in [Overleaf](https://www.overleaf.com/)
+* Simplified build with [Nix](https://nixos.org/)
+* Targetable as an output in [dungeon-sheets](https://github.com/canismarko/dungeon-sheets)
 
 <img src=https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/raw/main/aaliyah.png/>
 
@@ -59,8 +62,6 @@ This repository contains a GitHub action which will build all pages in the `char
 ## Customisation
 
 There are a large number of character sheet customisation options available in [`dndtemplate.sty`](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/blob/main/dndtemplate.sty) which acts a central location to modify colour and opacity for a number of character sheet elements.
-
-There are some commands in `sheet-calculations` that were made to auto calculate the modifiers and proficiencies, and auto complete a few inputs.
 
 ## Dependencies
 
