@@ -25,7 +25,7 @@ It is reccomended to look at pre-existing character sheets in the `characters` d
 This package can be used as-is with Overleaf.
 
 Steps for running on Overleaf:
-* Download latest version of the repo for overleaf from the `releases` tab
+* Download latest version of the repo for overleaf from the [`releases`](https://github.com/matsavage/DND-5e-LaTeX-Character-Sheet-Template/releases) tab
 * Create a new project in Overleaf via a zip upload
 * Change the the engine to `LuaLaTeX`
 
