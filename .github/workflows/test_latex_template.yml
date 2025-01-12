@@ -43,7 +43,7 @@ jobs:
         cp -rL ./result/* ./archive
 
      - name: Install Imagemagick
-       uses: mfinelli/setup-imagemagick@v5
+       uses: mfinelli/setup-imagemagick@v6
 
      - name: Install Ghostscript
        id: install-ghostscript
