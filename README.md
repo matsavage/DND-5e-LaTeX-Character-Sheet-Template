@@ -19,7 +19,7 @@
 
 ### Building a character sheet
 
-It is reccomended to look at pre-existing character sheets in the `characters` directory when using this repository for the first time, each text input area of the character sheet is fillable with functions defined in the template, however it may require some trial and error to have the sheet looking as you intend.
+It is recommended to look at pre-existing character sheets in the `characters` directory when using this repository for the first time, each text input area of the character sheet is fillable with functions defined in the template, however it may require some trial and error to have the sheet looking as you intend.
 
 ## Compilation
 
@@ -48,9 +48,9 @@ as described at https://nixos.wiki/wiki/Flakes#Enable_flakes.
 The example or specific character sheets can be compiled using the following `make` commands:
 
 ``` console
-make build                               # Will complile all characters
+make build                               # Will compile all characters
 
-make build_character CHARACTER=unnamed   # Will complile the example "unnamed" character
+make build_character CHARACTER=unnamed   # Will compile the example "unnamed" character
 
 make develop                             # Will drop you into a shell with all dependencies installed
 ```
@@ -65,7 +65,7 @@ There are a large number of character sheet customisation options available in [
 
 ## Dependencies
 
-This package requires LaTeX and (optionally) the [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template). I reccomend using the [instructions](https://github.com/rpgtex/DND-5e-LaTeX-Template/tree/355b9ced1b42324574c2c4e28f9783f29c760a20#dependencies) provided with this package to set up your environment if not using overleaf, nix or the GitHub action in this repository.
+This package requires LaTeX and (optionally) the [DnD 5e LaTeX Template](https://github.com/rpgtex/DND-5e-LaTeX-Template). I recommend using the [instructions](https://github.com/rpgtex/DND-5e-LaTeX-Template/tree/355b9ced1b42324574c2c4e28f9783f29c760a20#dependencies) provided with this package to set up your environment if not using overleaf, nix or the GitHub action in this repository.
 
 ## Credits
 
