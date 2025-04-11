@@ -203,6 +203,10 @@
 \newcommand{\OrganizationName}[1]{\renewcommand{\OrganizationNameValue}{#1}}
 \newcommand{\OrganizationSymbol}[1]{\renewcommand{\OrganizationSymbolValue}{#1}}
 
+% Notes
+\newcommand{\CharacterNotesValue}{}
+\newcommand{\CharacterNotes}[1]{\renewcommand{\CharacterNotesValue}{#1}}
+
 % SPELL MODIFIERS
 \newcommand{\SpellcastingClassValue}{}
 \newcommand{\SpellcastingAbilityValue}{}
@@ -1152,3 +1156,4 @@
 \newcommand{\NinthLevelSpellSlotFPrepared}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{level9prepared6}{0 0 0}}{\newrgbcolor{level9prepared6}{1 1 1}}}
 \newrgbcolor{level9prepared7}{1 1 1}
 \newcommand{\NinthLevelSpellSlotGPrepared}[1]{\ifthenelse{\equal{#1}{True}}{\newrgbcolor{level9prepared7}{0 0 0}}{\newrgbcolor{level9prepared7}{1 1 1}}}
+
