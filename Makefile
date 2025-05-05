@@ -1,4 +1,4 @@
-CHARACTER=aaliyah
+CHARACTER=yvonelle
 NIX_SETTINGS=--extra-experimental-features nix-command --extra-experimental-features flakes
 
 
