@@ -1,0 +1,316 @@
+\documentclass[letterpaper]{article}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{fontspec}
+\usepackage{xstring}
+\usepackage{ragged2e}
+\usepackage{geometry}
+
+% Load hyperref for hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=cyan
+}
+
+% Load TikZ for positioning
+\usepackage{tikz}
+\usetikzlibrary{positioning, calc}
+
+% Set page size to match character sheet with visible frame
+\geometry{letterpaper, margin=1.5cm}
+
+% Define colors similar to original template
+\definecolor{header-background-color}{rgb}{0.87058824, 0.87450981, 0.87450981}
+\definecolor{outline-color}{rgb}{0.850, 0.764, 0.466}
+\definecolor{text-color}{rgb}{0, 0, 0}
+\definecolor{fill-color}{rgb}{0.98, 0.98, 0.95}
+
+% Use Kalam font if available
+\IfFontExistsTF{Kalam}{
+  \newfontfamily\entryfont{Kalam}
+}{
+  \newfontfamily\entryfont{Arial}
+}
+
+% Define character data variables with proper protection
+\def\CharacterNameValue{}
+\def\ClassValue{}
+\def\BackgroundValue{}
+\def\PlayerNameValue{}
+\def\RaceValue{}
+\def\AlignmentValue{}
+\def\XPValue{}
+
+% Define character data commands that properly handle special characters
+\newcommand{\CharacterName}[1]{\def\CharacterNameValue{#1}}
+\newcommand{\Class}[1]{\def\ClassValue{#1}}
+\newcommand{\Background}[1]{\def\BackgroundValue{#1}}
+\newcommand{\PlayerName}[1]{\def\PlayerNameValue{#1}}
+\newcommand{\Race}[1]{\def\RaceValue{#1}}
+\newcommand{\Alignment}[1]{\def\AlignmentValue{#1}}
+\newcommand{\XP}[1]{\def\XPValue{#1}}
+
+% Special handling for fields that might contain hyperlinks
+\def\FeaturesTraitsValue{}
+\def\PersonalityTraitsValue{}
+\def\IdealsValue{}
+\def\BondsValue{}
+\def\FlawsValue{}
+\def\EquipmentValue{}
+\def\ProficienciesValue{}
+
+\newcommand{\FeaturesTraits}[1]{\def\FeaturesTraitsValue{#1}}
+\newcommand{\PersonalityTraits}[1]{\def\PersonalityTraitsValue{#1}}
+\newcommand{\Ideals}[1]{\def\IdealsValue{#1}}
+\newcommand{\Bonds}[1]{\def\BondsValue{#1}}
+\newcommand{\Flaws}[1]{\def\FlawsValue{#1}}
+\newcommand{\Equipment}[1]{\def\EquipmentValue{#1}}
+\newcommand{\Proficiencies}[1]{\def\ProficienciesValue{#1}}
+
+% Define a section box command with automatic height adjustment
+\newcommand{\sectionbox}[4][6]{%
+  % #1 = height (optional, default 6cm)
+  % #2 = title
+  % #3 = width
+  % #4 = content
+  \begin{tikzpicture}
+    % Draw the title bar
+    \draw[fill=outline-color, draw=outline-color!80!black, rounded corners=3pt] 
+      (0,0) rectangle (#3,0.6);
+    
+    % Add the title
+    \node[text=white, font=\entryfont\bfseries, anchor=west] at (0.3,0.3) {#2};
+    
+    % Draw the content box with specified height
+    \draw[fill=fill-color, draw=outline-color!80!black, rounded corners=3pt] 
+      (0,-#1) rectangle (#3,0);
+    
+    % Add the content (with clipping to prevent overflow)
+    \begin{scope}
+      \clip (0.1,-0.1) rectangle (#3-0.1,-#1+0.1);
+      \node[text=text-color, font=\entryfont, text width=#3-0.6cm, 
+            align=justify, anchor=north west] at (0.3,-0.5) {#4};
+    \end{scope}
+  \end{tikzpicture}
+}
+
+% Define a smaller info box
+\newcommand{\infobox}[3]{%
+  % #1 = title
+  % #2 = width
+  % #3 = content
+  \begin{tikzpicture}
+    % Draw the title bar
+    \draw[fill=outline-color, draw=outline-color!80!black, rounded corners=3pt] 
+      (0,0) rectangle (#2,0.6);
+    
+    % Add the title
+    \node[text=white, font=\entryfont\bfseries, anchor=west] at (0.3,0.3) {#1};
+    
+    % Draw the content box
+    \draw[fill=fill-color, draw=outline-color!80!black, rounded corners=3pt] 
+      (0,-2) rectangle (#2,0);
+    
+    % Add the content
+    \node[text=text-color, font=\entryfont, text width=#2-0.6cm, 
+          align=justify, anchor=north west] at (0.3,-0.5) {#3};
+  \end{tikzpicture}
+}
+
+\begin{document}
+
+% Set up character data
+\CharacterName{Character Name}
+\Class{Fighter 15}
+\Background{Noble}
+\PlayerName{Player}
+\Race{Dragonborn}
+\Alignment{Neutral good}
+\XP{0}
+
+% Content with hyperlinks
+\FeaturesTraits{%
+\href{https://www.dndbeyond.com/classes/fighter}{Action Surge}: When on your turn, you can take one additional action on top of your regular action and a possible bonus action.
+
+\href{https://www.dndbeyond.com/races/dragonborn}{Draconic Ancestry}: You have draconic ancestry. Choose one type of dragon from the list below. Your breath weapon and damage resistance are determined by the dragon type.
+
+\href{https://www.dndbeyond.com/classes/fighter}{Second Wind}: Once per short rest, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.
+
+Extra Attack (3x): You can attack four times, instead of once, whenever you take the Attack action on your turn.
+
+Indomitable (2x/LR): You can reroll a saving throw that you fail. If you do so, you must use the new roll.
+}
+
+\PersonalityTraits{%
+How does your character behave? See the \href{https://dnd.wizards.com/}{D\&D Official Website} for examples of all the sections below.
+
+I always have a plan for what to do when things go wrong.
+
+I am always polite and respectful.
+}
+
+\Ideals{%
+What does your character believe in? Check the \href{https://www.dndbeyond.com/sources/basic-rules/personality-and-background}{Ideals section} for ideas.
+
+\textbf{Responsibility.} I do what I must and obey just authority. (Lawful)
+}
+
+\Bonds{%
+Describe what debts your character has to pay. See \href{https://www.dndbeyond.com/sources/basic-rules/personality-and-background}{Bonds} for suggestions.
+
+I will face any challenge to win the approval of my family.
+}
+
+\Flaws{%
+Describe your character's interesting flaws. Visit \href{https://www.dndbeyond.com/sources/basic-rules/personality-and-background}{Flaws} for inspiration.
+
+I too often hear veiled insults and threats in every word addressed to me.
+}
+
+\Equipment{%
+\textbf{Weight:} 67.0 lb\\
+\textbf{Capacity:} 255 lb\\
+\\
+Greatsword, Chain Mail, Explorer's Pack, Fine Clothes
+
+Check the \href{https://www.dndbeyond.com/equipment}{D\&D Beyond Equipment list} for more options.
+}
+
+\Proficiencies{%
+\textbf{Languages:} Common, Draconic, Elvish
+
+\textbf{Weapons:} All simple and martial weapons
+
+\textbf{Armor:} All armor, shields
+
+\textbf{Tools:} Playing Cards
+}
+
+% Page title and character name
+\begin{center}
+  \begin{tikzpicture}
+    \draw[fill=header-background-color, draw=outline-color, line width=2pt, rounded corners=5pt] 
+      (0,0) rectangle (16,2);
+    \node[font=\Huge\entryfont\bfseries, text=text-color] at (8,1) {\CharacterNameValue};
+  \end{tikzpicture}
+\end{center}
+
+\vspace{0.5cm}
+
+% Character info (3 columns)
+\noindent
+\begin{minipage}{0.3\textwidth}
+  \infobox{CLASS \& LEVEL}{5cm}{\ClassValue}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.3\textwidth}
+  \infobox{BACKGROUND}{5cm}{\BackgroundValue}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.3\textwidth}
+  \infobox{PLAYER NAME}{5cm}{\PlayerNameValue}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\noindent
+\begin{minipage}{0.3\textwidth}
+  \infobox{RACE}{5cm}{\RaceValue}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.3\textwidth}
+  \infobox{ALIGNMENT}{5cm}{\AlignmentValue}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.3\textwidth}
+  \infobox{EXPERIENCE}{5cm}{\XPValue}
+\end{minipage}
+
+\vspace{1cm}
+
+% Character traits with controlled heights
+\noindent
+\begin{minipage}{0.48\textwidth}
+  \sectionbox[3]{PERSONALITY TRAITS}{8cm}{\PersonalityTraitsValue}
+  
+  \vspace{0.8cm}
+  
+  \sectionbox[2]{IDEALS}{8cm}{\IdealsValue}
+  
+  \vspace{0.8cm}
+  
+  \sectionbox[2]{BONDS}{8cm}{\BondsValue}
+  
+  \vspace{0.8cm}
+  
+  \sectionbox[2]{FLAWS}{8cm}{\FlawsValue}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+  \sectionbox[8]{FEATURES \& TRAITS}{8cm}{\FeaturesTraitsValue}
+  
+  \vspace{0.8cm}
+  
+  \sectionbox[4]{EQUIPMENT}{8cm}{\EquipmentValue}
+  
+  \vspace{0.8cm}
+  
+  \sectionbox[4]{PROFICIENCIES \& LANGUAGES}{8cm}{\ProficienciesValue}
+\end{minipage}
+
+\newpage
+
+\section*{D\&D Character Sheet with TikZ - Fixed Overflow}
+
+This is an improved version of the character sheet that fixes text overflow issues:
+
+\subsection*{Key Improvements}
+
+\begin{enumerate}
+    \item \textbf{Fixed Text Overflow:} Added clipping to prevent text from flowing outside its box
+    
+    \item \textbf{Adjustable Box Heights:} The \texttt{sectionbox} command now takes an optional height parameter
+    
+    \item \textbf{Optimized Box Sizes:} Adjusted the heights of each box based on content requirements:
+    \begin{itemize}
+        \item Features \& Traits: 8cm (largest box for more content)
+        \item Equipment: 4cm
+        \item Proficiencies: 4cm
+        \item Personality Traits: 3cm
+        \item Ideals/Bonds/Flaws: 2cm each
+    \end{itemize}
+\end{enumerate}
+
+\subsection*{Implementation Details}
+
+The key to fixing overflow is using TikZ's clipping feature:
+
+\begin{verbatim}
+\begin{scope}
+  \clip (0.1,-0.1) rectangle (#3-0.1,-#1+0.1);
+  \node[text=text-color, font=\entryfont, 
+        text width=#3-0.6cm, align=justify, 
+        anchor=north west] at (0.3,-0.5) {#4};
+\end{scope}
+\end{verbatim}
+
+This ensures that any text that would extend beyond the box boundaries is clipped and not displayed.
+
+\subsection*{Final Implementation Notes}
+
+For a production character sheet:
+
+\begin{itemize}
+    \item Box sizes should be carefully tuned to the expected content
+    
+    \item Text that overflows could be scaled down automatically (using a more complex implementation)
+    
+    \item The template could automatically calculate appropriate box heights based on content analysis
+    
+    \item A scrollable text area could be implemented in PDF viewers that support JavaScript
+\end{itemize}
+
+\end{document}
