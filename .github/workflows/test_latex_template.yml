@@ -9,6 +9,9 @@ on:
   schedule:
     - cron: "0 13 * * 1"
 
+permissions:
+  contents: read
+
 jobs:
   pre-commit:
     name: Check linting
