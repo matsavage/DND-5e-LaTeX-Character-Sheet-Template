@@ -1,5 +1,9 @@
 name: "Build Overleaf Project"
 
+permissions:
+  contents: read
+  packages: write
+
 on:
   push:
     tags:
