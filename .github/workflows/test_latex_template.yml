@@ -17,7 +17,7 @@ jobs:
     name: Check linting
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - uses: actions/setup-python@v5
     - uses: pre-commit/action@v3.0.1
 
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Check out code
-       uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+       uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
      - name: Set up Nix
        uses: cachix/install-nix-action@c134e4c9e34bac6cab09cf239815f9339aaaf84e # v31
@@ -77,7 +77,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out code
-      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
     - name: Set up NixOS
       uses: cachix/install-nix-action@c134e4c9e34bac6cab09cf239815f9339aaaf84e # v31
