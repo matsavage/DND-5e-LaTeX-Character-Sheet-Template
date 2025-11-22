@@ -2,18 +2,41 @@
 
 \newpage
 
-%\hspace*{-9mm}
+
 \makebox[\paperwidth][s]{
-	%\newpage
+
 	\thispagestyle{empty}
 	\psset{xunit=0.75pt,yunit=0.75pt,runit=0.75pt}
-	\begin{pspicture}(816,1056)
-		{
-				%\psframe[fillstyle=solid,fillcolor=blue!20,linewidth=3pt,linecolor=black](0,0)(816,1056)
+	\begin{pspicture}(816,1056){
 
-				\input{template/spell-sheet-2024/main.tex}
+        \newbox\chara
+        \savebox\chara{\includegraphics[scale=0.2]{template/images/a_tt.png}}
 
-			}
+        \newbox\charb
+        \savebox\charb{\includegraphics[scale=0.175]{template/images/b_tt.png}}
+
+        \newbox\charc
+        \savebox\charc{\includegraphics[scale=0.21]{template/images/c_tt.png}}
+
+        \newbox\chard
+        \savebox\chard{\includegraphics[scale=0.19]{template/images/d_tt.png}}
+
+        \newbox\chare
+        \savebox\chare{\includegraphics[scale=0.14]{template/images/e_tt.png}}
+
+        \newbox\dnd
+        \savebox\dnd{\includegraphics[scale=1.05]{template/images/dnd.png}}
+
+        \rput(235,999){\usebox\chara}
+        \rput(274,996){\usebox\charb}
+        \rput(333,1000){\usebox\charc}
+        \rput(461,997){\usebox\chard}
+        \rput(495,988){\usebox\chare}
+        \rput(401.1,994.87){\usebox\dnd}
+
+        \input{template/spell-sheet-2024/main.tex}
+
+	}
 
 	\end{pspicture}
 }
